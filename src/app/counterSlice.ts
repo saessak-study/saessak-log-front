@@ -8,8 +8,11 @@ const counterSlice = createSlice({
     up: (state, action) => {
       state.value = state.value + action.payload;
     },
+    down: (state, action) => {
+      state.value = state.value - action.payload;
+    },
   },
 });
 
 export default counterSlice;
-export const { up } = counterSlice.actions;
+export const { up, down } = counterSlice.actions;

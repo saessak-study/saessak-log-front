@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { up } from './app/counterSlice';
+import { up, down } from './app/counterSlice';
 
 function Counter() {
   const dispatch = useDispatch();
@@ -17,7 +17,15 @@ function Counter() {
         }}
       >
         +
-      </button>{' '}
+      </button>
+      <button
+        onClick={() => {
+          //slice의 액션 중 하나인 up을 사용함, 변수는 payload
+          dispatch(down(2));
+        }}
+      >
+        -
+      </button>
       {count}
     </div>
   );
