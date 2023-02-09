@@ -85,6 +85,7 @@
   @extend .reg_buttonCommon;
   width: 240px;
   background-color: $main_green;
+  color: white;
 }
 .reg_kakao {
   @extend .reg_buttonCommon;
