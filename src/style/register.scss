@@ -1,0 +1,24 @@
+@import 'common.scss';
+
+.reg_container {
+  width: 60vw;
+  margin: 0 auto;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.reg_title {
+  font-size: 32px;
+  font-weight: bold;
+  padding-top: 30px;
+}
+.reg_inputID {
+  width: 100%;
+  background-color: aqua;
+  display: flex;
+}
+.inputBox_id {
+  width: 80%;
+}
