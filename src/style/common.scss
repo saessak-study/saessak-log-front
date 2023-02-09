@@ -10,6 +10,7 @@ $account_red: #e85761;
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 ul,
 ol {
@@ -17,4 +18,8 @@ ol {
 }
 h1 {
   margin: 0;
+}
+.app {
+  width: 100vw;
+  height: 100vh;
 }
