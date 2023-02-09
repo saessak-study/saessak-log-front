@@ -5,7 +5,7 @@ import './style/common.scss';
 
 function App() {
   return (
-    <div>
+    <div className="app">
       {/* <h1 style={{ fontWeight: 400 }}>새싹로그 시작</h1>
       <h1 style={{ fontWeight: 400 }}>폰트적용33</h1>
       <Counter /> */}
