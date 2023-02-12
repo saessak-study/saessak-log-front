@@ -1,1 +1,83 @@
 @import 'common.scss';
+
+.main_container {
+  width: 1200px;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+}
+.top_nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.nav_logo {
+  display: flex;
+  img {
+    width: 10rem;
+    margin: 0 -18px;
+  }
+}
+.search_bar {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  .search_icon {
+    position: absolute;
+    left: 10px;
+    color: $main_green;
+  }
+  .search_input {
+    width: 100%;
+    height: 40px;
+    border: 2px solid $main_green;
+    border-radius: 10px;
+    color: black;
+    padding-left: 30px;
+    padding-right: 30px;
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: $main_green;
+      font-weight: bold;
+    }
+  }
+  .search_btn {
+    width: 140px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 18px;
+    background-color: $main_green;
+    color: white;
+    margin-left: -20px;
+  }
+}
+
+.nav_userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  position: absolute;
+  margin-top: 30px;
+}
+.user_profile {
+  font-size: 50px;
+}
+.user_circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: 2px solid black;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
