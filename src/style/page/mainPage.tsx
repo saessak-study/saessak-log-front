@@ -26,7 +26,7 @@ const MainPage = () => {
               <li>계정관리</li>
               <li>내 활동</li>
               <li>구독함</li>
-              <li className='modal_logout'>로그아웃</li>
+              <li className='modal_logout'>로그</li>
             </ul>
           </div>
         </div>
