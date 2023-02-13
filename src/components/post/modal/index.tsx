@@ -8,12 +8,11 @@ import { BsXLg } from 'react-icons/bs';
 
 interface Props {
   onClickToggleModal: () => void;
+  children: React.ReactNode;
+  title: string;
 }
 
-const Modal: React.FC<Props> = ({ onClickToggleModal }) => {
-  // 모달 열림/닫힘 상태 관리
-  const [isOpen, setIsOpen] = useState(true);
-
+const Modal: React.FC<Props> = ({ onClickToggleModal, children, title }) => {
   const closeAction = (e: React.MouseEvent) => {
     e.preventDefault();
 
@@ -23,12 +22,14 @@ const Modal: React.FC<Props> = ({ onClickToggleModal }) => {
   };
 
   return (
-    <div>
+    <div className='screen-wrapper'>
       <div className='modal-overlay'>
         <div className='modal-container'>
           <div className='modal-header'>
-            <BsXLg className='react-icons-bsxlg' onClick={closeAction} />
+            <label className='modal-header-title'>{title}</label>
           </div>
+          <BsXLg className='react-icons-bsxlg' onClick={closeAction} />
+          <div className='modal-body'>{children}</div>
         </div>
       </div>
     </div>
