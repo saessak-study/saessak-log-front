@@ -19,68 +19,26 @@
   align-items: center;
   justify-content: center;
   z-index: 10;
+}
 
-  .modal-container {
-    background-color: #fff;
-    width: 980px;
-    height: 579px;
-    border-radius: 12px;
-    box-shadow: 0px 0px 10px #00000029;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.modal-container {
+  background-color: #fff;
+  width: 61.25rem; //980px;
+  height: 36.25rem; //580px;
+  border-radius: 0.75rem; //12px;
+  box-shadow: 0rem 0rem 0.625rem #00000029;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
 
-    .modal-header {
-      width: 100%;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      border-bottom: 1px solid #e6e6e6;
-
-      h2 {
-        font-size: 20px;
-        font-weight: bold;
-        color: #333;
-      }
-
-      button {
-        font-size: 16px;
-        background: transparent;
-        border: 0;
-        color: #333;
-        cursor: pointer;
-      }
-    }
-
-    .modal-body {
-      width: 100%;
-      height: 459px;
-      padding: 20px;
-      overflow-y: auto;
-    }
-
-    .modal-footer {
-      width: 100%;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      border-top: 1px solid #e6e6e6;
-      padding: 0 20px;
-
-      // button {
-      //   width: 80px;
-      //   height: 40px;
-      //   background-color: #333;
-      //   color: #fff;
-      //   border: 0;
-      //   border-radius: 8px;
-      //   font-size: 16px;
-      //   font-weight: bold;
-      //   cursor: pointer;
-      // }
-    }
+  .react-icons-bsxlg {
+    top: 0.625rem;
+    right: 0.625rem;
+    position: absolute;
+    margin: 0.875rem;
+    width: 1.375rem;
+    height: 1.375rem;
+    color: rgba(112, 112, 112, 0.5);
   }
 }
