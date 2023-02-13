@@ -6,15 +6,18 @@
   margin: 0 auto;
   position: relative;
 }
+
+//! 상단바
 .top_nav {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
 }
 .nav_logo {
   display: flex;
+  width: 14rem;
   img {
-    width: 10rem;
+    width: 8rem;
     margin: 0 -18px;
   }
 }
@@ -66,9 +69,10 @@
   align-items: center;
   width: 100px;
   position: absolute;
-  margin-top: 30px;
+  top: 2rem;
+  right: 0;
 }
-.user_profile {
+.main_userProfile {
   font-size: 50px;
 }
 .user_circle {
@@ -80,4 +84,49 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.nav_modal {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 6px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  width: 80px;
+  .modal_logout {
+    width: 80px;
+    border-top: 1px solid black;
+    color: $account_red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+//! 좋아요 댓글 순
+.main_toggleBtn {
+  display: flex;
+}
+.main_toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border-radius: 20px;
+  height: 48px;
+  font-size: 24px;
+  padding: 10px 20px;
+}
+.mainToggle_on {
+  @extend .main_toggle;
+  color: white;
+  background-color: $main_green;
+}
+.mainToggle_off {
+  @extend .main_toggle;
+  color: $main_green;
+  background-color: white;
+  border: 1px solid $main_green;
 }
