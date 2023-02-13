@@ -1,0 +1,86 @@
+@import '../../../style/common.scss';
+// 웹 기준
+// 전체 모달창 크기 - width: 980px, height: 549px, border: 12
+// 모달창 배치는 웹 페이지 정 중앙 배열로 하면 될 것 같음
+
+// 게시글 보기
+// non image area : 431 * 549
+// image area : 549 * 549
+
+// 게시글 글 부분
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(112, 112, 112, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  .modal-container {
+    background-color: #fff;
+    width: 980px;
+    height: 579px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px #00000029;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .modal-header {
+      width: 100%;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      border-bottom: 1px solid #e6e6e6;
+
+      h2 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      button {
+        font-size: 16px;
+        background: transparent;
+        border: 0;
+        color: #333;
+        cursor: pointer;
+      }
+    }
+
+    .modal-body {
+      width: 100%;
+      height: 459px;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .modal-footer {
+      width: 100%;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      border-top: 1px solid #e6e6e6;
+      padding: 0 20px;
+
+      // button {
+      //   width: 80px;
+      //   height: 40px;
+      //   background-color: #333;
+      //   color: #fff;
+      //   border: 0;
+      //   border-radius: 8px;
+      //   font-size: 16px;
+      //   font-weight: bold;
+      //   cursor: pointer;
+      // }
+    }
+  }
+}
