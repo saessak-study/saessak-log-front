@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FaUserAlt } from 'react-icons/fa';
-import '../style/mainPage.scss';
+import '../style/homePage.scss';
 
 const MainPage = () => {
   return (
