@@ -8,6 +8,31 @@ $account_input: #d4f4e4;
 $account_red: #e85761;
 $word_grey: #9a9a9a;
 
+/*반응형 화면 크기 변수*/
+$mobile: 767px;
+$tablet: 1023px;
+$desktop: 1024px;
+
+/*반응형, 브라우저 크기가 767이하일 때*/
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+/*반응형, 브라우저 크기가 768이상, 1023px 이하일때*/
+@mixin tablet {
+  @media (min-width: $mobile) and (max-width: $tablet) {
+    @content;
+  }
+}
+
+/*반응형, 브라우저 크기가 1024px 이상일때*/
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
