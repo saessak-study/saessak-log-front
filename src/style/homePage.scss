@@ -107,6 +107,7 @@
 //! 좋아요 댓글 순
 .main_toggleBtn {
   display: flex;
+  margin-top: 10px;
 }
 .main_toggle {
   cursor: pointer;
@@ -118,6 +119,7 @@
   height: 48px;
   font-size: 24px;
   padding: 10px 20px;
+  width: 160px;
 }
 .mainToggle_on {
   @extend .main_toggle;
@@ -129,4 +131,44 @@
   color: $main_green;
   background-color: white;
   border: 1px solid $main_green;
+  margin-left: 40px;
+}
+
+//! 카드 컨테이너
+.card_container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.main_card {
+  width: 30%;
+  margin-top: 20px;
+  border: 1px solid black;
+  border-radius: 12px;
+  overflow: hidden;
+  img {
+    width: 100%;
+  }
+}
+.card_content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  .main_userInfo {
+    display: flex;
+    align-items: center;
+    span {
+      font-size: 32px;
+      margin-left: 10px;
+    }
+  }
+}
+.card_detail {
+  font-size: 18px;
+  .like_red {
+    color: $account_red;
+  }
 }

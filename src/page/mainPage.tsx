@@ -1,6 +1,6 @@
 import React from 'react';
 import { AiOutlineSearch, AiFillHeart } from 'react-icons/ai';
-import { FaUserAlt, FaRegCommentDots } from 'react-icons/fa';
+import { FaUserAlt, FaRegCommentDots, FaUserCircle } from 'react-icons/fa';
 
 import '../style/homePage.scss';
 
@@ -39,12 +39,12 @@ const MainPage = () => {
           <img src='img/poodle.jpg' className='card_img' />
           <div className='card_content'>
             <div className='main_userInfo'>
-              <FaUserAlt className='main_userProfile' />
+              <FaUserCircle className='main_userProfile' />
               <span>작성자 이름</span>
             </div>
             <div className='card_detail'>
               <div className='main_viewLike'>
-                <AiFillHeart /> 311
+                <AiFillHeart className='like_red' /> <span>311</span>
               </div>
               <div className='main_viewComment'>
                 <FaRegCommentDots /> 100
@@ -56,12 +56,12 @@ const MainPage = () => {
           <img src='img/poodle.jpg' className='card_img' />
           <div className='card_content'>
             <div className='main_userInfo'>
-              <FaUserAlt className='main_userProfile' />
+              <FaUserCircle className='main_userProfile' />
               <span>작성자 이름</span>
             </div>
             <div className='card_detail'>
               <div className='main_viewLike'>
-                <AiFillHeart /> 311
+                <AiFillHeart className='like_red' /> <span>311</span>
               </div>
               <div className='main_viewComment'>
                 <FaRegCommentDots /> 100
@@ -73,12 +73,63 @@ const MainPage = () => {
           <img src='img/poodle.jpg' className='card_img' />
           <div className='card_content'>
             <div className='main_userInfo'>
-              <FaUserAlt className='main_userProfile' />
+              <FaUserCircle className='main_userProfile' />
               <span>작성자 이름</span>
             </div>
             <div className='card_detail'>
               <div className='main_viewLike'>
-                <AiFillHeart /> 311
+                <AiFillHeart className='like_red' /> <span>311</span>
+              </div>
+              <div className='main_viewComment'>
+                <FaRegCommentDots /> 100
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='main_card'>
+          <img src='img/poodle.jpg' className='card_img' />
+          <div className='card_content'>
+            <div className='main_userInfo'>
+              <FaUserCircle className='main_userProfile' />
+              <span>작성자 이름</span>
+            </div>
+            <div className='card_detail'>
+              <div className='main_viewLike'>
+                <AiFillHeart className='like_red' /> <span>311</span>
+              </div>
+              <div className='main_viewComment'>
+                <FaRegCommentDots /> 100
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='main_card'>
+          <img src='img/poodle.jpg' className='card_img' />
+          <div className='card_content'>
+            <div className='main_userInfo'>
+              <FaUserCircle className='main_userProfile' />
+              <span>작성자 이름</span>
+            </div>
+            <div className='card_detail'>
+              <div className='main_viewLike'>
+                <AiFillHeart className='like_red' /> <span>311</span>
+              </div>
+              <div className='main_viewComment'>
+                <FaRegCommentDots /> 100
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='main_card'>
+          <img src='img/poodle.jpg' className='card_img' />
+          <div className='card_content'>
+            <div className='main_userInfo'>
+              <FaUserCircle className='main_userProfile' />
+              <span>작성자 이름</span>
+            </div>
+            <div className='card_detail'>
+              <div className='main_viewLike'>
+                <AiFillHeart className='like_red' /> <span>311</span>
               </div>
               <div className='main_viewComment'>
                 <FaRegCommentDots /> 100
