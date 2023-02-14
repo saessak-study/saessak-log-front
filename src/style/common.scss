@@ -11,6 +11,8 @@ $word_grey: #9a9a9a;
 /*반응형 화면 크기 변수*/
 $mobile: 767px;
 $desktop: 1024px;
+$middle_max_point: 800px;
+$middle_min_point: 767.1px;
 
 /*게시물 관련 모달창 가로, 세로*/
 $modal_width: 50rem;
@@ -21,6 +23,12 @@ $common_box_shadow: 0rem 0rem 0.7rem #00000029;
 /*반응형, 브라우저 크기가 767이하일 때*/
 @mixin mobile {
   @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin middle {
+  @media ((min-width: $middle_min_point) and (max-width: $middle_max_point)) {
     @content;
   }
 }
