@@ -1,24 +1,30 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useCallback } from 'react';
-import Modal from '../../components/post/modal';
+import ReadPost from '../../components/post/readPost';
+import WritePost from '../../components/post/writePost';
 
 const Main = () => {
-  const [showModal, setShowModal] = useState<boolean>(false);
+  const [showWriteModal, setShowWriteModal] = useState<boolean>(false);
+  const [showReadModal, setShowReadModal] = useState<boolean>(false);
 
-  const onClickToggleModal = useCallback(() => {
-    setShowModal(!showModal);
-  }, [showModal]);
+  const onClickWritePost = useCallback(() => {
+    setShowWriteModal(!showWriteModal);
+  }, [showWriteModal]);
+
+  const onClickReadPost = useCallback(() => {
+    setShowReadModal(!showReadModal);
+  }, [showReadModal]);
 
   return (
     <div>
-      <button type='button' onClick={onClickToggleModal}>
+      <button type='button' onClick={onClickWritePost}>
         게시물 작성
       </button>
-      <button type='button' onClick={onClickToggleModal}>
+      <button type='button' onClick={onClickReadPost}>
         게시물 보기
       </button>
-
-      {showModal && <Modal onClickToggleModal={onClickToggleModal} />}
+      {showWriteModal && <WritePost onClickToggleModal={onClickWritePost} />}
+      {showReadModal && <ReadPost onClickToggleModal={onClickReadPost} />}
     </div>
   );
 };
