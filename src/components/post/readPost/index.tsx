@@ -20,7 +20,7 @@ const ReadPost: React.FC<Props> = ({ onClickToggleModal }) => {
   return (
     <div className='container-wrapper'>
       <Modal onClickToggleModal={onClickToggleModal} title='게시물'>
-        <div className='img-container'>
+        <div className='img-container-web'>
           <div className='img' />
         </div>
         <div className='non-img-container'>
@@ -31,6 +31,9 @@ const ReadPost: React.FC<Props> = ({ onClickToggleModal }) => {
               <BsBookmark className='subscription-btn' />
             </div>
             <div className='post-section-body'>
+              <div className='img-container-mobile'>
+                <div className='img' />
+              </div>
               <div className='text-section' />
             </div>
           </div>

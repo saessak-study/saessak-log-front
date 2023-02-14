@@ -2,40 +2,34 @@
 
 @include mobile {
   .container-wrapper {
-    width: $modal_width;
-    height: $modal_height;
+    width: 100%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
   }
-  .img-container {
-    width: $modal_height;
-    height: $modal_height;
-    border-radius: 0.75rem 0 0 0.75rem;
-    background-color: aquamarine;
-    float: left;
-    z-index: 10;
-    .img {
-    }
-  }
+
   .non-img-container {
+    flex: 1;
     float: right;
     display: flex;
     flex: 3;
     flex-wrap: wrap;
     flex-direction: column;
-    width: 20rem;
-    height: $modal_height;
+    width: 100%;
+    height: 100%;
     border-radius: 0rem 0.75rem 0.75rem 0rem;
     z-index: 10;
   }
   .post-section {
     display: flex;
+    flex: 2;
     flex-direction: column;
     flex: 1.35; //
     width: 100%;
   }
   .post-section-header {
     display: flex;
-    flex: 0.3;
+    flex: 0.15;
     width: 100%;
     flex-direction: row;
     align-items: center;
@@ -43,15 +37,15 @@
     border-bottom: 1px solid #e6e6e6;
     .user-profile-img {
       display: flex;
-      flex: 0.1;
+      // flex: 0.05;?
       margin-left: 0.8rem;
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 2rem;
+      height: 2rem;
       color: gray;
     }
     .user-name {
       display: flex;
-      flex: 0.8;
+      flex: 0.7;
       margin-left: 0.7rem;
     }
     .subscription-btn {
@@ -70,8 +64,18 @@
     flex: 1;
     background-color: azure;
     border-bottom: 1px solid #e6e6e6;
-
+    .img-container-mobile {
+      flex: 0.7;
+      // width: 100px;
+      // height: 100px;
+      background-color: aquamarine;
+      float: left;
+      z-index: 10;
+      .img {
+      }
+    }
     .text-section {
+      flex: 0.3;
       display: flex;
       margin: 0.8rem;
       height: 100%;
@@ -79,41 +83,48 @@
   }
 
   /** 코멘트 컴포넌트 분리 필요 => map */
+
   .comment-read-section {
     display: flex;
     flex-direction: column;
-    flex: 1; //
+    flex: 0.2; //
     margin: 1rem;
-  }
-  .read-all-comments {
-    color: $main_green;
+    // font-size: 13px;
   }
 
   .comment-component {
     display: flex;
-    flex: 1;
+    // flex: 1;
     flex-direction: column;
     width: 100%;
-    // padding-bottom: 0.2rem;
+    padding-bottom: 0.7rem;
+    font-size: 13px;
   }
 
   .comment-user {
     align-items: center;
     display: flex;
+    // flex: 1;
     flex-direction: row;
     .user-profile-img {
       display: flex;
       flex-direction: row;
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 1.3rem;
+      height: 1.3rem;
       color: gray;
     }
     .user-name-comment {
       display: flex;
-      margin-left: 0.7rem;
+      margin-left: 0.5rem;
     }
+    /** ❗ 댓글 폰트 스타일 적용 안됨*/
   }
   .comment-text {
+    font-size: 10px;
+    color: gray;
+  }
+  .read-all-comments-btn {
+    color: $main_green;
   }
 
   /** 댓글 입력창 컴포넌트 분리 필요*/
@@ -121,14 +132,14 @@
     align-items: center;
     padding: 0.8rem;
     display: flex;
-    flex: 0.2;
+    flex: 0.1;
     background-color: $main_green;
   }
 
   .like-section {
     display: flex;
     flex-direction: column;
-    flex: 0.2;
+    flex: 0.1;
     .like-btn-icon {
       color: $account_red;
     }
@@ -137,7 +148,7 @@
     }
   }
   .comment-input {
-    flex: 1.5;
+    flex: 1.6;
     width: 100%;
     height: 100%;
     border: none;
@@ -149,23 +160,6 @@
     width: 1.5rem;
     height: 1.5rem;
   }
-  //   .modal-header {
-  //     width: 100%;
-  //     height: 5rem;
-  //     display: flex;
-  //     align-items: center;
-  //     justify-content: space-between;
-  //     padding: 0 20px;
-  //     border-bottom: 1px solid #e6e6e6;
-  //     box-shadow: 0rem 0rem 0.7rem #00000029;
-  //     .modal-header-title {
-  //       width: 100%;
-  //       align-items: center;
-  //       text-align: center;
-  //       font-size: 25px;
-  //     }
-  //   }
-  // }
 }
 
 // width: 61.25rem; //980px;
@@ -177,7 +171,7 @@
     height: $modal_height;
     display: flex;
   }
-  .img-container {
+  .img-container-web {
     width: $modal_height;
     height: $modal_height;
     border-radius: 0.75rem 0 0 0.75rem;
@@ -188,6 +182,9 @@
     }
   }
   .non-img-container {
+    .img-container-mobile {
+      display: none;
+    }
     float: right;
     display: flex;
     flex: 3;
