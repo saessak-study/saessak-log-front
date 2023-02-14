@@ -1,0 +1,246 @@
+@import '../../../style/common.scss';
+
+@include middle {
+  .write-modal-container-wrapper {
+    width: $modal_width;
+    height: $modal_height;
+    display: flex;
+  }
+  .write-modal-img-container-web {
+    display: none !important;
+    .write-modal-add-img-icon {
+      width: 4rem !important;
+      height: 4rem !important;
+      color: gray;
+    }
+  }
+  .write-modal-non-img-container {
+    .write-modal-img-container-mobile {
+      display: none;
+    }
+    float: right;
+    display: flex;
+    flex: 3;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 20rem;
+    height: $modal_height;
+    z-index: 10;
+  }
+  .write-modal-post-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+  }
+  .write-modal-text-input-section {
+    align-items: center;
+    padding: 2.5rem 1rem 1rem 1rem;
+    display: flex;
+    flex: 1;
+    border-radius: 0.75rem 0.75rem 0.75rem 0.75rem;
+  }
+
+  .write-modal-text-input {
+    flex: 1;
+    width: 100%;
+    height: 23rem;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0.7rem;
+    padding: 0.5rem;
+    object-fit: contain;
+    opacity: 0.33;
+    border: solid 1px #fff;
+    background-color: #2bed76;
+    color: black;
+  }
+  .write-modal-submit-btn-section {
+    display: flex;
+    flex: 0.5;
+    padding: 0 1rem 0 0;
+    justify-content: end;
+  }
+  .write-modal-send-btn {
+    border: none;
+    background-color: $main_green;
+    border-radius: 0.5rem;
+    width: 5rem;
+    height: 2.5rem;
+    color: white;
+    font-weight: bold;
+  }
+}
+
+@include mobile {
+  .write-modal-container-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex: 3;
+    flex-direction: column;
+  }
+
+  .write-modal-img-container-web {
+    display: none !important;
+  }
+  .write-modal-non-img-container {
+    display: flex !important;
+    width: 100% !important;
+    height: 100% !important;
+
+    flex: 1;
+    flex-direction: column;
+
+    .write-modal-img-container-mobile {
+      display: flex;
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(200, 200, 200, 0.5);
+      float: left;
+      z-index: 10;
+      .write-modal-add-img-icon {
+        width: 4rem;
+        height: 4rem;
+        color: gray;
+      }
+    }
+    float: right;
+    display: flex;
+    flex: 3;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 20rem;
+    height: $modal_height;
+    z-index: 10;
+  }
+  .write-modal-post-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+  }
+  .write-modal-text-input-section {
+    align-items: center;
+    padding: 1rem 1rem 1rem 1rem;
+    display: flex;
+    flex: 1;
+    border-radius: 0.75rem 0.75rem 0.75rem 0.75rem;
+  }
+
+  .write-modal-text-input {
+    flex: 1;
+    width: 100%;
+    height: 10rem;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0.7rem;
+    padding: 0.5rem;
+    object-fit: contain;
+    opacity: 0.33;
+    border: solid 1px #fff;
+    background-color: #2bed76;
+    color: black;
+  }
+  .write-modal-submit-btn-section {
+    display: flex;
+    flex: 0.5;
+    padding: 0 1rem 0 0;
+    justify-content: end;
+  }
+  .write-modal-send-btn {
+    border: none;
+    background-color: $main_green;
+    border-radius: 0.5rem;
+    width: 5rem;
+    height: 2rem;
+    color: white;
+    font-weight: bold;
+  }
+}
+
+@include desktop {
+  .write-modal-container-wrapper {
+    width: $modal_width;
+    height: $modal_height;
+    display: flex;
+  }
+  .write-modal-img-container-web {
+    display: flex;
+    width: $modal_height;
+    height: $modal_height;
+    border-radius: 0.75rem 0 0 0.75rem;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(200, 200, 200, 0.5);
+    float: left;
+    z-index: 10;
+    .write-modal-add-img-icon {
+      width: 8rem;
+      height: 8rem;
+      color: gray;
+    }
+  }
+  .write-modal-non-img-container {
+    .write-modal-img-container-mobile {
+      display: none;
+    }
+    float: right;
+    display: flex;
+    flex: 3;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 20rem;
+    height: $modal_height;
+    z-index: 10;
+  }
+  .write-modal-post-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+  }
+  .write-modal-text-input-section {
+    align-items: center;
+    padding: 2.5rem 1rem 1rem 1rem;
+    display: flex;
+    flex: 1;
+    border-radius: 0.75rem 0.75rem 0.75rem 0.75rem;
+  }
+
+  .write-modal-text-input {
+    flex: 1;
+    width: 100%;
+    height: 23rem;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0.7rem;
+    padding: 0.5rem;
+    object-fit: contain;
+    opacity: 0.33;
+    border: solid 1px #fff;
+    background-color: #2bed76;
+    color: black;
+  }
+  .write-modal-submit-btn-section {
+    display: flex;
+    flex: 0.5;
+    padding: 0 1rem 0 0;
+    justify-content: end;
+  }
+  .write-modal-send-btn {
+    border: none;
+    background-color: $main_green;
+    border-radius: 0.5rem;
+    width: 5rem;
+    height: 2.5rem;
+    color: white;
+    font-weight: bold;
+  }
+}
