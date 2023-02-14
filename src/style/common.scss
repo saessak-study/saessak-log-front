@@ -1,0 +1,46 @@
+// 색상 변수
+$logo_green: #2bed76;
+$logo_lightGreen: #c6f67a;
+$logo_dark: #03202c;
+$main_green: #41d18a;
+$kakao_yellow: #fee502;
+$account_input: #d4f4e4;
+$account_red: #e85761;
+$word_grey: #9a9a9a;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+ol {
+  list-style: none;
+}
+h1 {
+  margin: 0;
+}
+.app {
+  width: 100vw;
+  height: 100vh;
+}
+.input_common {
+  background-color: $account_input;
+  border: none;
+  height: 48px;
+  padding-left: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+}
+.buttonCommon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border-radius: 30px;
+  height: 48px;
+  font-size: 24px;
+  transition: all ease 0.2s;
+}
