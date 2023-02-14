@@ -108,6 +108,9 @@
 .main_toggleBtn {
   display: flex;
   margin-top: 10px;
+  margin-left: 30px;
+  width: 350px;
+  justify-content: space-between;
 }
 .main_toggle {
   cursor: pointer;
@@ -131,20 +134,19 @@
   color: $main_green;
   background-color: white;
   border: 1px solid $main_green;
-  margin-left: 40px;
 }
 
 //! 카드 컨테이너
 .card_container {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   margin-top: 10px;
   width: 100%;
   flex-wrap: wrap;
 }
 .main_card {
   width: 30%;
-  margin-top: 20px;
+  margin: 20px 10px 0 20px;
   border: 1px solid black;
   border-radius: 12px;
   overflow: hidden;
@@ -170,5 +172,91 @@
   font-size: 18px;
   .like_red {
     color: $account_red;
+  }
+}
+.mobile_btnContainer {
+  display: none;
+}
+
+//! 미디어쿼리
+@media (max-width: 1200px) {
+  .main_container {
+    width: 900px;
+  }
+  .nav_userInfo {
+    display: none;
+  }
+  .main_card {
+    width: 40%;
+  }
+}
+
+@media (max-width: 900px) {
+}
+
+@media (max-width: 600px) {
+  .main_container {
+    width: 90%;
+  }
+  .top_nav {
+    justify-content: center;
+    margin-top: 12px;
+    .search_bar {
+      width: 90%;
+    }
+  }
+  .main_toggle {
+    border-radius: 20px;
+    height: 32px;
+    font-size: 16px;
+    padding: 8px 12px;
+    width: 100px;
+  }
+
+  .nav_logo {
+    display: none;
+  }
+  .search_bar {
+    .search_btn {
+      display: none;
+    }
+  }
+  .card_container {
+    margin-top: 0;
+  }
+  .card_content {
+    padding: 10px;
+    justify-content: center;
+    .main_userInfo {
+      display: none;
+    }
+    .card_detail {
+      display: flex;
+      font-size: 22px;
+      margin: 0 10px;
+    }
+    .main_viewLike {
+      margin-right: 12px;
+    }
+  }
+  .main_toggleBtn {
+    width: 220px;
+  }
+  .mobile_btnContainer {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    .mobile_routeBtn {
+      background-color: $main_green;
+      width: 80px;
+      height: 80px;
+      border-radius: 80px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+    }
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiOutlineSearch, AiFillHeart } from 'react-icons/ai';
 import { FaUserAlt, FaRegCommentDots, FaUserCircle } from 'react-icons/fa';
-
+import { BiImageAdd } from 'react-icons/bi';
 import '../style/homePage.scss';
 
 const MainPage = () => {
@@ -35,111 +35,43 @@ const MainPage = () => {
         <div className='mainToggle_off'>댓글순</div>
       </div>
       <div className='card_container'>
-        <div className='main_card'>
-          <img src='img/poodle.jpg' className='card_img' />
-          <div className='card_content'>
-            <div className='main_userInfo'>
-              <FaUserCircle className='main_userProfile' />
-              <span>작성자 이름</span>
-            </div>
-            <div className='card_detail'>
-              <div className='main_viewLike'>
-                <AiFillHeart className='like_red' /> <span>311</span>
-              </div>
-              <div className='main_viewComment'>
-                <FaRegCommentDots /> 100
-              </div>
-            </div>
-          </div>
+        <MainCard />
+        <MainCard />
+        <MainCard />
+        <MainCard />
+        <MainCard />
+      </div>
+      <div className='mobile_btnContainer'>
+        <div className='mobile_routeBtn'>
+          <FaUserAlt />
         </div>
-        <div className='main_card'>
-          <img src='img/poodle.jpg' className='card_img' />
-          <div className='card_content'>
-            <div className='main_userInfo'>
-              <FaUserCircle className='main_userProfile' />
-              <span>작성자 이름</span>
-            </div>
-            <div className='card_detail'>
-              <div className='main_viewLike'>
-                <AiFillHeart className='like_red' /> <span>311</span>
-              </div>
-              <div className='main_viewComment'>
-                <FaRegCommentDots /> 100
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='main_card'>
-          <img src='img/poodle.jpg' className='card_img' />
-          <div className='card_content'>
-            <div className='main_userInfo'>
-              <FaUserCircle className='main_userProfile' />
-              <span>작성자 이름</span>
-            </div>
-            <div className='card_detail'>
-              <div className='main_viewLike'>
-                <AiFillHeart className='like_red' /> <span>311</span>
-              </div>
-              <div className='main_viewComment'>
-                <FaRegCommentDots /> 100
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='main_card'>
-          <img src='img/poodle.jpg' className='card_img' />
-          <div className='card_content'>
-            <div className='main_userInfo'>
-              <FaUserCircle className='main_userProfile' />
-              <span>작성자 이름</span>
-            </div>
-            <div className='card_detail'>
-              <div className='main_viewLike'>
-                <AiFillHeart className='like_red' /> <span>311</span>
-              </div>
-              <div className='main_viewComment'>
-                <FaRegCommentDots /> 100
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='main_card'>
-          <img src='img/poodle.jpg' className='card_img' />
-          <div className='card_content'>
-            <div className='main_userInfo'>
-              <FaUserCircle className='main_userProfile' />
-              <span>작성자 이름</span>
-            </div>
-            <div className='card_detail'>
-              <div className='main_viewLike'>
-                <AiFillHeart className='like_red' /> <span>311</span>
-              </div>
-              <div className='main_viewComment'>
-                <FaRegCommentDots /> 100
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='main_card'>
-          <img src='img/poodle.jpg' className='card_img' />
-          <div className='card_content'>
-            <div className='main_userInfo'>
-              <FaUserCircle className='main_userProfile' />
-              <span>작성자 이름</span>
-            </div>
-            <div className='card_detail'>
-              <div className='main_viewLike'>
-                <AiFillHeart className='like_red' /> <span>311</span>
-              </div>
-              <div className='main_viewComment'>
-                <FaRegCommentDots /> 100
-              </div>
-            </div>
-          </div>
+        <div className='mobile_routeBtn'>
+          <BiImageAdd />
         </div>
       </div>
     </div>
   );
 };
 
+const MainCard = () => {
+  return (
+    <div className='main_card'>
+      <img src='img/poodle.jpg' className='card_img' />
+      <div className='card_content'>
+        <div className='main_userInfo'>
+          <FaUserCircle className='main_userProfile' />
+          <span>작성자 이름</span>
+        </div>
+        <div className='card_detail'>
+          <div className='main_viewLike'>
+            <AiFillHeart className='like_red' /> <span>311</span>
+          </div>
+          <div className='main_viewComment'>
+            <FaRegCommentDots /> 100
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 export default MainPage;
