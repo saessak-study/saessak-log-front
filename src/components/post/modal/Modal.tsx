@@ -3,7 +3,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
-import './modal.scss';
+import styles from './css/modal.module.css';
 import { BsXLg } from 'react-icons/bs';
 
 interface Props {
@@ -22,14 +22,14 @@ const Modal: React.FC<Props> = ({ onClickToggleModal, children, title }) => {
   };
 
   return (
-    <div className='screen-wrapper'>
-      <div className='modal-overlay'>
-        <div className='modal-container'>
-          <div className='modal-header'>
-            <label className='modal-header-title'>{title}</label>
+    <div className={styles.screen_wrapper}>
+      <div className={styles.modal_overlay}>
+        <div className={styles.modal_container}>
+          <div className={styles.modal_header}>
+            <label className={styles.modal_header_title}>{title}</label>
           </div>
-          <BsXLg className='react-icons-bsxlg' onClick={closeAction} />
-          <div className='modal-body'>{children}</div>
+          <BsXLg className={styles.react_icons_bsxlg} onClick={closeAction} />
+          <div className={styles.modal_body}>{children}</div>
         </div>
       </div>
     </div>

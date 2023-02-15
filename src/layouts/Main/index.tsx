@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useCallback } from 'react';
-import ReadPost from '../../components/post/readPost';
-import WritePost from '../../components/post/writePost';
+import ReadPost from '../../components/post/readPost/ReadPost';
+import WritePost from '../../components/post/writePost/WritePost';
 
 const Main = () => {
   const [showWriteModal, setShowWriteModal] = useState<boolean>(false);

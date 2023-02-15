@@ -1,18 +1,18 @@
 @import '../../../style/common.scss';
 
 @include middle {
-  .container-wrapper {
+  .container_wrapper {
     width: $modal_width;
     height: $modal_height;
     display: flex;
   }
-  .img-container-web {
+  .img_container_web {
     display: none;
     .img {
     }
   }
-  .non-img-container {
-    .img-container-mobile {
+  .non_img_container {
+    .img_container_mobile {
       display: none;
     }
     float: right;
@@ -25,13 +25,13 @@
     border-radius: 0rem 0.75rem 0.75rem 0rem;
     z-index: 10;
   }
-  .post-section {
+  .post_section {
     display: flex;
     flex-direction: column;
     flex: 1.35; //
     width: 100%;
   }
-  .post-section-header {
+  .post_section_header {
     display: flex;
     flex: 0.3;
     width: 100%;
@@ -39,7 +39,7 @@
     align-items: center;
 
     border-bottom: 1px solid #e6e6e6;
-    .user-profile-img {
+    .user_profile_img {
       display: flex;
       flex: 0.1;
       margin-left: 0.8rem;
@@ -47,12 +47,12 @@
       height: 1.5rem;
       color: gray;
     }
-    .user-name {
+    .user_name {
       display: flex;
       flex: 0.8;
       margin-left: 0.7rem;
     }
-    .subscription-btn {
+    .subscription_btn {
       display: flex;
       flex: 0.1;
       position: absolute;
@@ -62,14 +62,14 @@
       color: $main_green;
     }
   }
-  .post-section-body {
+  .post_section_body {
     display: flex;
     flex-direction: column;
     flex: 1;
     background-color: azure;
     border-bottom: 1px solid #e6e6e6;
 
-    .text-section {
+    .text_section {
       display: flex;
       margin: 0.8rem;
       height: 100%;
@@ -78,7 +78,7 @@
 
   /** 코멘트 컴포넌트 분리 필요 => map */
 
-  .comment-read-section {
+  .comment_read_section {
     display: flex;
     flex-direction: column;
     flex: 1; //
@@ -86,7 +86,7 @@
     // font-size: 13px;
   }
 
-  .comment-component {
+  .comment_component {
     display: flex;
     // flex: 1;
     flex-direction: column;
@@ -95,34 +95,34 @@
     font-size: 13px;
   }
 
-  .comment-user {
+  .comment_user {
     align-items: center;
     display: flex;
     // flex: 1;
     flex-direction: row;
-    .user-profile-img {
+    .user_profile_img {
       display: flex;
       flex-direction: row;
       width: 1.3rem;
       height: 1.3rem;
       color: gray;
     }
-    .user-name-comment {
+    .user_name_comment {
       display: flex;
       margin-left: 0.5rem;
     }
     /** ❗ 댓글 폰트 스타일 적용 안됨*/
   }
-  .comment-text {
+  .comment_text {
     font-size: 10px;
     color: gray;
   }
-  .read-all-comments-btn {
+  .read_all_comments_btn {
     color: $main_green;
   }
 
   /** 댓글 입력창 컴포넌트 분리 필요*/
-  .comment-input-section {
+  .comment_input_section {
     align-items: center;
     padding: 0.8rem;
     display: flex;
@@ -131,18 +131,18 @@
     border-radius: 0 0 0.75rem 0;
   }
 
-  .like-section {
+  .like_section {
     display: flex;
     flex-direction: column;
     flex: 0.2;
-    .like-btn-icon {
+    .like_btn_icon {
       color: $account_red;
     }
-    .like-count-number {
+    .like_count_number {
       color: $account_red;
     }
   }
-  .comment-input {
+  .comment_input {
     flex: 1.5;
     width: 100%;
     height: 100%;
@@ -150,7 +150,7 @@
     border-radius: 0.5rem;
     padding-left: 0.3rem;
   }
-  .send-btn-icon {
+  .send_btn_icon {
     margin-left: 0.5rem;
     width: 1.5rem;
     height: 1.5rem;
@@ -158,14 +158,14 @@
 }
 
 @include mobile {
-  .container-wrapper {
+  .container_wrapper {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
   }
 
-  .non-img-container {
+  .non_img_container {
     flex: 1;
     float: right;
     display: flex;
@@ -177,14 +177,14 @@
     border-radius: 0rem 0.75rem 0.75rem 0rem;
     z-index: 10;
   }
-  .post-section {
+  .post_section {
     display: flex;
     flex: 2;
     flex-direction: column;
     flex: 1.35; //
     width: 100%;
   }
-  .post-section-header {
+  .post_section_header {
     display: flex;
     flex: 0.15;
     width: 100%;
@@ -192,7 +192,7 @@
     align-items: center;
 
     border-bottom: 1px solid #e6e6e6;
-    .user-profile-img {
+    .user_profile_img {
       display: flex;
       // flex: 0.05;?
       margin-left: 0.8rem;
@@ -200,12 +200,12 @@
       height: 2rem;
       color: gray;
     }
-    .user-name {
+    .user_name {
       display: flex;
       flex: 0.7;
       margin-left: 0.7rem;
     }
-    .subscription-btn {
+    .subscription_btn {
       display: flex;
       flex: 0.1;
       position: absolute;
@@ -215,13 +215,13 @@
       color: $main_green;
     }
   }
-  .post-section-body {
+  .post_section_body {
     display: flex;
     flex-direction: column;
     flex: 1;
     background-color: azure;
     border-bottom: 1px solid #e6e6e6;
-    .img-container-mobile {
+    .img_container_mobile {
       flex: 0.7;
       // width: 100px;
       // height: 100px;
@@ -231,7 +231,7 @@
       .img {
       }
     }
-    .text-section {
+    .text_section {
       flex: 0.3;
       display: flex;
       margin: 0.8rem;
@@ -241,7 +241,7 @@
 
   /** 코멘트 컴포넌트 분리 필요 => map */
 
-  .comment-read-section {
+  .comment_read_section {
     display: flex;
     flex-direction: column;
     flex: 0.2; //
@@ -249,7 +249,7 @@
     // font-size: 13px;
   }
 
-  .comment-component {
+  .comment_component {
     display: flex;
     // flex: 1;
     flex-direction: column;
@@ -258,34 +258,34 @@
     font-size: 13px;
   }
 
-  .comment-user {
+  .comment_user {
     align-items: center;
     display: flex;
     // flex: 1;
     flex-direction: row;
-    .user-profile-img {
+    .user_profile_img {
       display: flex;
       flex-direction: row;
       width: 1.3rem;
       height: 1.3rem;
       color: gray;
     }
-    .user-name-comment {
+    .user_name_comment {
       display: flex;
       margin-left: 0.5rem;
     }
     /** ❗ 댓글 폰트 스타일 적용 안됨*/
   }
-  .comment-text {
+  .comment_text {
     font-size: 10px;
     color: gray;
   }
-  .read-all-comments-btn {
+  .read_all_comments_btn {
     color: $main_green;
   }
 
   /** 댓글 입력창 컴포넌트 분리 필요*/
-  .comment-input-section {
+  .comment_input_section {
     align-items: center;
     padding: 0.8rem;
     display: flex;
@@ -293,18 +293,18 @@
     background-color: $main_green;
   }
 
-  .like-section {
+  .like_section {
     display: flex;
     flex-direction: column;
     flex: 0.1;
-    .like-btn-icon {
+    .like_btn_icon {
       color: $account_red;
     }
-    .like-count-number {
+    .like_count_number {
       color: $account_red;
     }
   }
-  .comment-input {
+  .comment_input {
     flex: 1.6;
     width: 100%;
     height: 100%;
@@ -312,7 +312,7 @@
     border-radius: 0.5rem;
     padding-left: 0.3rem;
   }
-  .send-btn-icon {
+  .send_btn_icon {
     margin-left: 0.5rem;
     width: 1.5rem;
     height: 1.5rem;
@@ -323,12 +323,12 @@
 //     height: 36.25rem; //580px;
 
 @include desktop {
-  .container-wrapper {
+  .container_wrapper {
     width: $modal_width;
     height: $modal_height;
     display: flex;
   }
-  .img-container-web {
+  .img_container_web {
     width: $modal_height;
     height: $modal_height;
     border-radius: 0.75rem 0 0 0.75rem;
@@ -338,8 +338,8 @@
     .img {
     }
   }
-  .non-img-container {
-    .img-container-mobile {
+  .non_img_container {
+    .img_container_mobile {
       display: none;
     }
     float: right;
@@ -352,13 +352,13 @@
     border-radius: 0rem 0.75rem 0.75rem 0rem;
     z-index: 10;
   }
-  .post-section {
+  .post_section {
     display: flex;
     flex-direction: column;
     flex: 1.35; //
     width: 100%;
   }
-  .post-section-header {
+  .post_section_header {
     display: flex;
     flex: 0.3;
     width: 100%;
@@ -366,7 +366,7 @@
     align-items: center;
 
     border-bottom: 1px solid #e6e6e6;
-    .user-profile-img {
+    .user_profile_img {
       display: flex;
       flex: 0.1;
       margin-left: 0.8rem;
@@ -374,12 +374,12 @@
       height: 1.5rem;
       color: gray;
     }
-    .user-name {
+    .user_name {
       display: flex;
       flex: 0.8;
       margin-left: 0.7rem;
     }
-    .subscription-btn {
+    .subscription_btn {
       display: flex;
       flex: 0.1;
       position: absolute;
@@ -389,14 +389,14 @@
       color: $main_green;
     }
   }
-  .post-section-body {
+  .post_section_body {
     display: flex;
     flex-direction: column;
     flex: 1;
     background-color: azure;
     border-bottom: 1px solid #e6e6e6;
 
-    .text-section {
+    .text_section {
       display: flex;
       margin: 0.8rem;
       height: 100%;
@@ -405,7 +405,7 @@
 
   /** 코멘트 컴포넌트 분리 필요 => map */
 
-  .comment-read-section {
+  .comment_read_section {
     display: flex;
     flex-direction: column;
     flex: 1; //
@@ -413,7 +413,7 @@
     // font-size: 13px;
   }
 
-  .comment-component {
+  .comment_component {
     display: flex;
     // flex: 1;
     flex-direction: column;
@@ -422,34 +422,34 @@
     font-size: 13px;
   }
 
-  .comment-user {
+  .comment_user {
     align-items: center;
     display: flex;
     // flex: 1;
     flex-direction: row;
-    .user-profile-img {
+    .user_profile_img {
       display: flex;
       flex-direction: row;
       width: 1.3rem;
       height: 1.3rem;
       color: gray;
     }
-    .user-name-comment {
+    .user_name_comment {
       display: flex;
       margin-left: 0.5rem;
     }
     /** ❗ 댓글 폰트 스타일 적용 안됨*/
   }
-  .comment-text {
+  .comment_text {
     font-size: 10px;
     color: gray;
   }
-  .read-all-comments-btn {
+  .read_all_comments_btn {
     color: $main_green;
   }
 
   /** 댓글 입력창 컴포넌트 분리 필요*/
-  .comment-input-section {
+  .comment_input_section {
     align-items: center;
     padding: 0.8rem;
     display: flex;
@@ -458,18 +458,18 @@
     border-radius: 0 0 0.75rem 0;
   }
 
-  .like-section {
+  .like_section {
     display: flex;
     flex-direction: column;
     flex: 0.2;
-    .like-btn-icon {
+    .like_btn_icon {
       color: $account_red;
     }
-    .like-count-number {
+    .like_count_number {
       color: $account_red;
     }
   }
-  .comment-input {
+  .comment_input {
     flex: 1.5;
     width: 100%;
     height: 100%;
@@ -477,7 +477,7 @@
     border-radius: 0.5rem;
     padding-left: 0.3rem;
   }
-  .send-btn-icon {
+  .send_btn_icon {
     margin-left: 0.5rem;
     width: 1.5rem;
     height: 1.5rem;

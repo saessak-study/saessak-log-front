@@ -1,7 +1,7 @@
 @import '../../../style/common.scss';
 
 @include mobile {
-  .modal-overlay {
+  .modal_overlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -13,7 +13,7 @@
     z-index: 10;
   }
 
-  .modal-container {
+  .modal_container {
     background-color: #fff;
     width: 100%; //980px;
     height: 100%; //580px;\
@@ -23,7 +23,7 @@
     flex-direction: column;
     align-items: center;
 
-    .react-icons-bsxlg {
+    .react_icons_bsxlg {
       top: 0.1rem;
       right: 0.1rem;
       position: absolute;
@@ -32,7 +32,7 @@
       height: 1.375rem;
       color: rgba(112, 112, 112, 0.5);
     }
-    .modal-header {
+    .modal_header {
       width: 100%;
       height: 4rem;
       display: flex;
@@ -41,14 +41,14 @@
       padding: 0 20px;
       border-bottom: 1px solid #e6e6e6;
       box-shadow: $common_box_shadow;
-      .modal-header-title {
+      .modal_header_title {
         width: 100%;
         align-items: center;
         text-align: center;
         font-size: 25px;
       }
     }
-    .modal-body {
+    .modal_body {
       width: 100%;
       height: 100%;
     }
@@ -56,7 +56,7 @@
 }
 
 @include desktop {
-  .modal-overlay {
+  .modal_overlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -69,7 +69,7 @@
     z-index: 10;
   }
 
-  .modal-container {
+  .modal_container {
     background-color: #fff;
     width: $modal_width; //980px;
     height: $modal_height; //580px;
@@ -80,7 +80,7 @@
     flex-direction: column;
     // align-items: center;
 
-    .react-icons-bsxlg {
+    .react_icons_bsxlg {
       top: 0.1rem;
       right: 0.1rem;
       position: absolute;
@@ -89,7 +89,7 @@
       height: 1.3rem;
       color: rgba(112, 112, 112, 0.5);
     }
-    .modal-header {
+    .modal_header {
       display: none;
       .modal-header-title {
         display: none;

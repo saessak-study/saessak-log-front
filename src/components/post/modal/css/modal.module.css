@@ -1,0 +1,138 @@
+@charset "UTF-8";
+/*반응형 화면 크기 변수*/
+/*게시물 관련 모달창 가로, 세로*/
+/*반응형, 브라우저 크기가 767이하일 때*/
+/*반응형, 브라우저 크기가 1024px 이상일때*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1 {
+  margin: 0;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+}
+
+.input_common {
+  background-color: #d4f4e4;
+  border: none;
+  height: 48px;
+  padding-left: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+}
+
+.buttonCommon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border-radius: 30px;
+  height: 48px;
+  font-size: 24px;
+  transition: all ease 0.2s;
+}
+
+@media (max-width: 767px) {
+  .modal_overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  .modal_container {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0rem 0rem 0.7rem rgba(0, 0, 0, 0.1607843137);
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+  }
+  .modal_container .react_icons_bsxlg {
+    top: 0.1rem;
+    right: 0.1rem;
+    position: absolute;
+    margin: 0.875rem;
+    width: 1.375rem;
+    height: 1.375rem;
+    color: rgba(112, 112, 112, 0.5);
+  }
+  .modal_container .modal_header {
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 1px solid #e6e6e6;
+    box-shadow: 0rem 0rem 0.7rem rgba(0, 0, 0, 0.1607843137);
+  }
+  .modal_container .modal_header .modal_header_title {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    font-size: 25px;
+  }
+  .modal_container .modal_body {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media (min-width: 767px) {
+  .modal_overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(112, 112, 112, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  .modal_container {
+    background-color: #fff;
+    width: 50rem;
+    height: 30rem;
+    border-radius: 0.75rem;
+    box-shadow: 0rem 0rem 0.7rem rgba(0, 0, 0, 0.1607843137);
+    display: flex;
+    position: relative;
+    flex-direction: column;
+  }
+  .modal_container .react_icons_bsxlg {
+    top: 0.1rem;
+    right: 0.1rem;
+    position: absolute;
+    margin: 0.8rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    color: rgba(112, 112, 112, 0.5);
+  }
+  .modal_container .modal_header {
+    display: none;
+  }
+  .modal_container .modal_header .modal-header-title {
+    display: none;
+  }
+}
