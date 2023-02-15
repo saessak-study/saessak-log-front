@@ -31,7 +31,7 @@ const SearchPage = () => {
         </div>
       </div>
       {/* <SearchResult /> */}
-      {/* <div className='searched_none'>일치하는 검색결과가 없습니다.</div> */}
+      {/* <div className={styles.searched_none}>일치하는 검색결과가 없습니다.</div> */}
       <RecentSearch />
     </div>
   );
