@@ -1,6 +1,6 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import Modal from '../modal/Modal';
-import styles from './css/readPost.module.css';
+import styles from './readPost.module.scss';
 import { BsHeartFill, BsBookmark } from 'react-icons/bs';
 import { FaUserCircle } from 'react-icons/fa';
 import { GrSend } from 'react-icons/gr';

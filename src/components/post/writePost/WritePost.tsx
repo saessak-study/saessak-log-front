@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from '../modal/Modal';
-import styles from './css/writePost.module.css';
+import styles from './writePost.module.scss';
 import { BiImageAdd } from 'react-icons/bi';
 
 interface Props {

@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import ReadPost from '../../components/post/readPost/ReadPost';
 import WritePost from '../../components/post/writePost/WritePost';
 
@@ -8,13 +8,13 @@ const Main = () => {
   const [showWriteModal, setShowWriteModal] = useState<boolean>(false);
   const [showReadModal, setShowReadModal] = useState<boolean>(false);
 
-  const onClickWritePost = useCallback(() => {
-    setShowWriteModal(!showWriteModal);
-  }, [showWriteModal]);
+  const onClickWritePost = () => {
+    setShowWriteModal((prev) => !prev);
+  };
 
-  const onClickReadPost = useCallback(() => {
-    setShowReadModal(!showReadModal);
-  }, [showReadModal]);
+  const onClickReadPost = () => {
+    setShowReadModal((prev) => !prev);
+  };
 
   return (
     <div>
