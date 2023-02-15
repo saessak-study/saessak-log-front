@@ -2,6 +2,8 @@ import { useState, useCallback } from 'react';
 import ReadPost from '../../components/post/readPost/ReadPost';
 import WritePost from '../../components/post/writePost/WritePost';
 
+/* 모달창 버튼 토글러 위한 페이지(from 하영) */
+
 const Main = () => {
   const [showWriteModal, setShowWriteModal] = useState<boolean>(false);
   const [showReadModal, setShowReadModal] = useState<boolean>(false);
