@@ -5,11 +5,7 @@ import MainPage from './components/main/mainPage';
 import SearchPage from './components/main/SearchPage';
 
 const App = () => {
-  return (
-    <div>
-      <MainPage />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default App;
