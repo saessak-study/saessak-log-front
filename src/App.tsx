@@ -1,5 +1,3 @@
-/* eslint-disable react/self-closing-comp */
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './style/common.scss';
 

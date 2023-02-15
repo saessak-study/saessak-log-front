@@ -1,7 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import styles from './css/modal.module.css';
 import { BsXLg } from 'react-icons/bs';

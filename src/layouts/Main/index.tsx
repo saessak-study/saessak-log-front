@@ -1,5 +1,4 @@
-/* eslint-disable prettier/prettier */
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import ReadPost from '../../components/post/readPost/ReadPost';
 import WritePost from '../../components/post/writePost/WritePost';
 

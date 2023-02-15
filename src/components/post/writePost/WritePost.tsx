@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import Modal from '../modal/Modal';
 import styles from './css/writePost.module.css';
 import { BiImageAdd } from 'react-icons/bi';
