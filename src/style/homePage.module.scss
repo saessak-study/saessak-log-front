@@ -108,7 +108,6 @@
 .main_toggleBtn {
   display: flex;
   margin-top: 10px;
-  margin-left: 30px;
   width: 350px;
   justify-content: space-between;
 }
@@ -177,6 +176,37 @@
 .mobile_btnContainer {
   display: none;
 }
+//! 검색결과 없음
+.searched_none {
+  margin-top: 12px;
+  font-size: 32px;
+}
+//! 최근 검색결과
+.recent_searched {
+  margin-left: 32px;
+  width: 80%;
+}
+.searched_eraseAll {
+  color: $main_green;
+  font-size: 20px;
+  cursor: pointer;
+}
+.recent_searchedTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.recent_searchedBox {
+  margin-top: 32px;
+  .recent_searchedComponent {
+    display: flex;
+    font-size: 32px;
+    align-items: center;
+
+    justify-content: space-between;
+  }
+}
 
 //! 미디어쿼리
 @media (max-width: 1200px) {
@@ -197,9 +227,12 @@
 @media (max-width: 600px) {
   .main_container {
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .top_nav {
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: 12px;
     .search_bar {
       width: 90%;
@@ -221,8 +254,16 @@
       display: none;
     }
   }
+  .search_result {
+    margin: 10px 0 6px 4px;
+  }
   .card_container {
-    margin-top: 0;
+    margin-top: 10px;
+    justify-content: space-between;
+    .main_card {
+      margin: 10px 0;
+      width: 48%;
+    }
   }
   .card_content {
     padding: 10px;
@@ -232,8 +273,10 @@
     }
     .card_detail {
       display: flex;
+      width: 100%;
       font-size: 22px;
       margin: 0 10px;
+      justify-content: flex-end;
     }
     .main_viewLike {
       margin-right: 12px;
@@ -258,5 +301,10 @@
       justify-content: center;
       font-size: 40px;
     }
+  }
+  .recent_searched {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 90%;
   }
 }

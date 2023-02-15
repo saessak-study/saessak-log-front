@@ -1,0 +1,351 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1 {
+  margin: 0;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+}
+
+.input_common {
+  background-color: #d4f4e4;
+  border: none;
+  height: 48px;
+  padding-left: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+}
+
+.buttonCommon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border-radius: 30px;
+  height: 48px;
+  font-size: 24px;
+  transition: all ease 0.2s;
+}
+
+.main_container {
+  width: 1200px;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+}
+
+.top_nav {
+  position: relative;
+  display: flex;
+  justify-content: left;
+}
+
+.nav_logo {
+  display: flex;
+  width: 14rem;
+}
+.nav_logo img {
+  width: 8rem;
+  margin: 0 -18px;
+}
+
+.search_bar {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.search_bar .search_icon {
+  position: absolute;
+  left: 10px;
+  color: #41d18a;
+}
+.search_bar .search_input {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #41d18a;
+  border-radius: 10px;
+  color: black;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.search_bar .search_input:focus {
+  outline: none;
+}
+.search_bar .search_input::placeholder {
+  color: #41d18a;
+  font-weight: bold;
+}
+.search_bar .search_btn {
+  width: 140px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 18px;
+  background-color: #41d18a;
+  color: white;
+  margin-left: -20px;
+}
+
+.nav_userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  position: absolute;
+  top: 2rem;
+  right: 0;
+}
+
+.main_userProfile {
+  font-size: 50px;
+}
+
+.user_circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: 2px solid black;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav_modal {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 6px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  width: 80px;
+}
+.nav_modal .modal_logout {
+  width: 80px;
+  border-top: 1px solid black;
+  color: #e85761;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main_toggleBtn {
+  display: flex;
+  margin-top: 10px;
+  width: 350px;
+  justify-content: space-between;
+}
+
+.main_toggle, .mainToggle_off, .mainToggle_on {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border-radius: 20px;
+  height: 48px;
+  font-size: 24px;
+  padding: 10px 20px;
+  width: 160px;
+}
+
+.mainToggle_on {
+  color: white;
+  background-color: #41d18a;
+}
+
+.mainToggle_off {
+  color: #41d18a;
+  background-color: white;
+  border: 1px solid #41d18a;
+}
+
+.card_container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.main_card {
+  width: 30%;
+  margin: 20px 10px 0 20px;
+  border: 1px solid black;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.main_card img {
+  width: 100%;
+}
+
+.card_content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+}
+.card_content .main_userInfo {
+  display: flex;
+  align-items: center;
+}
+.card_content .main_userInfo span {
+  font-size: 32px;
+  margin-left: 10px;
+}
+
+.card_detail {
+  font-size: 18px;
+}
+.card_detail .like_red {
+  color: #e85761;
+}
+
+.mobile_btnContainer {
+  display: none;
+}
+
+.searched_none {
+  margin-top: 12px;
+  font-size: 32px;
+}
+
+.recent_searched {
+  margin-left: 32px;
+  width: 80%;
+}
+
+.searched_eraseAll {
+  color: #41d18a;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.recent_searchedTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.recent_searchedBox {
+  margin-top: 32px;
+}
+.recent_searchedBox .recent_searchedComponent {
+  display: flex;
+  font-size: 32px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 1200px) {
+  .main_container {
+    width: 900px;
+  }
+  .nav_userInfo {
+    display: none;
+  }
+  .main_card {
+    width: 40%;
+  }
+}
+@media (max-width: 600px) {
+  .main_container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .top_nav {
+    justify-content: flex-start;
+    margin-top: 12px;
+  }
+  .top_nav .search_bar {
+    width: 90%;
+  }
+  .main_toggle, .mainToggle_on, .mainToggle_off {
+    border-radius: 20px;
+    height: 32px;
+    font-size: 16px;
+    padding: 8px 12px;
+    width: 100px;
+  }
+  .nav_logo {
+    display: none;
+  }
+  .search_bar .search_btn {
+    display: none;
+  }
+  .search_result {
+    margin: 10px 0 6px 4px;
+  }
+  .card_container {
+    margin-top: 10px;
+    justify-content: space-between;
+  }
+  .card_container .main_card {
+    margin: 10px 0;
+    width: 48%;
+  }
+  .card_content {
+    padding: 10px;
+    justify-content: center;
+  }
+  .card_content .main_userInfo {
+    display: none;
+  }
+  .card_content .card_detail {
+    display: flex;
+    width: 100%;
+    font-size: 22px;
+    margin: 0 10px;
+    justify-content: flex-end;
+  }
+  .card_content .main_viewLike {
+    margin-right: 12px;
+  }
+  .main_toggleBtn {
+    width: 220px;
+  }
+  .mobile_btnContainer {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  .mobile_btnContainer .mobile_routeBtn {
+    background-color: #41d18a;
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+  }
+  .recent_searched {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 90%;
+  }
+}
