@@ -2,7 +2,7 @@ import React from 'react';
 import { AiOutlineSearch, AiFillHeart } from 'react-icons/ai';
 import { FaUserAlt, FaRegCommentDots, FaUserCircle } from 'react-icons/fa';
 import { BiImageAdd } from 'react-icons/bi';
-import styles from '../style/css/homePage.module.css';
+import styles from './homePage.module.scss';
 
 const MainPage = () => {
   return (
