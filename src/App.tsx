@@ -1,15 +1,21 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import MyActivity from './pages/MyActivity';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './style/common.scss';
+import MainPage from './components/main/mainPage';
+import SearchPage from './components/main/SearchPage';
+
+import Main from './pages/Main';
+import MyActivity from './pages/MyActivity';
 
 const App = () => {
   return (
-    <div>
+    <BrowserRouter>
       <Routes>
+        <Route path='/' element={<Main />} />
+        <Route path='/main' element={<MainPage />} />
+        <Route path='/search' element={<SearchPage />} />
         <Route path='myactivity' element={<MyActivity />} />
       </Routes>
-    </div>
+    </BrowserRouter>
   );
 };
 
