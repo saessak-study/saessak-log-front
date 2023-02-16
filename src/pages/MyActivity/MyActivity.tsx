@@ -1,5 +1,5 @@
 import React from 'react';
-import PostCard from '../components/PostCard/PostCard';
+import PostCard from '../../components/PostCard/PostCard';
 import styles from './myActivity.module.scss';
 
 const dummyData = [

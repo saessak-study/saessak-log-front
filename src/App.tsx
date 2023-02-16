@@ -4,7 +4,7 @@ import MainPage from './components/main/mainPage';
 import SearchPage from './components/main/SearchPage';
 
 import Main from './pages/Main';
-import MyActivity from './pages/MyActivity';
+import MyActivity from './pages/MyActivity/MyActivity';
 
 const App = () => {
   return (
