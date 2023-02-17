@@ -13,7 +13,7 @@ const HeartButton: React.FC<Props> = ({ onClick, likeCount }: Props) => {
   const [isLike, setIsLike] = useState<boolean>(false);
 
   const handleLike = () => {
-    setIsLike(!isLike);
+    setIsLike((prev) => !prev);
     onClick(!isLike);
   };
   return (
