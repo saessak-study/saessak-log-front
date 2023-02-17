@@ -1,0 +1,16 @@
+@import '../../style/common.scss';
+
+.heart_fill_icon {
+  color: $account_red;
+}
+.heart_empty_icon {
+  color: white;
+}
+.like_count_number {
+  margin-left: 0.2rem;
+  color: $account_red;
+}
+.unlike_count_number {
+  margin-left: 0.2rem;
+  color: black;
+}
