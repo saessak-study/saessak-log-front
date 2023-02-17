@@ -4,9 +4,8 @@ import MainPage from './components/main/mainPage';
 import SearchPage from './components/main/SearchPage';
 
 import Main from './pages/Main';
+import MyAccountPage from './pages/MyAccount/MyAccount';
 
-// 개인 작업 보기 위한 임시 라우터입니다.
-// 추후에 라우터 디렉토리 따로 설정해도 좋습니다.
 const App = () => {
   return (
     <BrowserRouter>
@@ -14,6 +13,7 @@ const App = () => {
         <Route path='/' element={<Main />} />
         <Route path='/main' element={<MainPage />} />
         <Route path='/search' element={<SearchPage />} />
+        <Route path='/myaccount' element={<MyAccountPage />} />
       </Routes>
     </BrowserRouter>
   );
