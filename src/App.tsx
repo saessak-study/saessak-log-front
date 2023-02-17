@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './style/common.scss';
-import MainPage from './components/main/mainPage';
-import SearchPage from './components/main/SearchPage';
+import MainPage from './components/Main/mainPage';
+import SearchPage from './components/Main/SearchPage';
 
 import Main from './layouts/Main';
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './css/modal.module.css';
+import styles from './modal.module.scss';
 import { BsXLg } from 'react-icons/bs';
 
 interface Props {
