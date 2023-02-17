@@ -1,7 +1,8 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import Modal from '../modal/Modal';
-import styles from './css/readPost.module.css';
-import { BsHeartFill, BsBookmark } from 'react-icons/bs';
+import HeartButton from '../../heartButton/HeartButton';
+import styles from './readPost.module.scss';
+import { BsBookmark } from 'react-icons/bs';
 import { FaUserCircle } from 'react-icons/fa';
 import { GrSend } from 'react-icons/gr';
 
@@ -10,7 +11,13 @@ interface Props {
 }
 
 const ReadPost: React.FC<Props> = ({ onClickToggleModal }) => {
-  // const [showModal, setShowModal] = useState<boolean>(false);
+  const [likeCount, setLikeCount] = useState<number>(0);
+
+  const onClickheartBtn = (isLike: boolean) => {
+    if (isLike) setLikeCount(likeCount + 1);
+    else setLikeCount(likeCount - 1);
+  };
+
   return (
     <div className={styles.container_wrapper}>
       <Modal onClickToggleModal={onClickToggleModal} title='게시물'>
@@ -51,8 +58,7 @@ const ReadPost: React.FC<Props> = ({ onClickToggleModal }) => {
           </div>
           <div className={styles.comment_input_section}>
             <div className={styles.like_section}>
-              <BsHeartFill className={styles.like_btn_icon} />
-              <div className={styles.like_count_number}>25</div>
+              <HeartButton likeCount={likeCount} onClick={onClickheartBtn} />
             </div>
             <input className={styles.comment_input} placeholder='댓글을 작성하는 공간이에요' />
             <GrSend className={styles.send_btn_icon} />

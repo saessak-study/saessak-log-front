@@ -1,0 +1,29 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import { useState } from 'react';
+import { BsHeartFill } from 'react-icons/bs';
+// import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import styles from './heartbutton.module.scss';
+
+interface Props {
+  onClick: (isLike: boolean) => void;
+  likeCount: number;
+}
+
+const HeartButton: React.FC<Props> = ({ onClick, likeCount }: Props) => {
+  const [isLike, setIsLike] = useState<boolean>(false);
+
+  const handleLike = () => {
+    setIsLike(!isLike);
+    onClick(!isLike);
+  };
+  return (
+    <div onClick={handleLike}>
+      <BsHeartFill className={isLike ? styles.heart_fill_icon : styles.heart_empty_icon} />
+      <div className={isLike ? styles.like_count_number : styles.unlike_count_number}>
+        {likeCount}
+      </div>
+    </div>
+  );
+};
+
+export default HeartButton;
