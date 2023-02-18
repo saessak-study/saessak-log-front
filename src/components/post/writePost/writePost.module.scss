@@ -8,11 +8,6 @@
   }
   .write_modal_img_container_web {
     display: none !important;
-    .write_modal_add_img_icon {
-      width: 4rem !important;
-      height: 4rem !important;
-      color: gray;
-    }
   }
   .write_modal_non_img_container {
     .write_modal_img_container_mobile {
@@ -103,11 +98,6 @@
       background-color: rgba(200, 200, 200, 0.5);
       float: left;
       z-index: 10;
-      .write_modal_add_img_icon {
-        width: 4rem;
-        height: 4rem;
-        color: gray;
-      }
     }
     float: right;
     display: flex;
@@ -180,11 +170,6 @@
     background-color: rgba(200, 200, 200, 0.5);
     float: left;
     z-index: 10;
-    .write_modal_add_img_icon {
-      width: 8rem;
-      height: 8rem;
-      color: gray;
-    }
   }
   .write_modal_non_img_container {
     .write_modal_img_container_mobile {
