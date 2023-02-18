@@ -16,7 +16,7 @@ const HeartButton: React.FC<Props> = ({ onClick, likeCount }: Props) => {
     onClick(!isLike);
   };
   return (
-    <button type='button' onClick={handleLike}>
+    <button type='button' className={styles.heart_button} onClick={handleLike}>
       <BsHeartFill className={isLike ? styles.heart_fill_icon : styles.heart_empty_icon} />
       <div className={isLike ? styles.like_count_number : styles.unlike_count_number}>
         {likeCount}
