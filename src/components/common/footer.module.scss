@@ -1,0 +1,19 @@
+@import '../../style/common.scss';
+// 반응형 아직 안함
+
+.infoContainer {
+  border-top: 2px solid gray;
+  border-bottom: 1px solid gray;
+  background-color: rgb(235, 235, 235);
+  display: flex;
+  justify-content: center;
+}
+.infoContainer ul {
+  width: 1200px;
+  display: flex;
+}
+.infoContainer li {
+  color: #666;
+  font-size: 12px;
+  margin: 10px 20px;
+}
