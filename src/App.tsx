@@ -9,13 +9,13 @@ import Main from './pages/Main';
 // 추후에 라우터 디렉토리 따로 설정해도 좋습니다.
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Main />} />
-        <Route path='/main' element={<MainPage />} />
-        <Route path='/search' element={<SearchPage />} />
-      </Routes>
-    </BrowserRouter>
+    <div className='app'>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<MainPage />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 };
 
