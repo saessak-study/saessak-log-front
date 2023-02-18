@@ -1,0 +1,453 @@
+@import '../../../style/common.scss';
+
+@include middle {
+  .container_wrapper {
+    width: $modal_width;
+    height: $modal_height;
+    display: flex;
+  }
+  .img_container_web {
+    display: none;
+    .img {
+    }
+  }
+  .non_img_container {
+    .img_container_mobile {
+      display: none;
+    }
+    float: right;
+    display: flex;
+    flex: 3;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 20rem;
+    height: $modal_height;
+    border-radius: 0rem 0.75rem 0.75rem 0rem;
+    z-index: 10;
+  }
+  .post_section {
+    display: flex;
+    flex-direction: column;
+    flex: 1.35; //
+    width: 100%;
+  }
+  .post_section_header {
+    display: flex;
+    width: 100%;
+    height: 47px;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #e6e6e6;
+    .user_profile_img {
+      display: flex;
+      flex: 0.1;
+      margin-left: 0.8rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      color: gray;
+    }
+    .user_name {
+      display: flex;
+      flex: 0.8;
+      margin-left: 0.7rem;
+    }
+    .subscription_btn {
+      display: flex;
+      flex: 0.1;
+      position: absolute;
+      right: 3rem;
+      width: 1.3rem;
+      height: 1.3rem;
+      color: $main_green;
+    }
+  }
+
+  .post_scroll_section {
+    height: 360px;
+    overflow-y: auto;
+  }
+  .post_scroll_section::-webkit-scrollbar {
+    width: 5px;
+  }
+  .post_scroll_section::-webkit-scrollbar-thumb {
+    height: 30%;
+    background: $main_green;
+
+    border-radius: 8px;
+  }
+
+  .post_section_body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: azure;
+    border-bottom: 1px solid #e6e6e6;
+
+    .text_section {
+      display: flex;
+      margin: 0.8rem;
+      height: 100%;
+    }
+  }
+
+  /** 코멘트 컴포넌트 분리 필요 => map */
+
+  .comment_read_section {
+    display: flex;
+    flex-direction: column;
+    flex: 1; //
+    margin: 1rem;
+    // font-size: 13px;
+  }
+
+  .comment_component {
+    display: flex;
+    // flex: 1;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 0.7rem;
+    font-size: 13px;
+  }
+
+  /** 댓글 입력창 컴포넌트 분리 필요*/
+  .comment_input_section {
+    align-items: center;
+    padding: 0.7rem 0.7rem 0.7rem 0.2rem;
+    display: flex;
+    height: 71px;
+    background-color: $main_green;
+    border-radius: 0 0 0.75rem 0;
+  }
+
+  .like_section {
+    display: flex;
+    flex-direction: column;
+    flex: 0.2;
+  }
+  .comment_input {
+    flex: 1.5;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0.5rem;
+    padding-left: 0.3rem;
+  }
+  .send_btn_icon {
+    margin-left: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+@include mobile {
+  .container_wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .non_img_container {
+    flex: 1;
+    float: right;
+    display: flex;
+    flex: 3;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 0rem 0.75rem 0.75rem 0rem;
+    z-index: 10;
+  }
+  .post_section {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    flex: 1.35; //
+    width: 100%;
+  }
+  .post_section_header {
+    display: flex;
+    height: 60px;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+
+    border-bottom: 1px solid #e6e6e6;
+    .user_profile_img {
+      display: flex;
+      margin-left: 1rem;
+      width: 2rem;
+      height: 2rem;
+      color: gray;
+    }
+    .user_name {
+      display: flex;
+      flex: 0.7;
+      margin-left: 0.7rem;
+    }
+    .subscription_btn {
+      display: flex;
+      flex: 0.1;
+      position: absolute;
+      right: 2rem;
+      width: 1.3rem;
+      height: 1.3rem;
+      color: $main_green;
+    }
+  }
+
+  .post_scroll_section {
+    height: 560px;
+    overflow-y: auto;
+  }
+  .post_scroll_section::-webkit-scrollbar {
+    width: 5px;
+  }
+  .post_scroll_section::-webkit-scrollbar-thumb {
+    height: 30%;
+    background: $main_green;
+
+    border-radius: 8px;
+  }
+
+  .post_section_body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: azure;
+    border-bottom: 1px solid #e6e6e6;
+    .img_container_mobile {
+      width: 100%;
+      height: 480px;
+      background-color: gray;
+      float: left;
+      z-index: 10;
+      .img {
+      }
+    }
+    .text_section {
+      flex: 0.3;
+      display: flex;
+      margin: 0.8rem;
+      height: 100%;
+    }
+  }
+
+  /** 코멘트 컴포넌트 분리 필요 => map */
+
+  .comment_read_section {
+    display: flex;
+    flex-direction: column;
+    flex: 0.2; //
+    margin: 1rem;
+    // font-size: 13px;
+  }
+
+  .comment_component {
+    display: flex;
+    // flex: 1;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 0.7rem;
+    font-size: 13px;
+  }
+
+  .comment_user {
+    align-items: center;
+    display: flex;
+    // flex: 1;
+    flex-direction: row;
+    .user_profile_img {
+      display: flex;
+      flex-direction: row;
+      width: 1.3rem;
+      height: 1.3rem;
+      color: gray;
+    }
+    .user_name_comment {
+      display: flex;
+      margin-left: 0.5rem;
+    }
+    /** ❗ 댓글 폰트 스타일 적용 안됨*/
+  }
+  .comment_text {
+    font-size: 10px;
+    color: gray;
+  }
+
+  /** 댓글 입력창 컴포넌트 분리 필요*/
+  .comment_input_section {
+    align-items: center;
+    padding: 0.7rem 0.7rem 0.7rem 0.2rem;
+    display: flex;
+    flex: 0.1;
+    background-color: $main_green;
+  }
+
+  .like_section {
+    display: flex;
+    flex-direction: column;
+    flex: 0.1;
+  }
+  .comment_input {
+    flex: 1.6;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0.5rem;
+    padding-left: 0.3rem;
+  }
+  .send_btn_icon {
+    margin-left: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+// width: 61.25rem; //980px;
+//     height: 36.25rem; //580px;
+
+@include desktop {
+  .container_wrapper {
+    width: $modal_width;
+    height: $modal_height;
+    display: flex;
+  }
+  .img_container_web {
+    width: $modal_height;
+    height: $modal_height;
+    border-radius: 0.75rem 0 0 0.75rem;
+    background-color: gray;
+    float: left;
+    z-index: 10;
+    .img {
+    }
+  }
+  .non_img_container {
+    .img_container_mobile {
+      display: none;
+    }
+    float: right;
+    display: flex;
+    flex: 3;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 20rem;
+    height: $modal_height;
+    border-radius: 0rem 0.75rem 0.75rem 0rem;
+    z-index: 10;
+  }
+  .post_section {
+    display: flex;
+    flex-direction: column;
+    flex: 1.35; //
+    width: 100%;
+  }
+  .post_section_header {
+    display: flex;
+    width: 100%;
+    height: 47px;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #e6e6e6;
+    .user_profile_img {
+      display: flex;
+      flex: 0.1;
+      margin-left: 0.8rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      color: gray;
+    }
+    .user_name {
+      display: flex;
+      flex: 0.8;
+      margin-left: 0.7rem;
+    }
+    .subscription_btn {
+      display: flex;
+      flex: 0.1;
+      position: absolute;
+      right: 3rem;
+      width: 1.3rem;
+      height: 1.3rem;
+      color: $main_green;
+    }
+  }
+
+  .post_scroll_section {
+    height: 360px;
+    overflow-y: auto;
+  }
+  .post_scroll_section::-webkit-scrollbar {
+    width: 5px;
+  }
+  .post_scroll_section::-webkit-scrollbar-thumb {
+    height: 30%;
+    background: $main_green;
+
+    border-radius: 8px;
+  }
+
+  .post_section_body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: azure;
+    border-bottom: 1px solid #e6e6e6;
+
+    .text_section {
+      display: flex;
+      margin: 0.8rem;
+      height: 100%;
+    }
+  }
+
+  /** 코멘트 컴포넌트 분리 필요 => map */
+
+  .comment_read_section {
+    display: flex;
+    flex-direction: column;
+    flex: 1; //
+    margin: 1rem;
+    // font-size: 13px;
+  }
+
+  .comment_component {
+    display: flex;
+    // flex: 1;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 0.7rem;
+    font-size: 13px;
+  }
+
+  /** 댓글 입력창 컴포넌트 분리 필요*/
+  .comment_input_section {
+    align-items: center;
+    padding: 0.7rem 0.7rem 0.7rem 0.2rem;
+    display: flex;
+    height: 71px;
+    background-color: $main_green;
+    border-radius: 0 0 0.75rem 0;
+  }
+
+  .like_section {
+    display: flex;
+    flex-direction: column;
+    flex: 0.2;
+  }
+  .comment_input {
+    flex: 1.5;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0.5rem;
+    padding-left: 0.3rem;
+  }
+  .send_btn_icon {
+    margin-left: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

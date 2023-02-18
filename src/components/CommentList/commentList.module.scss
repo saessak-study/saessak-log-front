@@ -1,0 +1,31 @@
+.comment_component {
+  display: flex;
+  // flex: 1;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 0.7rem;
+  font-size: 13px;
+}
+
+.comment_user {
+  align-items: center;
+  display: flex;
+  // flex: 1;
+  flex-direction: row;
+  .user_profile_img {
+    display: flex;
+    flex-direction: row;
+    width: 1.3rem;
+    height: 1.3rem;
+    color: gray;
+  }
+  .user_name_comment {
+    display: flex;
+    margin-left: 0.5rem;
+  }
+  /** ❗ 댓글 폰트 스타일 적용 안됨*/
+}
+.comment_text {
+  font-size: 10px;
+  color: gray;
+}
