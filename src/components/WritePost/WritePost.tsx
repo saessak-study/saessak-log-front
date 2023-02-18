@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from '../Modal/Modal';
 import styles from './writePost.module.scss';
-import UploadImageButton from '../../UploadImageButton/UploadImageButton';
+import UploadImageButton from '../UploadImageButton/UploadImageButton';
 
 interface Props {
   onClickToggleModal: () => void;

@@ -24,7 +24,13 @@
     color: $main_green;
   }
   .register_input {
-    @extend .input_common;
+    background-color: $account_input;
+    border: none;
+    height: 48px;
+    padding-left: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
     width: 540px;
   }
   .reg_inputID {
@@ -33,11 +39,25 @@
     justify-content: center;
   }
   .inputBox_id {
-    @extend .input_common;
+    background-color: $account_input;
+    border: none;
+    height: 48px;
+    padding-left: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
     width: 400px;
   }
   .verify_id {
-    @extend .buttonCommon;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 30px;
+    height: 48px;
+    font-size: 24px;
+    transition: all ease 0.2s;
     background-color: $main_green;
     width: 120px;
     margin-left: 20px;
@@ -62,12 +82,28 @@
     align-items: center;
   }
   .reg_normal {
-    @extend .buttonCommon;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 30px;
+    height: 48px;
+    font-size: 24px;
+    transition: all ease 0.2s;
     width: 260px;
     background-color: $main_green;
   }
   .reg_kakao {
-    @extend .buttonCommon;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 30px;
+    height: 48px;
+    font-size: 24px;
+    transition: all ease 0.2s;
     width: 260px;
     background-color: $kakao_yellow;
   }
