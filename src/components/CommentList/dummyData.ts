@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 interface Comment {
   user_id: number;
   user_name: string;

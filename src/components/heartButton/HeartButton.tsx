@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState } from 'react';
 import { BsHeartFill } from 'react-icons/bs';
 // import { FaHeart, FaRegHeart } from 'react-icons/fa';
@@ -17,12 +16,12 @@ const HeartButton: React.FC<Props> = ({ onClick, likeCount }: Props) => {
     onClick(!isLike);
   };
   return (
-    <div onClick={handleLike}>
+    <button type='button' onClick={handleLike}>
       <BsHeartFill className={isLike ? styles.heart_fill_icon : styles.heart_empty_icon} />
       <div className={isLike ? styles.like_count_number : styles.unlike_count_number}>
         {likeCount}
       </div>
-    </div>
+    </button>
   );
 };
 
