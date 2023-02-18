@@ -1,16 +1,15 @@
-import React from 'react';
-import Counter from './Counter';
-import CreateAccount from './pages/CreateAccount';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './style/common.scss';
+
+import ModalOpen from './pages/ModalOpen';
 
 function App() {
   return (
-    <div className="app">
-      {/* <h1 style={{ fontWeight: 400 }}>새싹로그 시작</h1>
-      <h1 style={{ fontWeight: 400 }}>폰트적용33</h1>
-      <Counter /> */}
-      <CreateAccount />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/ModalOpen" element={<ModalOpen />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
