@@ -30,7 +30,13 @@
     color: $main_green;
   }
   .login_input {
-    @extend .input_common;
+    background-color: $account_input;
+    border: none;
+    height: 48px;
+    padding-left: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
     width: 540px;
     margin: 5px 0;
   }
@@ -46,12 +52,28 @@
     align-items: center;
   }
   .login_normal {
-    @extend .buttonCommon;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 30px;
+    height: 48px;
+    font-size: 24px;
+    transition: all ease 0.2s;
     width: 260px;
     background-color: $main_green;
   }
   .login_kakao {
-    @extend .buttonCommon;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 30px;
+    height: 48px;
+    font-size: 24px;
+    transition: all ease 0.2s;
     width: 260px;
     background-color: $kakao_yellow;
   }

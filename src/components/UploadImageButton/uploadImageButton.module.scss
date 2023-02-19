@@ -1,0 +1,25 @@
+@import '../../style/common.scss';
+
+@include middle {
+  .write_modal_add_img_icon {
+    width: 4rem !important;
+    height: 4rem !important;
+    color: gray;
+  }
+}
+
+@include mobile {
+  .write_modal_add_img_icon {
+    width: 4rem;
+    height: 4rem;
+    color: gray;
+  }
+}
+
+@include desktop {
+  .write_modal_add_img_icon {
+    width: 8rem;
+    height: 8rem;
+    color: gray;
+  }
+}
