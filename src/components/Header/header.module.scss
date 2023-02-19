@@ -1,0 +1,126 @@
+@import '../../style/common.scss';
+.top_nav {
+  position: relative;
+  display: flex;
+  justify-content: left;
+}
+.nav_logo {
+  display: flex;
+  width: 14rem;
+  img {
+    width: 8rem;
+    margin: 0 -18px;
+  }
+}
+.search_bar {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  .search_icon {
+    position: absolute;
+    left: 10px;
+    color: $main_green;
+  }
+  .search_input {
+    width: 100%;
+    height: 40px;
+    border: 2px solid $main_green;
+    border-radius: 10px;
+    color: black;
+    padding-left: 30px;
+    padding-right: 30px;
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: $main_green;
+      font-weight: bold;
+    }
+  }
+  .search_btn {
+    width: 140px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 18px;
+    background-color: $main_green;
+    color: white;
+    margin-left: -20px;
+  }
+}
+
+.nav_userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  position: absolute;
+  top: 2rem;
+  right: 0;
+}
+.main_userProfile {
+  font-size: 50px;
+}
+.user_circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: 2px solid black;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav_modal {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 6px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  width: 80px;
+  .modal_logout {
+    width: 80px;
+    border-top: 1px solid black;
+    color: $account_red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@include desktop {
+}
+@include mobile {
+  .nav_userInfo {
+    display: none;
+  }
+  .top_nav {
+    justify-content: flex-start;
+    margin-top: 12px;
+    .search_bar {
+      width: 90%;
+    }
+  }
+  .main_toggle {
+    border-radius: 20px;
+    height: 32px;
+    font-size: 16px;
+    padding: 8px 12px;
+    width: 100px;
+  }
+
+  .nav_logo {
+    display: none;
+  }
+  .search_bar {
+    .search_btn {
+      display: none;
+    }
+  }
+}
