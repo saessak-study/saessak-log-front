@@ -30,28 +30,22 @@ const ModalOpen = () => {
 
   return (
     <div>
-      <button type="button" onClick={onClickFindIdModal}>
+      <button type='button' onClick={onClickFindIdModal}>
         아이디 찾기
       </button>
-      <button type="button" onClick={onClickFindPwModal}>
+      <button type='button' onClick={onClickFindPwModal}>
         비밀번호 찾기
       </button>
-      <button type="button" onClick={onClickLoginModal}>
+      <button type='button' onClick={onClickLoginModal}>
         로그인하기
       </button>
-      <button type="button" onClick={onClickRegisterModal}>
+      <button type='button' onClick={onClickRegisterModal}>
         회원가입하기
       </button>
-      {showFindIdModal && (
-        <FindIdModal onClickToggleModal={onClickFindIdModal} />
-      )}
-      {showFindPwModal && (
-        <FindPwModal onClickToggleModal={onClickFindPwModal} />
-      )}
+      {showFindIdModal && <FindIdModal onClickToggleModal={onClickFindIdModal} />}
+      {showFindPwModal && <FindPwModal onClickToggleModal={onClickFindPwModal} />}
       {showLoginModal && <LoginModal onClickToggleModal={onClickLoginModal} />}
-      {showRegisterModal && (
-        <RegisterModal onClickToggleModal={onClickRegisterModal} />
-      )}
+      {showRegisterModal && <RegisterModal onClickToggleModal={onClickRegisterModal} />}
     </div>
   );
 };

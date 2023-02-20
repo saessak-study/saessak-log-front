@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
-import HeartButton from '../../HeartButton/HeartButton';
-import CommentList from '../../CommentList/CommentList';
+import HeartButton from '../HeartButton/HeartButton';
+import CommentList from '../CommentList/CommentList';
 import styles from './readPost.module.scss';
 import { FaUserCircle } from 'react-icons/fa';
 import { BsBookmark } from 'react-icons/bs';

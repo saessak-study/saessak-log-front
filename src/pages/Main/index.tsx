@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import ReadPost from '../../components/Post/ReadPost/ReadPost';
-import WritePost from '../../components/Post/WritePost/WritePost';
+import ReadPost from '../../components/ReadPost/ReadPost';
+import WritePost from '../../components/WritePost/WritePost';
 
 /* 모달창 버튼 토글러 위한 페이지(from 하영) */
 

@@ -15,6 +15,7 @@ const App = () => {
         <Route path='/myaccount' element={<MyAccountPage />} />
         <Route path='/myactivity' element={<MyActivity />} />
         <Route path='/hayeong-check' element={<Main />} />
+        <Route path='/dajeong-check' element={<ModalOpen />} />
       </Routes>
     </BrowserRouter>
   );

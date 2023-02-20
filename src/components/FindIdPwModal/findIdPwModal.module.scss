@@ -2,31 +2,27 @@
 
 @include desktop {
   .findIdPw_container {
-    padding: 60px 0 0;
-    width: 1200px;
+    padding: 80px 0 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
-    border: 1px solid black;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
   .findIdPw_title {
     font-size: 35px;
-    padding: 70px 0 10px;
-  }
-
-  .vsClose {
-    font-size: 50px;
-    position: absolute;
-    right: 30px;
-    top: 30px;
-    color: $main_green;
+    padding: 80px 0 10px;
   }
   .findIdPw_input {
-    @extend .input_common;
+    background-color: $account_input;
+    border: none;
+    height: 48px;
+    padding-left: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
     width: 540px;
     margin: 5px 0;
   }
@@ -36,18 +32,35 @@
     margin: 5px 5px 60px;
   }
   .findIdPw_buttonBox {
+    margin: 5px 0 0;
     width: 550px;
     display: flex;
     justify-content: space-around;
     align-items: center;
   }
   .findIdPw_greenButton {
-    @extend .buttonCommon;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 30px;
+    height: 48px;
+    font-size: 24px;
+    transition: all ease 0.2s;
     width: 260px;
     background-color: $main_green;
   }
   .findIdPw_whiteButton {
-    @extend .buttonCommon;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 30px;
+    height: 48px;
+    font-size: 24px;
+    transition: all ease 0.2s;
     width: 260px;
     border: 1.5px solid $main_green;
     background-color: white;
@@ -65,24 +78,73 @@
   .findIdPw_container {
     padding: 90px 0 0;
     width: 375px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-  .findIdPw_buttonBox {
-    width: 330px;
+  .findIdPw_title {
+    font-size: 35px;
+    padding: 80px 0 10px;
   }
   .findIdPw_input {
-    width: 330px;
-  }
-  .vsClose {
-    font-size: 40px;
-    right: 10px;
-    top: 10px;
-  }
-  .findIdPw_whiteButton,
-  .findIdPw_greenButton {
-    width: 150px;
+    background-color: $account_input;
+    border: none;
+    height: 48px;
+    padding-left: 30px;
     font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    width: 330px;
+    margin: 5px 0;
+  }
+  .findIdPw_errorMSG {
+    color: $account_red;
+    font-weight: bold;
+    margin: 5px 5px 60px;
+  }
+  .findIdPw_buttonBox {
+    margin: 5px 0 0;
+    width: 330px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .findIdPw_greenButton {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 30px;
+    height: 48px;
+    font-size: 18px;
+    transition: all ease 0.2s;
+    width: 150px;
+    background-color: $main_green;
+  }
+  .findIdPw_whiteButton {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 30px;
+    height: 48px;
+    font-size: 18px;
+    transition: all ease 0.2s;
+    width: 150px;
+    border: 1.5px solid $main_green;
+    background-color: white;
   }
   .route_login {
+    //임시 칼라 지정
+    color: #696969;
     margin-top: 120px;
+    margin-bottom: 40px;
+    cursor: pointer;
   }
 }

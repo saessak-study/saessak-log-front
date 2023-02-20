@@ -72,7 +72,7 @@
   .modal_container {
     background-color: #fff;
     width: $modal_width; //980px;
-    height: $modal_height; //580px;
+    height: $modalWide_height;
     border-radius: 0.75rem; //12px;
     box-shadow: $common_box_shadow;
     display: flex;

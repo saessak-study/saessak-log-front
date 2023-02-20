@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './modal.module.scss';
+import styles from './modalWide.module.scss';
 import { BsXLg } from 'react-icons/bs';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   title: string;
 }
 
-const Modal: React.FC<Props> = ({ onClickToggleModal, children, title }) => {
+const ModalWide: React.FC<Props> = ({ onClickToggleModal, children, title }) => {
   const closeAction = (e: React.MouseEvent) => {
     e.preventDefault();
 
@@ -32,4 +32,4 @@ const Modal: React.FC<Props> = ({ onClickToggleModal, children, title }) => {
   );
 };
 
-export default Modal;
+export default ModalWide;
