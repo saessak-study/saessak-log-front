@@ -7,11 +7,12 @@
     color: gray;
   }
   .add_img_btn {
-    border-radius: 12rem;
   }
 }
 
 @include mobile {
+  .add_img_btn {
+  }
   .write_modal_add_img_icon {
     width: 4rem;
     height: 4rem;
@@ -26,10 +27,7 @@
     color: gray;
   }
   .imgInputTag {
-    display: none;
   }
   .add_img_btn {
-    align-items: center;
-    text-align: center;
   }
 }

@@ -1,24 +1,27 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import styles from './uploadImageButton.module.scss';
 
 const UploadImageButton = () => {
-  const imgInputRef = useRef();
-  const imgUploadHandler = (e: React.ChangeEvent<HTMLInputElement>) => {};
-  // const imageUpload = () => {
-  //   const imgInputRef = useRef<HTMLInputElement>(null);
-  // };
-  const handleClickImageInput = (e: React.MouseEvent<HTMLElement>) => {
-    console.log(e.target);
+  const [imageFile, setImageFile] = useState<string[]>([]);
+
+  const onImageChange = (e: React.ChangeEvent) => {
+    const targetFiles = (e.target as HTMLInputElement).files as FileList;
+    const targetFilesArray = Array.from(targetFiles);
+    const selectedFiles: string[] = targetFilesArray.map((file) => {
+      return URL.createObjectURL(file);
+    });
+    setImageFile(selectedFiles);
+    console.log(imageFile);
   };
 
   return (
     <div className={styles.img_upload_btn_container}>
-      <input
-        className={styles.add_img_btn}
-        type='file'
-        accept='image/jpg, image/jpeg, image/png'
-        onChange={imgUploadHandler}
-      />
+      <div>
+        {imageFile && (
+          <img alt='사진을 선택해주세요' src={imageFile[0]} style={{ margin: 'auto' }} />
+        )}
+      </div>
+      <input className={styles.add_img_btn} type='file' accept='image/*' onChange={onImageChange} />
     </div>
   );
 };
