@@ -1,0 +1,55 @@
+@import '../../style/common.scss';
+
+//! 검색결과 통
+.search_container {
+  width: 950px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 200px;
+}
+
+//! 검색결과 없음
+.searched_none {
+  margin-top: 12px;
+  font-size: 32px;
+}
+//! 최근 검색결과
+.search_result {
+  // margin-left: 32px;
+}
+.recent_searched {
+  // margin-left: 32px;
+  // width: 80%;
+}
+.searched_eraseAll {
+  color: $main_green;
+  font-size: 20px;
+  cursor: pointer;
+}
+.recent_searchedTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.recent_searchedBox {
+  margin-top: 32px;
+  .recent_searchedComponent {
+    display: flex;
+    font-size: 32px;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@include mobile {
+  .recent_searched {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 90%;
+  }
+  .search_result {
+    margin: 10px 0 6px 4px;
+  }
+}
