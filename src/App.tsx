@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './style/common.scss';
 import MainPage from './components/Main/mainPage';
@@ -6,6 +7,7 @@ import Main from './pages/Main';
 import MyAccountPage from './pages/MyAccount/MyAccount';
 import MyActivity from './pages/MyActivity/MyActivity';
 import ModalOpen from './pages/ModalOpen';
+import ImgCropModal from './components/UploadImageButton/ImgCropModal/ImgCropModal';
 
 const App = () => {
   return (
@@ -17,6 +19,7 @@ const App = () => {
         <Route path='/myactivity' element={<MyActivity />} />
         <Route path='/hayeong-check' element={<Main />} />
         <Route path='/dajeong-check' element={<ModalOpen />} />
+        {/* <Route path='/imgcrop-check' element={<ImgCropModal />} /> */}
       </Routes>
     </BrowserRouter>
   );

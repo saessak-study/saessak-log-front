@@ -13,12 +13,12 @@ const WritePost: React.FC<Props> = ({ onClickToggleModal }) => {
     <div className={styles.write_modal_container_wrapper}>
       <Modal onClickToggleModal={onClickToggleModal} title='게시물 작성'>
         <div className={styles.write_modal_img_container_web}>
-          <UploadImageButton />
+          <UploadImageButton onClickToggleModal={onClickToggleModal} />
         </div>
         <div className={styles.write_modal_non_img_container}>
           <div className={styles.write_modal_post_section}>
             <div className={styles.write_modal_img_container_mobile}>
-              <UploadImageButton />
+              <UploadImageButton onClickToggleModal={onClickToggleModal} />
             </div>
             <div className={styles.write_modal_text_input_section}>
               <input
