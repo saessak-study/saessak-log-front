@@ -6,14 +6,13 @@ const Footer = () => {
     <footer>
       <div className={styles.infoContainer}>
         <ul>
-          <li>새싹</li>
-          <li>로그</li>
+          <li>2023.02</li>
+          <li>새싹로그</li>
           <li>초보</li>
           <li>개발</li>
           <li>스터디</li>
-          <li>프로젝트</li>
         </ul>
-        <select name='goto' id='goto'>
+        <select>
           <option value=''>새싹스터디원</option>
           <option value=''>하영</option>
           <option value=''>길웅</option>
