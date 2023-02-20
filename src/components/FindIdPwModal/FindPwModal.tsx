@@ -1,7 +1,6 @@
 import React from 'react';
-import Modal from '../Modal/Modal';
+import Modal from '../Modal/ModalWide/ModalWide';
 import styles from './findIdPwModal.module.scss';
-import { VscClose } from 'react-icons/vsc';
 
 interface Props {
   onClickToggleModal: () => void;
@@ -17,7 +16,6 @@ const FindPwModal: React.FC<Props> = ({ onClickToggleModal }) => {
             <div className={styles.findIdPw_greenButton}>비밀번호</div>
           </div>
           <div className={styles.findIdPw_title}>비밀번호 찾기</div>
-          <VscClose className={styles.vsClose} />
           <div className={styles.reg_inputComponent}>
             <input type='text' className={styles.findIdPw_input} placeholder='Name' />
           </div>

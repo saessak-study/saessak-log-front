@@ -6,6 +6,7 @@ import Main from './pages/Main';
 import MyAccountPage from './pages/MyAccount/MyAccount';
 import MyActivity from './pages/MyActivity/MyActivity';
 import ModalOpen from './pages/ModalOpen';
+import Footer from './components/common/Footer';
 
 const App = () => {
   return (
