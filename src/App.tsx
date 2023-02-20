@@ -1,11 +1,11 @@
 /* eslint-disable import/no-named-as-default */
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './style/common.scss';
-import MainPage from './components/Main/mainPage';
-import SearchPage from './components/Main/SearchPage';
+import SearchPage from './pages/Search/SearchPage';
 import Main from './pages/Main';
 import MyAccountPage from './pages/MyAccount/MyAccount';
 import MyActivity from './pages/MyActivity/MyActivity';
+import MainPage from './pages/Home/MainPage';
 import ModalOpen from './pages/ModalOpen';
 import ImgCropModal from './components/UploadImageButton/ImgCropModal/ImgCropModal';
 
