@@ -1,8 +1,10 @@
+@import '../../style/common.scss';
+
 .cardWrapper {
   display: flex;
   flex-direction: column;
-  margin: 0;
-  width: 169px;
+  margin-bottom: 24px;
+  width: 30%;
   border-radius: 10px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
@@ -36,5 +38,11 @@
     span {
       margin-right: 3px;
     }
+  }
+}
+
+@include mobile {
+  .cardWrapper {
+    width: 45%;
   }
 }
