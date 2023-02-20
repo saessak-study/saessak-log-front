@@ -1,4 +1,4 @@
-import Header from '../../components/Header/Header';
+import Header from '../../components/common/Header';
 import SearchResult from '../../components/SearchResult/SearchResult';
 
 const SearchPage = () => {
