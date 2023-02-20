@@ -3,7 +3,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 
 const SearchResult = () => {
   return (
-    <div>
+    <div className={styles.search_container}>
       <div className={styles.search_result}>
         <span style={{ fontSize: '32px', color: 'black' }}>
           &quot;<span style={{ color: '#41d18a' }}>푸들</span>&quot;

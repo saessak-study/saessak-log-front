@@ -1,5 +1,14 @@
 @import '../../style/common.scss';
 
+//! 검색결과 통
+.search_container {
+  width: 950px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 200px;
+}
+
 //! 검색결과 없음
 .searched_none {
   margin-top: 12px;
@@ -7,11 +16,11 @@
 }
 //! 최근 검색결과
 .search_result {
-  margin-left: 32px;
+  // margin-left: 32px;
 }
 .recent_searched {
-  margin-left: 32px;
-  width: 80%;
+  // margin-left: 32px;
+  // width: 80%;
 }
 .searched_eraseAll {
   color: $main_green;
