@@ -5,6 +5,7 @@ import Main from './pages/Main';
 import MyAccountPage from './pages/MyAccount/MyAccount';
 import MyActivity from './pages/MyActivity/MyActivity';
 import MainPage from './pages/Home/MainPage';
+import ModalOpen from './pages/ModalOpen';
 
 const App = () => {
   return (
