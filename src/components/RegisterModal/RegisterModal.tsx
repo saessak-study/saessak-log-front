@@ -1,7 +1,6 @@
 import React from 'react';
-import Modal from '../Modal/Modal';
+import Modal from '../Modal/ModalWide/ModalWide';
 import styles from './registerModal.module.scss';
-import { VscClose } from 'react-icons/vsc';
 
 interface Props {
   onClickToggleModal: () => void;
@@ -13,7 +12,6 @@ const RegisterModal: React.FC<Props> = ({ onClickToggleModal }) => {
       <Modal onClickToggleModal={onClickToggleModal} title='회원가입'>
         <div className={styles.reg_container}>
           <div className={styles.reg_title}>CREATE ACCOUNT</div>
-          <VscClose className={styles.vsClose} />
           <div className={styles.reg_inputID}>
             <input type='text' className={styles.inputBox_id} placeholder='ID' />
             <div className={styles.verify_id}>중복검사</div>

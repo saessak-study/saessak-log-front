@@ -1,7 +1,6 @@
 import React from 'react';
-import Modal from '../Modal/Modal';
+import Modal from '../Modal/ModalWide/ModalWide';
 import styles from './loginModal.module.scss';
-import { VscClose } from 'react-icons/vsc';
 
 interface Props {
   onClickToggleModal: () => void;
@@ -16,7 +15,6 @@ const LoginModal: React.FC<Props> = ({ onClickToggleModal }) => {
           <div className={styles.login_describe}>
             더 많은 기능을 사용하시려면 로그인을 해주세요.
           </div>
-          <VscClose className={styles.vsClose} />
           <div className={styles.login_inputComponent}>
             <input type='text' className={styles.login_input} placeholder='ID' />
           </div>
