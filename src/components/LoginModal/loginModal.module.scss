@@ -1,4 +1,8 @@
 @import '../../style/common.scss';
+@font-face {
+  font-family: DoHyeon;
+  src: url(../../assets/font/Do_Hyeon/DoHyeon-Regular.ttf);
+}
 
 @include desktop {
   .login_container {
@@ -44,7 +48,10 @@
     justify-content: space-around;
     align-items: center;
   }
+
   .login_normal {
+    border: none;
+    font-family: DoHyeon;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -148,6 +155,8 @@
     align-items: center;
   }
   .login_normal {
+    font-family: DoHyeon;
+    border: none;
     cursor: pointer;
     display: flex;
     align-items: center;

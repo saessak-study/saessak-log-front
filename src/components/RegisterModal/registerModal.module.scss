@@ -1,5 +1,8 @@
 @import '../../style/common.scss';
-
+@font-face {
+  font-family: DoHyeon;
+  src: url(../../assets/font/Do_Hyeon/DoHyeon-Regular.ttf);
+}
 @include desktop {
   .reg_container {
     display: flex;
@@ -40,6 +43,8 @@
     width: 400px;
   }
   .verify_id {
+    font-family: DoHyeon;
+    border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -73,6 +78,8 @@
     align-items: center;
   }
   .reg_normal {
+    font-family: DoHyeon;
+    border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -166,7 +173,10 @@
     border-radius: 30px;
     width: 70%;
   }
+
   .verify_id {
+    font-family: DoHyeon;
+    border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -203,6 +213,8 @@
     align-items: center;
   }
   .reg_normal {
+    font-family: DoHyeon;
+    border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
