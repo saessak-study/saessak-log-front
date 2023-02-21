@@ -6,7 +6,7 @@ import { useState } from 'react';
 const Header = () => {
   const [userModal, setUserModal] = useState(false);
   const modalClick = () => {
-    setUserModal(!userModal);
+    setUserModal(() => !userModal);
   };
   return (
     <div className={styles.top_nav}>
