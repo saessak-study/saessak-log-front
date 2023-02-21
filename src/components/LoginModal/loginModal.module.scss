@@ -56,6 +56,11 @@
     transition: all ease 0.2s;
     width: 260px;
     background-color: $main_green;
+    &:hover {
+      background-color: #fff;
+      color: $main_green;
+      border: 3px solid $main_green;
+    }
   }
   .login_kakao {
     cursor: pointer;
@@ -69,6 +74,10 @@
     transition: all ease 0.2s;
     width: 260px;
     background-color: $kakao_yellow;
+    &:hover {
+      background-color: #fff;
+      border: 3px solid $kakao_yellow;
+    }
   }
   .autologin_radiobutton {
     font-size: 20px;
@@ -86,7 +95,7 @@
 
 @include mobile {
   .login_container {
-    width: 375px;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,6 +115,12 @@
     padding: 10px 0 15px;
     margin: 0 0 15px;
   }
+  .login_inputComponent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
   .login_input {
     background-color: $account_input;
     border: none;
@@ -114,7 +129,7 @@
     font-size: 18px;
     font-weight: bold;
     border-radius: 30px;
-    width: 330px;
+    width: 100%;
     margin: 5px 0;
   }
   .login_errorMSG {
@@ -140,6 +155,11 @@
     transition: all ease 0.2s;
     width: 160px;
     background-color: $main_green;
+    &:hover {
+      background-color: #fff;
+      color: $main_green;
+      border: 3px solid $main_green;
+    }
   }
   .login_kakao {
     cursor: pointer;
@@ -153,6 +173,10 @@
     transition: all ease 0.2s;
     width: 160px;
     background-color: $kakao_yellow;
+    &:hover {
+      background-color: #fff;
+      border: 3px solid $kakao_yellow;
+    }
   }
   .autologin_radiobutton {
     font-size: 20px;

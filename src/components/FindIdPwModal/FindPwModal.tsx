@@ -12,7 +12,7 @@ const FindPwModal: React.FC<Props> = ({ onClickToggleModal }) => {
       <Modal onClickToggleModal={onClickToggleModal} title='비밀번호찾기'>
         <div className={styles.findIdPw_container}>
           <div className={styles.findIdPw_title}>비밀번호 찾기</div>
-          <div className={styles.reg_inputComponent}>
+          <div className={styles.findIdPw_inputComponent}>
             <input type='text' className={styles.findIdPw_input} placeholder='Name' />
           </div>
           <div className={styles.findIdPw_inputComponent}>

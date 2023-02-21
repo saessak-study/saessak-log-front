@@ -43,6 +43,11 @@
     transition: all ease 0.2s;
     width: 260px;
     background-color: $main_green;
+    &:hover {
+      background-color: #fff;
+      color: $main_green;
+      border: 3px solid $main_green;
+    }
   }
 
   .route_login {
@@ -57,7 +62,7 @@
 @include mobile {
   .findIdPw_container {
     padding: 90px 0 0;
-    width: 375px;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,7 +83,7 @@
     font-size: 18px;
     font-weight: bold;
     border-radius: 30px;
-    width: 330px;
+    width: 100%;
     margin: 5px 0;
   }
   .findIdPw_errorMSG {
@@ -103,10 +108,20 @@
     height: 48px;
     font-size: 18px;
     transition: all ease 0.2s;
-    width: 150px;
+    width: 60%;
     background-color: $main_green;
+    &:hover {
+      background-color: #fff;
+      color: $main_green;
+      border: 3px solid $main_green;
+    }
   }
-
+  .findIdPw_inputComponent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
   .route_login {
     //임시 칼라 지정
     color: #696969;
