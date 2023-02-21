@@ -65,10 +65,15 @@
   width: 100px;
   padding-top: 50px;
 }
+.modal_circle,
+.modal_cancel {
+  display: none;
+}
 .main_userProfile {
   font-size: 50px;
 }
 .user_circle {
+  cursor: pointer;
   width: 50px;
   height: 50px;
   border-radius: 50px;
@@ -103,7 +108,54 @@
 }
 @include mobile {
   .nav_userInfo {
+    width: 0;
+  }
+  .user_circle,
+  .user_name {
     display: none;
+  }
+  .nav_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    cursor: auto;
+    .modal_circle {
+      display: block;
+      font-size: 100px;
+      border: 0px solid;
+      box-shadow: $common_box_shadow;
+      width: 200px;
+      height: 200px;
+      border-radius: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 50px;
+    }
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+      width: 100%;
+      padding: 10px 0;
+      cursor: pointer;
+    }
+    .modal_logout {
+      padding: 10px 0;
+      width: 60%;
+    }
+    .modal_cancel {
+      display: block;
+      position: absolute;
+      font-size: 30px;
+      top: 40px;
+      right: 50px;
+      cursor: pointer;
+    }
   }
   .top_nav {
     justify-content: center;

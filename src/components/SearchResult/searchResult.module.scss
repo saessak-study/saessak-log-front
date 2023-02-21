@@ -2,11 +2,12 @@
 
 //! 검색결과 통
 .search_container {
-  width: 950px;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 200px;
+  margin: 0 auto;
+  padding-bottom: 20px;
 }
 
 //! 검색결과 없음
@@ -14,9 +15,39 @@
   margin-top: 12px;
   font-size: 32px;
 }
+
+//! 좋아요 댓글 버튼
+.searchBtn_wrap {
+  display: flex;
+  margin-left: 32px;
+  padding-top: 24px;
+}
+.searchBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  padding: 10px 20px;
+  height: 60px;
+  font-size: 24px;
+  border-radius: 30px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.searchBtn_on {
+  @extend .searchBtn;
+  background-color: $main_green;
+  color: white;
+}
+.searchBtn_off {
+  @extend .searchBtn;
+  background-color: white;
+  color: $main_green;
+  border: 1px solid $main_green;
+}
 //! 최근 검색결과
 .search_result {
-  // margin-left: 32px;
+  margin-left: 32px;
 }
 .recent_searched {
   // margin-left: 32px;
@@ -49,7 +80,17 @@
     margin-top: 10px;
     width: 90%;
   }
+  .searchBtn {
+    width: 90px;
+    height: 40px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  .searchBtn_wrap {
+    padding-top: 12px;
+  }
   .search_result {
-    margin: 10px 0 6px 4px;
+    width: 90%;
+    margin: 0 auto;
   }
 }
