@@ -1,12 +1,19 @@
-import React from 'react';
+import { useState } from 'react';
 import Modal from '../Modal/ModalWide/ModalWide';
 import styles from './registerModal.module.scss';
+import LoginModal from '../LoginModal/LoginModal';
 
 interface Props {
   onClickToggleModal: () => void;
 }
 
 const RegisterModal: React.FC<Props> = ({ onClickToggleModal }) => {
+  const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
+
+  const onClickLoginModal = () => {
+    setShowLoginModal((prev) => !prev);
+  };
+
   return (
     <div>
       <Modal onClickToggleModal={onClickToggleModal} title='회원가입'>
@@ -46,9 +53,12 @@ const RegisterModal: React.FC<Props> = ({ onClickToggleModal }) => {
             <div className={styles.reg_normal}>회원가입</div>
             <div className={styles.reg_kakao}>카카오 회원가입</div>
           </div>
-          <div className={styles.route_login}>로그인 화면으로 돌아가기</div>
+          <a href='#!' type='button' className={styles.route_login} onClick={onClickLoginModal}>
+            <div>로그인 화면으로 돌아가기</div>
+          </a>
         </div>
       </Modal>
+      {showLoginModal && <LoginModal onClickToggleModal={onClickLoginModal} />}
     </div>
   );
 };

@@ -83,13 +83,17 @@
     font-size: 20px;
     padding: 20px 0;
   }
+  .route_box {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    display: flex;
+  }
   .route_register,
   .route_FindUserInfoPage {
     //임시 칼라 지정
     color: #696969;
-    margin-top: 30px;
-    margin-bottom: 40px;
     cursor: pointer;
+    text-decoration: none;
   }
 }
 
@@ -182,12 +186,17 @@
     font-size: 20px;
     padding: 20px 0;
   }
+
+  .route_box {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    display: flex;
+  }
   .route_register,
   .route_FindUserInfoPage {
     //임시 칼라 지정
     color: #696969;
-    margin-top: 30px;
-    margin-bottom: 40px;
+    text-decoration: none;
     cursor: pointer;
   }
 }
