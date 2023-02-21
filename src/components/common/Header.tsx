@@ -4,9 +4,9 @@ import { FaUserAlt } from 'react-icons/fa';
 import { useState } from 'react';
 
 const Header = () => {
-  const [userModal, setUserModal] = useState(false);
+  const [isModalView, setIsModalView] = useState(false);
   const modalClick = () => {
-    setUserModal(() => !userModal);
+    setIsModalView((prevState) => !prevState);
   };
   return (
     <div className={styles.top_nav}>
@@ -24,7 +24,7 @@ const Header = () => {
           <FaUserAlt className={styles.main_userProfile} />
         </div>
         <span className={styles.user_name}> 유저 닉네임</span>
-        {userModal === true ? null : (
+        {isModalView === true ? null : (
           <ul className={styles.nav_modal}>
             <div className={styles.modal_circle}>
               <FaUserAlt />
