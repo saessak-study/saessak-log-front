@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import Cropper from 'react-easy-crop';
 import { Point, Area } from 'react-easy-crop/types';
-import './imgCropModal.css';
+import styles from './imgCropModal.module.scss';
 import Modal from '../../Modal/Modal';
 
 interface Props {
@@ -18,15 +18,22 @@ const ImgCropModal: React.FC<Props> = ({ onClickToggleModal, imageFile }) => {
 
   return (
     <Modal onClickToggleModal={onClickToggleModal} title='게시물'>
-      <Cropper
-        image={imageFile}
-        crop={crop}
-        zoom={zoom}
-        aspect={1 / 1}
-        onCropChange={setCrop}
-        onCropComplete={onCropComplete}
-        onZoomChange={setZoom}
-      />
+      <div className={styles.container}>
+        <div className={styles.crop_container}>
+          <Cropper
+            image={imageFile}
+            crop={crop}
+            zoom={zoom}
+            aspect={1 / 1}
+            onCropChange={setCrop}
+            onCropComplete={onCropComplete}
+            onZoomChange={setZoom}
+          />
+        </div>
+        <div className={styles.crop_button_container}>
+          <button type='button'>저장</button>
+        </div>
+      </div>
     </Modal>
   );
 };
