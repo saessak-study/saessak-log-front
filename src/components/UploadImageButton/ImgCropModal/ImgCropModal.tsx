@@ -6,7 +6,11 @@ import Modal from '../../Modal/Modal';
 
 interface Props {
   onClickToggleModal: () => void;
-  imageFile: string;
+  imageFile: string; // crop할 이미지
+  // setCrppedAreaPixels: object; // 잘린 이미지 값
+  // width: number; // 이미지 비율
+  // height: number;
+  // cropShape: string; // 이미지 모양 설정
 }
 
 const ImgCropModal: React.FC<Props> = ({ onClickToggleModal, imageFile }) => {
