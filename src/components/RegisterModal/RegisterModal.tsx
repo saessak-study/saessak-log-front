@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Modal from '../Modal/ModalWide/ModalWide';
 import styles from './registerModal.module.scss';
 // eslint-disable-next-line import/no-cycle
-import LoginModal from '../LoginModal/LoginModal';
 import RegisterInput from './RegisterInput';
 import {
   EMAIL_VALID_CHECK,
@@ -19,12 +18,6 @@ interface Props {
 
 // eslint-disable-next-line react/prop-types
 const RegisterModal: React.FC<Props> = ({ onClickToggleModal }) => {
-  // show modal
-  const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
-  const onClickLoginModal = () => {
-    setShowLoginModal((prev) => !prev);
-  };
-
   // register
   const [inputs, setInputs] = useState({
     userId: '',
@@ -170,12 +163,8 @@ const RegisterModal: React.FC<Props> = ({ onClickToggleModal }) => {
             </button>
             <div className={styles.reg_kakao}>카카오 회원가입</div>
           </div>
-          <a href='#!' type='button' className={styles.route_login} onClick={onClickLoginModal}>
-            <div>로그인 화면으로 돌아가기</div>
-          </a>
         </div>
       </Modal>
-      {showLoginModal && <LoginModal onClickToggleModal={onClickLoginModal} />}
     </div>
   );
 };
