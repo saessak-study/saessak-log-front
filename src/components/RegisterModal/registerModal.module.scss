@@ -126,8 +126,9 @@
   }
 }
 @include mobile {
+  // 전체 컨테이너
   .reg_container {
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -136,33 +137,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .reg_inputComponent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-  }
   .reg_title {
     font-size: 30px;
     padding: 50px 0 20px;
   }
-  .register_input {
-    background-color: $account_input;
-    border: none;
-    height: 42px;
-    padding-left: 30px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 30px;
-    width: 100%;
-    margin: 0 15px;
-  }
+
+  // ID input & 중복검사
   .reg_inputID {
     width: 100%;
     padding: 0 23px;
     display: flex;
     justify-content: center;
   }
+  // ID input
   .inputBox_id {
     background-color: $account_input;
     border: none;
@@ -173,7 +160,7 @@
     border-radius: 30px;
     width: 70%;
   }
-
+  // 중복검사
   .verify_id {
     font-family: DoHyeon;
     border: none;
@@ -195,6 +182,26 @@
       color: $main_green;
       border: 3px solid $main_green;
     }
+  }
+
+  // pw ~ email input & error red msg
+  .reg_inputComponent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+  // pw ~ email input
+  .register_input {
+    background-color: $account_input;
+    border: none;
+    height: 42px;
+    padding-left: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    width: 100%;
+    margin: 0 15px;
   }
   .reg_errorMSG {
     color: $account_red;
