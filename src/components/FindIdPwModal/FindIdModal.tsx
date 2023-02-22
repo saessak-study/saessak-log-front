@@ -1,5 +1,5 @@
 import react from 'react';
-import Modal from '../Modal/Modal';
+import Modal from '../Modal/ModalNoHeader/ModalNoHeader';
 import styles from './findIdPwModal.module.scss';
 
 interface Props {
