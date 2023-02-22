@@ -1,4 +1,4 @@
-interface Comment {
+export interface Comment {
   user_id: number;
   user_name: string;
   user_comment: string;
