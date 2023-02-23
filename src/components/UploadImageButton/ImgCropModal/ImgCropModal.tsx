@@ -1,24 +1,28 @@
 import React, { useState, useCallback } from 'react';
 import Cropper from 'react-easy-crop';
 import { Point, Area } from 'react-easy-crop/types';
+import { useDispatch } from 'react-redux';
+// import {setImage} from '~imageSlice'
 import styles from './imgCropModal.module.scss';
 import Modal from '../../Modal/Modal';
 
 interface Props {
   onClickToggleModal: () => void;
-  imageFile: string; // crop할 이미지
-  // setCrppedAreaPixels: object; // 잘린 이미지 값
-  // width: number; // 이미지 비율
-  // height: number;
-  // cropShape: string; // 이미지 모양 설정
+  imageFile: string;
 }
 
 const ImgCropModal: React.FC<Props> = ({ onClickToggleModal, imageFile }) => {
   const [crop, setCrop] = useState<Point>({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
+  // const dispatch = useDispatch();
   const onCropComplete = useCallback((croppedArea: Area, croppedAreaPixels: Area) => {
     console.log(croppedArea, croppedAreaPixels);
   }, []);
+
+  // const onCropCompleteSave = () => {
+  //   dispatch(setImage(imageFile));
+  //   onClickToggleModal();
+  // }
 
   return (
     <Modal onClickToggleModal={onClickToggleModal} title='게시물'>
@@ -35,7 +39,7 @@ const ImgCropModal: React.FC<Props> = ({ onClickToggleModal, imageFile }) => {
           />
         </div>
         <div className={styles.crop_button_container}>
-          <button type='button'>저장</button>
+          {/* <button type='button' onClick={onCropCompleteSave}>저장</button> */}
         </div>
       </div>
     </Modal>
