@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './sideRouteBtn.module.scss';
 import { FaUserAlt } from 'react-icons/fa';
 import { BiPlusMedical } from 'react-icons/bi';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const SideRouteBtn = () => {
   return (
