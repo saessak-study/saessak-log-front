@@ -52,12 +52,6 @@
       width: 100%;
       height: 100%;
     }
-    .modal_header {
-      display: none;
-      .modal-header-title {
-        display: none;
-      }
-    }
   }
 }
 
@@ -78,7 +72,7 @@
   .modal_container {
     background-color: #fff;
     width: $modal_width; //980px;
-    height: $modalWide_height;
+    height: $modal_height; //580px;
     border-radius: 0.75rem; //12px;
     box-shadow: $common_box_shadow;
     display: flex;

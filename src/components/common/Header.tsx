@@ -10,6 +10,7 @@ const Header = () => {
     setIsModalView((prevState) => !prevState);
   };
   const navigate = useNavigate();
+
   return (
     <div className={styles.top_nav}>
       <div className={styles.nav_logo}>
