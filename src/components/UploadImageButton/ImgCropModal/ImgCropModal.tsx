@@ -11,7 +11,7 @@ interface Props {
   imageFile: string;
 }
 
-const ImgCropModal: React.FC<Props> = ({ onClickToggleModal, imageFile }) => {
+const ImgCropModal = ({ onClickToggleModal, imageFile }: Props) => {
   const [crop, setCrop] = useState<Point>({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   // const dispatch = useDispatch();
