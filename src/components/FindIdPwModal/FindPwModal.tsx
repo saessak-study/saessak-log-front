@@ -1,5 +1,5 @@
-import React from 'react';
-import Modal from '../Modal/ModalWide/ModalWide';
+import react from 'react';
+import Modal from '../Modal/ModalNoHeader/ModalNoHeader';
 import styles from './findIdPwModal.module.scss';
 
 interface Props {
@@ -11,12 +11,8 @@ const FindPwModal: React.FC<Props> = ({ onClickToggleModal }) => {
     <div>
       <Modal onClickToggleModal={onClickToggleModal} title='비밀번호찾기'>
         <div className={styles.findIdPw_container}>
-          <div className={styles.findIdPw_buttonBox}>
-            <div className={styles.findIdPw_whiteButton}>아이디</div>
-            <div className={styles.findIdPw_greenButton}>비밀번호</div>
-          </div>
           <div className={styles.findIdPw_title}>비밀번호 찾기</div>
-          <div className={styles.reg_inputComponent}>
+          <div className={styles.findIdPw_inputComponent}>
             <input type='text' className={styles.findIdPw_input} placeholder='Name' />
           </div>
           <div className={styles.findIdPw_inputComponent}>
@@ -29,7 +25,6 @@ const FindPwModal: React.FC<Props> = ({ onClickToggleModal }) => {
           <div className={styles.findIdPw_buttonBox}>
             <div className={styles.findIdPw_greenButton}>비밀번호 찾기</div>
           </div>
-          <div className={styles.route_login}>로그인 화면으로 돌아가기</div>
         </div>
       </Modal>
     </div>
