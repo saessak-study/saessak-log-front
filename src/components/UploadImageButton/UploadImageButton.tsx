@@ -6,7 +6,7 @@ interface Props {
   onClickToggleModal: () => void;
 }
 
-const UploadImageButton: React.FC<Props> = ({ onClickToggleModal }) => {
+const UploadImageButton = ({ onClickToggleModal }: Props) => {
   const [imageFile, setImageFile] = useState<string[]>([]);
   const [viewCropModal, setViewCropModal] = useState<boolean>(false);
 

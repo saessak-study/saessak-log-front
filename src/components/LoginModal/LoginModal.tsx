@@ -15,7 +15,7 @@ interface Props {
   onClickToggleModal: () => void;
 }
 
-const LoginModal: React.FC<Props> = ({ onClickToggleModal }) => {
+const LoginModal = ({ onClickToggleModal }: Props) => {
   // show modal
   const [showFindIdModal, setShowFindIdModal] = useState<boolean>(false);
   const [showRegisterModal, setShowRegisterModal] = useState<boolean>(false);
