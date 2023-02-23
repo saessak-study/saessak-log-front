@@ -9,6 +9,7 @@ interface Props {
 
 const WritePost: React.FC<Props> = ({ onClickToggleModal }) => {
   // const [showModal, setShowModal] = useState<boolean>(false);
+  // const []
   return (
     <div className={styles.write_modal_container_wrapper}>
       <Modal onClickToggleModal={onClickToggleModal} title='게시물 작성'>
@@ -24,6 +25,7 @@ const WritePost: React.FC<Props> = ({ onClickToggleModal }) => {
               <input
                 className={styles.write_modal_text_input}
                 placeholder='게시글을 작성하는 공간이에요'
+                // onChange={}
               />
             </div>
           </div>
