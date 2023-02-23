@@ -1,0 +1,65 @@
+@import '../../style/common.scss';
+
+$btnSize: 60px;
+@include desktop {
+  .sideBtn {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 80px;
+    bottom: 20px;
+    cursor: pointer;
+  }
+  .green_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    background-color: $main_green;
+    width: $btnSize;
+    height: $btnSize;
+    border-radius: $btnSize;
+  }
+  .route_user {
+    @extend .green_btn;
+    display: none;
+  }
+  .route_add {
+    @extend .green_btn;
+  }
+}
+
+@include mobile {
+  .sideBtn {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 10px;
+    bottom: 20px;
+    cursor: pointer;
+  }
+  .route_user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    background-color: $main_green;
+    width: $btnSize;
+    height: $btnSize;
+    border-radius: $btnSize;
+    margin-bottom: 10px;
+  }
+  .route_add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    background-color: $main_green;
+    width: $btnSize;
+    height: $btnSize;
+    border-radius: $btnSize;
+  }
+}
