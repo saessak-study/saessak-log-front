@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import WritePost from '../WritePost/WritePost';
 
 const SideRouteBtn = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const [showWriteModal, setShowWriteModal] = useState<boolean>(false);
   const onClickWritePost = () => {
     setShowWriteModal((prev) => !prev);

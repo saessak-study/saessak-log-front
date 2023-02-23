@@ -2,12 +2,14 @@ import styles from './header.module.scss';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FaUserAlt } from 'react-icons/fa';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isModalView, setIsModalView] = useState(false);
   const modalClick = () => {
     setIsModalView((prevState) => !prevState);
   };
+  const navigate = useNavigate();
   return (
     <div className={styles.top_nav}>
       <div className={styles.nav_logo}>
@@ -29,7 +31,14 @@ const Header = () => {
             <div className={styles.modal_circle}>
               <FaUserAlt />
             </div>
-            <li>계정관리</li>
+            <li
+              onClick={() => {
+                navigate('/myaccount');
+              }}
+              role='presentation'
+            >
+              계정관리
+            </li>
             <li>내활동</li>
             <li>구독함</li>
             <li className={styles.modal_logout}>로그아웃</li>
