@@ -3,7 +3,6 @@ import './style/common.scss';
 import SearchPage from './pages/Search/SearchPage';
 import Main from './pages/Main';
 import MyAccountPage from './pages/MyAccount/MyAccount';
-import MyActivity from './pages/MyActivity/MyActivity';
 import MainPage from './pages/Home/MainPage';
 import ModalOpen from './pages/ModalOpen';
 import MyWork from './pages/MyWork/MyWork';
