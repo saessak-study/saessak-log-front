@@ -6,7 +6,7 @@ interface Props {
   onClickToggleModal: () => void;
 }
 
-const FindPwModal: React.FC<Props> = ({ onClickToggleModal }) => {
+const FindPwModal = ({ onClickToggleModal }: Props) => {
   return (
     <div>
       <Modal onClickToggleModal={onClickToggleModal} title='비밀번호찾기'>

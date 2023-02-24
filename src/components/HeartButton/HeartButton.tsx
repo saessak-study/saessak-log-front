@@ -8,7 +8,7 @@ interface Props {
   likeCount: number;
 }
 
-const HeartButton: React.FC<Props> = ({ onClick, likeCount }: Props) => {
+const HeartButton = ({ onClick, likeCount }: Props) => {
   const [isLike, setIsLike] = useState<boolean>(false);
 
   const handleLike = () => {

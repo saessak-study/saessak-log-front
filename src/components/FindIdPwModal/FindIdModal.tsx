@@ -6,7 +6,7 @@ interface Props {
   onClickToggleModal: () => void;
 }
 
-const FindIdModal: React.FC<Props> = ({ onClickToggleModal }) => {
+const FindIdModal = ({ onClickToggleModal }: Props) => {
   return (
     <div>
       <Modal onClickToggleModal={onClickToggleModal} title='아이디찾기'>

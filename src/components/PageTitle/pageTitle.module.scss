@@ -1,0 +1,41 @@
+@import '../../style/common.scss';
+
+@include desktop {
+  .title_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+  .page_title {
+    font-size: 40px;
+    margin-left: 30px;
+  }
+  .route_home {
+    display: none;
+  }
+}
+
+@include mobile {
+  .title_container {
+    position: absolute;
+    top: 0;
+    box-shadow: $common_box_shadow;
+    background-color: white;
+    z-index: 2;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30px;
+    width: 100%;
+    padding: 0 40px;
+  }
+  .page_title {
+    font-size: 30px;
+    margin: 0px;
+  }
+  .route_home {
+    display: block;
+    cursor: pointer;
+  }
+}
