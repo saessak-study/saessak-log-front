@@ -5,8 +5,11 @@ import { useState } from 'react';
 
 const SearchResult = () => {
   const [isLikeOrder, setIsLikeOrder] = useState(true);
-  const orderClick = () => {
-    setIsLikeOrder((prevState) => !prevState);
+  const likeClick = () => {
+    setIsLikeOrder(true);
+  };
+  const commentClick = () => {
+    setIsLikeOrder(false);
   };
   const typedWord = useSelector((state: searchType) => {
     return state.search.value;
@@ -23,7 +26,7 @@ const SearchResult = () => {
       <div className={styles.searchBtn_wrap}>
         <div
           className={isLikeOrder === true ? styles.searchBtn_on : styles.searchBtn_off}
-          onClick={orderClick}
+          onClick={likeClick}
           role='button'
           tabIndex={0}
         >
@@ -31,7 +34,7 @@ const SearchResult = () => {
         </div>
         <div
           className={isLikeOrder === true ? styles.searchBtn_off : styles.searchBtn_on}
-          onClick={orderClick}
+          onClick={commentClick}
           role='button'
           tabIndex={0}
         >
