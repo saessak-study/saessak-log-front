@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 
 import postSlice from './post';
-import imageSlice from './image';
+import uploadPostSlice from './uploadPost';
 
 // (이전상태, 액션) => 다음상태
 const rootReducer = combineReducers({
   post: postSlice.reducer,
-  image: imageSlice.reducer,
+  uploadPost: uploadPostSlice.reducer,
 });
 
 export default rootReducer;
