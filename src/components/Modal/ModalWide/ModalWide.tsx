@@ -8,7 +8,7 @@ interface Props {
   title: string;
 }
 
-const ModalWide: React.FC<Props> = ({ onClickToggleModal, children, title }) => {
+const ModalWide = ({ onClickToggleModal, children, title }: Props) => {
   const closeAction = (e: React.MouseEvent) => {
     e.preventDefault();
 

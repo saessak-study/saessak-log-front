@@ -7,7 +7,7 @@ interface Props {
   onClickToggleModal: () => void;
 }
 
-const WritePost: React.FC<Props> = ({ onClickToggleModal }) => {
+const WritePost = ({ onClickToggleModal }: Props) => {
   // const [showModal, setShowModal] = useState<boolean>(false);
   return (
     <div className={styles.write_modal_container_wrapper}>

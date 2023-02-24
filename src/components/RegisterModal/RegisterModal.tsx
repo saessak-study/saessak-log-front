@@ -17,7 +17,7 @@ interface Props {
 }
 
 // eslint-disable-next-line react/prop-types
-const RegisterModal: React.FC<Props> = ({ onClickToggleModal }) => {
+const RegisterModal = ({ onClickToggleModal }: Props) => {
   // register
   const [inputs, setInputs] = useState({
     userId: '',

@@ -11,7 +11,7 @@ interface Props {
   onClickToggleModal: () => void;
 }
 
-const ReadPost: React.FC<Props> = ({ onClickToggleModal }) => {
+const ReadPost = ({ onClickToggleModal }: Props) => {
   const [likeCount, setLikeCount] = useState<number>(0);
 
   const onClickheartBtn = (isLike: boolean) => {
