@@ -39,10 +39,12 @@ const Header = () => {
       onSearching();
     }
   };
-
+  const routeToMain = () => {
+    navigate('/');
+  };
   return (
     <div className={styles.top_nav}>
-      <div className={styles.nav_logo}>
+      <div className={styles.nav_logo} onClick={routeToMain} role='button' tabIndex={0}>
         <img src='img/temp.png' />
         <img src='img/logo_title.png' />
       </div>

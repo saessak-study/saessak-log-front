@@ -1,12 +1,17 @@
 import styles from './searchResult.module.scss';
 import { useSelector } from 'react-redux';
-import searchSlice from '../../reducers/search';
 import { searchType } from '../../types/search';
+import { useState } from 'react';
 
 const SearchResult = () => {
+  const [isLikeOrder, setIsLikeOrder] = useState(true);
+  const orderClick = () => {
+    setIsLikeOrder((prevState) => !prevState);
+  };
   const typedWord = useSelector((state: searchType) => {
     return state.search.value;
   });
+
   return (
     <div className={styles.search_container}>
       <div className={styles.search_result}>
@@ -16,8 +21,22 @@ const SearchResult = () => {
         에 대한 검색 결과
       </div>
       <div className={styles.searchBtn_wrap}>
-        <div className={styles.searchBtn_on}>좋아요순</div>
-        <div className={styles.searchBtn_off}>댓글순</div>
+        <div
+          className={isLikeOrder === true ? styles.searchBtn_on : styles.searchBtn_off}
+          onClick={orderClick}
+          role='button'
+          tabIndex={0}
+        >
+          좋아요순
+        </div>
+        <div
+          className={isLikeOrder === true ? styles.searchBtn_off : styles.searchBtn_on}
+          onClick={orderClick}
+          role='button'
+          tabIndex={0}
+        >
+          댓글순
+        </div>
       </div>
       {/* <div className={styles.searched_none}>일치하는 검색결과가 없습니다.</div> */}
     </div>
