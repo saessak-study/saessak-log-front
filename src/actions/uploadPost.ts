@@ -1,13 +1,10 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { uploadPost } from '../types/post';
+import { uploadPostState } from '../types/post';
 
-// axios.defaults.baseURL = '';
+axios.defaults.baseURL = 'http://52.78.251.23:8080';
 
-// export const uploadPost = createAsyncThunk<uploadPost>('/newPost',  async () => {
-//   try {
-//     const response = await axios.post('/newPost');
-//     return response.data;
-//   } catch (error) {
-//     return error.response.data;
-//   });
+export const uploadPost = createAsyncThunk('/posts/new', async (data: uploadPostState) => {
+  const response = await axios.post('/posts/new');
+  return response.data;
+});

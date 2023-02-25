@@ -3,7 +3,7 @@ export interface post {
   content: string;
 }
 
-export interface uploadPost {
-  image: string | null;
-  content: string;
+export interface uploadPostState {
+  imageFile: string;
+  postText: string;
 }
