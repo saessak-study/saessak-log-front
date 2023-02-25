@@ -1,23 +1,35 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { uploadPostState } from '../types/post';
+import { uploadPostState } from '../types/uploadpost';
+import { uploadPost } from '../actions/uploadPost';
+import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState: uploadPostState = {
-  imageFile: '',
-  postText: '',
+  uploadPost: [],
+  uploadPostLoading: false,
+  uploadPostDone: false,
+  uploadPostError: null,
 };
 
 const uploadPostSlice = createSlice({
   name: 'uploadPost',
   initialState,
-  reducers: {
-    setImageFile: (state, action: PayloadAction<string>) => {
-      state.imageFile = action.payload;
-    },
-    setPostText: (state, action: PayloadAction<string>) => {
-      state.postText = action.payload;
-    },
-  },
+  reducers: {},
+  extraReducers: (builder) =>
+    builder
+      .addCase(uploadPost.pending, (state) => {
+        state.uploadPostLoading = true;
+        state.uploadPostDone = false;
+        state.uploadPostError = null;
+      })
+      .addCase(uploadPost.fulfilled, (state, action) => {
+        state.uploadPost = action.payload;
+        state.uploadPostLoading = false;
+        state.uploadPostDone = true;
+        state.uploadPostError = null;
+      })
+      .addCase(uploadPost.rejected, (state, action) => {
+        state.uploadPostLoading = false;
+        state.uploadPostError = action.error.message;
+      }),
 });
 
-export const { setImageFile, setPostText } = uploadPostSlice.actions;
 export default uploadPostSlice;

@@ -1,19 +1,27 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { setImageFile, setPostText } from '../../reducers/uploadPost';
+import React, { useState, useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import { uploadPost } from '../../actions/uploadPost';
 import Modal from '../Modal/Modal';
 import styles from './writePost.module.scss';
-import { AppDispatch } from '../../store/configureStore';
 
 interface Props {
   onClickToggleModal: () => void;
 }
 
 const WritePost = ({ onClickToggleModal }: Props) => {
-  const [content, setContent] = useState<string>('');
-  const [imagePreview, setImagePreview] = useState<string>('');
-  const dispatch = useDispatch<AppDispatch>();
+  const [postText, setpostText] = useState<string>('');
+  const [imageFile, setImageFile] = useState<string>('');
+  const { uploadPostLoading, uploadPostDone, uploadPostError } = useAppSelector(
+    (state) => state.uploadPost
+  );
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (uploadPostLoading) {
+      setImageFile('');
+      setpostText('');
+    }
+  }, [dispatch, uploadPostLoading]);
 
   const handleChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -21,29 +29,29 @@ const WritePost = ({ onClickToggleModal }: Props) => {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
-        setImagePreview(reader.result as string);
+        setImageFile(reader.result as string);
         console.log('디스패치 될 이미지 데이터', reader.result as string);
-        console.log('디스패치 될 이미지 데이터 타입', typeof reader.result as string);
-        dispatch(setImageFile(reader.result as string));
       };
     }
   };
 
   const handleChangeText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setContent(e.target.value);
-    dispatch(setPostText(content));
-    console.log('디스패치 될 글씨 데이터', content);
-    console.log('디스패치 될 글씨 데이터 타입', typeof content);
+    setpostText(e.target.value);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (imagePreview && content) {
-      const newPostObj = { imageFile: imagePreview, postText: content };
+    if (imageFile && postText) {
+      const newPostObj = { imageFile, postText };
       dispatch(uploadPost(newPostObj));
       console.log('api 보내는 녀석: ', newPostObj);
-      alert('게시글 작성이 완료되었습니다.');
-      onClickToggleModal();
+      if (uploadPostDone) {
+        alert('게시글 작성이 완료되었습니다.');
+        onClickToggleModal();
+      } else if (uploadPostError) {
+        alert('게시글 작성 실패!');
+        onClickToggleModal();
+      }
     }
   };
 
@@ -52,9 +60,9 @@ const WritePost = ({ onClickToggleModal }: Props) => {
       <Modal onClickToggleModal={onClickToggleModal} title='게시물 작성'>
         <form onSubmit={handleSubmit}>
           <div className={styles.write_modal_img_container_web}>
-            {imagePreview ? (
+            {imageFile ? (
               <div className={styles.img_upload_view_container}>
-                <img src={imagePreview} className={styles.img} />
+                <img src={imageFile} className={styles.img} />
               </div>
             ) : (
               <input
@@ -68,9 +76,9 @@ const WritePost = ({ onClickToggleModal }: Props) => {
           <div className={styles.write_modal_non_img_container}>
             <div className={styles.write_modal_post_section}>
               <div className={styles.write_modal_img_container_mobile}>
-                {imagePreview ? (
+                {imageFile ? (
                   <div className={styles.img_upload_view_container}>
-                    <img src={imagePreview} className={styles.img} />
+                    <img src={imageFile} className={styles.img} />
                   </div>
                 ) : (
                   <input
