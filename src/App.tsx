@@ -7,6 +7,7 @@ import MainPage from './pages/Home/MainPage';
 import ModalOpen from './pages/ModalOpen';
 import MyWork from './pages/MyWork/MyWork';
 import MySubscribe from './pages/MySubscribe/MySubscribe';
+import Test from './pages/Test';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/hayeong-check' element={<Main />} />
         <Route path='/dajeong-check' element={<ModalOpen />} />
         <Route path='/mySubscribe' element={<MySubscribe />} />
+        <Route path='/test' element={<Test />} />
       </Routes>
     </BrowserRouter>
   );
