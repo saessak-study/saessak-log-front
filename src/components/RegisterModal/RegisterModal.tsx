@@ -3,6 +3,8 @@ import Modal from '../Modal/ModalWide/ModalWide';
 import styles from './registerModal.module.scss';
 // eslint-disable-next-line import/no-cycle
 import RegisterInput from './RegisterInput';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import {
   EMAIL_VALID_CHECK,
   PW_CONFIRMATION_CHECK,
@@ -28,14 +30,17 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
   });
 
   const { userId, userPw, userPwChk, userEmail, userName } = inputs;
-  const [idMSG, setIdMSG] = useState(false);
-  const [pwMSG, setPwMSG] = useState(false);
-  const [pwValidMSG, setPwValidMSG] = useState(false);
-  const [nameMSG, setNameMSG] = useState(false);
-  const [emailMSG, setEmailMSG] = useState(false);
+  const navigate = useNavigate();
+
+  const [idMSG, setIdMSG] = useState(true);
+  const [pwMSG, setPwMSG] = useState(true);
+  const [pwValidMSG, setPwValidMSG] = useState(true);
+  const [nameMSG, setNameMSG] = useState(true);
+  const [emailMSG, setEmailMSG] = useState(true);
 
   const onChangeInputs = (e: { target: { value: any; name: any } }) => {
     const { value, name } = e.target;
+    setIdMSG(true);
     setInputs({
       ...inputs,
       [name]: value,
@@ -50,11 +55,29 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
     if (userId) {
       if (regId.test(userId)) {
         setIdMSG(false);
-        // onCheckIdContinue();
+        onCheckIdContinue(); //아이디 중복체크 api
       } else {
+        setIdMSG(true);
         alert('아이디 정보를 확인하세요');
       }
     }
+  };
+
+  // 아이디 중복 체크 api
+  const onCheckIdContinue = async () => {
+    await axios
+      .post('/id-duplicate-check', { id: userId })
+      .then((response) => {
+        console.log(response);
+        alert('사용 가능한 아이디입니다.');
+        setIdMSG(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log('Error: ', error.response.data.responseMessage);
+        alert(error.response.data.responseMessage);
+        setIdMSG(true);
+      });
   };
 
   /**
@@ -73,24 +96,56 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
     } else if (emailMSG === true) {
       alert('이메일 형식이 올바르지 않습니다.');
     } else {
-      // onRegisterHandler();
+      onRegisterHandler(); //회원가입 완료 api
     }
   };
+
+  //회원가입 완료 api
+  const onRegisterHandler = async () => {
+    let body = {
+      id: userId,
+      mail: userEmail,
+      name: userName,
+      pw: userPw,
+    };
+    await axios
+      .put('/sign-up', body)
+      .then((response) => {
+        console.log(response);
+        alert('회원 가입이 완료되었습니다!');
+        // mutate();
+        navigate('/');
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log('Error: ', error.response.data.responseMessage);
+        alert(error.response.data.responseMessage);
+      });
+  };
+
   /**
    * & input의 유효성검사에 따른 메세지 상태변경
    */
   useEffect(() => {
     if (userPw && regPassword.test(userPw)) {
       setPwMSG(false);
+    } else if (!regPassword.test(userPw)) {
+      setPwMSG(true);
     }
     if (userPw && userPwChk && userPw === userPwChk) {
       setPwValidMSG(false);
+    } else if (!userPwChk || userPw !== userPwChk || !regPassword.test(userPwChk)) {
+      setPwValidMSG(true);
     }
     if (userName && regName.test(userName)) {
       setNameMSG(false);
+    } else if (!regName.test(userName)) {
+      setNameMSG(true);
     }
     if (userEmail && regEmail.test(userEmail)) {
       setEmailMSG(false);
+    } else if (!regEmail.test(userEmail)) {
+      setEmailMSG(true);
     }
   }, [userPw, userPwChk, userName, userEmail]);
 
