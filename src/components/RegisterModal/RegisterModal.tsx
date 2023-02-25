@@ -66,7 +66,7 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
   // 아이디 중복 체크 api
   const onCheckIdContinue = async () => {
     await axios
-      .post('/id-duplicate-check', { id: userId })
+      .post('http://52.78.251.23:8080/user/duplicate', { id: userId })
       .then((response) => {
         console.log(response);
         alert('사용 가능한 아이디입니다.');
@@ -75,7 +75,7 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
       .catch((error) => {
         console.log(error);
         console.log('Error: ', error.response.data.responseMessage);
-        alert(error.response.data.responseMessage);
+        alert('중복된 아이디입니다.');
         setIdMSG(true);
       });
   };
@@ -109,7 +109,7 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
       pw: userPw,
     };
     await axios
-      .put('/sign-up', body)
+      .put('http://52.78.251.23:8080//user/join', body)
       .then((response) => {
         console.log(response);
         alert('회원 가입이 완료되었습니다!');
