@@ -161,7 +161,6 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
             <button type='button' className={styles.reg_normal} onClick={onLastCheck}>
               회원가입
             </button>
-            <div className={styles.reg_kakao}>카카오 회원가입</div>
           </div>
         </div>
       </Modal>

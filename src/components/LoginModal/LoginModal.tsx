@@ -122,7 +122,6 @@ const LoginModal = ({ onClickToggleModal }: Props) => {
             <button type='button' className={styles.login_normal} onClick={loginBtnAction}>
               로그인
             </button>
-            <div className={styles.login_kakao}>카카오 로그인</div>
           </div>
           <label className={styles.autologin_radiobutton}>
             <input type='checkbox' value='autologin' /> 자동 로그인

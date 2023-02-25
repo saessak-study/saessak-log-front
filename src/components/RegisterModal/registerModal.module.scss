@@ -90,30 +90,12 @@
     margin: 10px 0 0;
     font-size: 24px;
     transition: all ease 0.2s;
-    width: 260px;
+    width: 300px;
     background-color: $main_green;
     &:hover {
       background-color: #fff;
       color: $main_green;
       border: 3px solid $main_green;
-    }
-  }
-  .reg_kakao {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    border-radius: 30px;
-    height: 48px;
-    font-size: 24px;
-    transition: all ease 0.2s;
-    margin: 10px 0 0 0;
-    width: 260px;
-    background-color: $kakao_yellow;
-    &:hover {
-      background-color: #fff;
-      border: 3px solid $kakao_yellow;
     }
   }
   .route_login {
@@ -214,7 +196,7 @@
     margin-left: 30px;
   }
   .reg_buttonBox {
-    width: 335px;
+    width: 75%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -233,30 +215,12 @@
     margin: 10px 0 0;
     font-size: 18px;
     transition: all ease 0.2s;
-    width: 160px;
+    width: 75%;
     background-color: $main_green;
     &:hover {
       background-color: #fff;
       color: $main_green;
       border: 3px solid $main_green;
-    }
-  }
-  .reg_kakao {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    border-radius: 30px;
-    height: 48px;
-    font-size: 18px;
-    transition: all ease 0.2s;
-    width: 160px;
-    background-color: $kakao_yellow;
-    margin: 10px 0 0 0;
-    &:hover {
-      background-color: #fff;
-      border: 3px solid $kakao_yellow;
     }
   }
   .route_login {
