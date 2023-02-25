@@ -6,7 +6,8 @@ const Footer = () => {
     <footer>
       <div className={styles.infoContainer}>
         <ul>
-          <li>2023.02</li>
+          <li>2023년</li>
+          <li>02월</li>
           <li>새싹로그</li>
           <li>초보</li>
           <li>개발</li>
@@ -26,6 +27,9 @@ const Footer = () => {
           <option value=''>준호</option>
           <option value=''>성환</option>
         </select>
+      </div>
+      <div className={styles.copyright}>
+        <div>© 2023 saessak-log from saessakStudy</div>
       </div>
     </footer>
   );

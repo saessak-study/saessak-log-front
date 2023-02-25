@@ -1,12 +1,15 @@
 @import '../../style/common.scss';
-
+@font-face {
+  font-family: DoHyeon;
+  src: url(../../assets/font/Do_Hyeon/DoHyeon-Regular.ttf);
+}
 @include desktop {
   .reg_container {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -40,6 +43,8 @@
     width: 400px;
   }
   .verify_id {
+    font-family: DoHyeon;
+    border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -73,6 +78,8 @@
     align-items: center;
   }
   .reg_normal {
+    font-family: DoHyeon;
+    border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -85,104 +92,137 @@
     transition: all ease 0.2s;
     width: 260px;
     background-color: $main_green;
-  }
-  .reg_kakao {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    border-radius: 30px;
-    height: 48px;
-    font-size: 24px;
-    transition: all ease 0.2s;
-    width: 260px;
-    background-color: $kakao_yellow;
-  }
-  .route_login {
-    //임시 칼라 지정
-    color: #696969;
-    margin-top: 30px;
-    margin-bottom: 40px;
-    cursor: pointer;
-  }
-}
-@include mobile {
-  .reg_container {
-    width: 375px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .reg_title {
-    font-size: 30px;
-    padding: 50px 0 20px;
-  }
-  .register_input {
-    background-color: $account_input;
-    border: none;
-    height: 38px;
-    padding-left: 30px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 30px;
-    width: 330px;
-    margin: 0 15px;
-  }
-  .reg_inputID {
-    width: 100%;
-    padding: 0 23px;
-    display: flex;
-    justify-content: center;
-  }
-  .inputBox_id {
-    background-color: $account_input;
-    border: none;
-    height: 38px;
-    padding-left: 30px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 30px;
-    width: 400px;
-  }
-  .verify_id {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    border-radius: 30px;
-    height: 38px;
-    font-size: 18px;
-    transition: all ease 0.2s;
-    background-color: $main_green;
-    width: 160px;
-    margin-left: 7px;
     &:hover {
       background-color: #fff;
       color: $main_green;
       border: 3px solid $main_green;
     }
   }
+  .reg_kakao {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 30px;
+    height: 48px;
+    font-size: 24px;
+    transition: all ease 0.2s;
+    margin: 10px 0 0 0;
+    width: 260px;
+    background-color: $kakao_yellow;
+    &:hover {
+      background-color: #fff;
+      border: 3px solid $kakao_yellow;
+    }
+  }
+  .route_login {
+    //임시 칼라 지정
+    color: #696969;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+@include mobile {
+  // 전체 컨테이너
+  .reg_container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .reg_title {
+    font-size: 33px;
+    padding: 50px 0 30px;
+  }
+
+  // ID input & 중복검사
+  .reg_inputID {
+    width: 100%;
+    padding: 0 23px;
+    display: flex;
+    justify-content: center;
+  }
+  // ID input
+  .inputBox_id {
+    background-color: $account_input;
+    border: none;
+    height: 42px;
+    padding-left: 35px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    width: 70%;
+  }
+  // 중복검사
+  .verify_id {
+    font-family: DoHyeon;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 30px;
+    padding: 0 10px;
+    height: 42px;
+    font-size: 1rem;
+    transition: all ease 0.2s;
+    background-color: $main_green;
+    width: 30%;
+    margin-left: 5px;
+    &:hover {
+      background-color: #fff;
+      color: $main_green;
+      border: 3px solid $main_green;
+    }
+  }
+
+  // pw ~ email input & error red msg
+  .reg_inputComponent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 92%;
+  }
+  // pw ~ email input
+  .register_input {
+    background-color: $account_input;
+    border: none;
+    height: 42px;
+    padding-left: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    width: 100%;
+    margin: 0 15px;
+  }
   .reg_errorMSG {
     color: $account_red;
     font-weight: bold;
     margin: 10px 30px;
+    font-size: 15px;
   }
   .reg_errorID {
     width: 355px;
+    margin-left: 30px;
   }
   .reg_buttonBox {
     width: 335px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-top: 10px;
   }
   .reg_normal {
+    font-family: DoHyeon;
+    border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -195,6 +235,11 @@
     transition: all ease 0.2s;
     width: 160px;
     background-color: $main_green;
+    &:hover {
+      background-color: #fff;
+      color: $main_green;
+      border: 3px solid $main_green;
+    }
   }
   .reg_kakao {
     cursor: pointer;
@@ -208,6 +253,11 @@
     transition: all ease 0.2s;
     width: 160px;
     background-color: $kakao_yellow;
+    margin: 10px 0 0 0;
+    &:hover {
+      background-color: #fff;
+      border: 3px solid $kakao_yellow;
+    }
   }
   .route_login {
     //임시 칼라 지정
@@ -215,5 +265,6 @@
     margin-top: 30px;
     margin-bottom: 40px;
     cursor: pointer;
+    text-decoration: none;
   }
 }
