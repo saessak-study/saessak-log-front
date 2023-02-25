@@ -28,11 +28,11 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
   });
 
   const { userId, userPw, userPwChk, userEmail, userName } = inputs;
-  const [idMSG, setIdMSG] = useState(true);
-  const [pwMSG, setPwMSG] = useState(true);
-  const [pwValidMSG, setPwValidMSG] = useState(true);
-  const [nameMSG, setNameMSG] = useState(true);
-  const [emailMSG, setEmailMSG] = useState(true);
+  const [idMSG, setIdMSG] = useState(false);
+  const [pwMSG, setPwMSG] = useState(false);
+  const [pwValidMSG, setPwValidMSG] = useState(false);
+  const [nameMSG, setNameMSG] = useState(false);
+  const [emailMSG, setEmailMSG] = useState(false);
 
   const onChangeInputs = (e: { target: { value: any; name: any } }) => {
     const { value, name } = e.target;
