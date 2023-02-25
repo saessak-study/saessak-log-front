@@ -109,7 +109,7 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
       pw: userPw,
     };
     await axios
-      .put('http://52.78.251.23:8080//user/join', body)
+      .put('http://52.78.251.23:8080/user/join', body)
       .then((response) => {
         console.log(response);
         alert('회원 가입이 완료되었습니다!');
