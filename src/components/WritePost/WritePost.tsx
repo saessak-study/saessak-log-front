@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setImageFile, setPostText } from '../../reducers/uploadPost';
-import { uploadPostState } from '../../types/post';
 import { uploadPost } from '../../actions/uploadPost';
 import Modal from '../Modal/Modal';
 import styles from './writePost.module.scss';
