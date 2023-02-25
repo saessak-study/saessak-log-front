@@ -65,7 +65,7 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
   // 아이디 중복 체크 api
   const onCheckIdContinue = async () => {
     await axios
-      .post('http://52.78.251.23:8080/user/duplicate', { id: userId })
+      .post('http://52.78.251.23:8080/user/duplicate', { profileId: userId })
       .then((response) => {
         console.log(response);
         alert('사용 가능한 아이디입니다.');
@@ -101,14 +101,15 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
 
   //회원가입 완료 api
   const onRegisterHandler = async () => {
-    let body = {
-      id: userId,
-      mail: userEmail,
+    const body = {
+      email: userEmail,
       name: userName,
-      pw: userPw,
+      password: userPw,
+      passwordCheck: userPw,
+      profileId: userId,
     };
     await axios
-      .put('http://52.78.251.23:8080/user/join', body)
+      .post('http://52.78.251.23:8080/user/join', body)
       .then((response) => {
         console.log(response);
         alert('회원 가입이 완료되었습니다!');
