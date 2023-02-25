@@ -40,7 +40,6 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
 
   const onChangeInputs = (e: { target: { value: any; name: any } }) => {
     const { value, name } = e.target;
-    setIdMSG(true);
     setInputs({
       ...inputs,
       [name]: value,
