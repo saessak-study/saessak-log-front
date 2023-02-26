@@ -8,7 +8,7 @@ import { dummyData } from './dummyData';
 const CommentList = () => {
   const [comments, setComments] = useState({});
   const dispatch = useAppDispatch();
-  const { loadCommentLoading, loadCommentDone, loadCommentError, loadCommentList } = useAppSelector(
+  const { loadCommentLoading, loadCommentError, loadCommentList } = useAppSelector(
     (state) => state.loadComment
   );
   const postId = 1;
@@ -19,11 +19,15 @@ const CommentList = () => {
     loadComments();
   }, []);
   const loadComments = async () => {
+    const result = await dispatch(loadComment(params));
+    setComments(result.payload);
+    console.log(result.payload);
     if (loadCommentLoading) {
       setComments([]);
     }
-    const result = await dispatch(loadComment(params));
-    console.log(result);
+    if (loadCommentError) {
+      alert('댓글 못 불러옴');
+    }
     if (result.payload.length === 0) {
       alert('댓글 다 불러옴');
     }

@@ -25,7 +25,7 @@ const commentSlice = createSlice({
         state.loadCommentError = null;
       })
       .addCase(loadComment.fulfilled, (state, action) => {
-        state.loadCommentList = state.loadCommentList.concat(action.payload);
+        state.loadCommentList = action.payload;
         state.loadCommentLoading = false;
         state.loadCommentDone = true;
         state.loadCommentError = null;
