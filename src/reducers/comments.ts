@@ -21,7 +21,7 @@ const commentSlice = createSlice({
   // .addCase(loadComment.fulfilled, (state, action) => {
   //   state.loadCommentLoading = false;
   //   state.loadCommentDone = true;
-  //   state.commentList = [...state.commentList].concat(action.payload.results);
+  //   state.commentList = action.payload.results;
   // })
   // .addCase(loadComment.rejected, (state, action) => {
   //   state.loadCommentLoading = false;

@@ -62,29 +62,12 @@
     height: 48px;
     font-size: 24px;
     transition: all ease 0.2s;
-    width: 260px;
+    width: 300px;
     background-color: $main_green;
     &:hover {
       background-color: #fff;
       color: $main_green;
       border: 3px solid $main_green;
-    }
-  }
-  .login_kakao {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    border-radius: 30px;
-    height: 48px;
-    font-size: 24px;
-    transition: all ease 0.2s;
-    width: 260px;
-    background-color: $kakao_yellow;
-    &:hover {
-      background-color: #fff;
-      border: 3px solid $kakao_yellow;
     }
   }
   .autologin_radiobutton {
@@ -150,7 +133,7 @@
     margin: 5px;
   }
   .login_buttonBox {
-    width: 375px;
+    width: 75%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -167,29 +150,12 @@
     height: 48px;
     font-size: 18px;
     transition: all ease 0.2s;
-    width: 160px;
+    width: 75%;
     background-color: $main_green;
     &:hover {
       background-color: #fff;
       color: $main_green;
       border: 3px solid $main_green;
-    }
-  }
-  .login_kakao {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    border-radius: 30px;
-    height: 48px;
-    font-size: 18px;
-    transition: all ease 0.2s;
-    width: 160px;
-    background-color: $kakao_yellow;
-    &:hover {
-      background-color: #fff;
-      border: 3px solid $kakao_yellow;
     }
   }
   .autologin_radiobutton {

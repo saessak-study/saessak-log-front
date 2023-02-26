@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from '../Modal/ModalWide/ModalWide';
 import styles from './loginModal.module.scss';
 // eslint-disable-next-line import/no-cycle
@@ -8,8 +8,9 @@ import FindPwModal from '../FindIdPwModal/FindPwModal';
 // eslint-disable-next-line import/no-cycle
 import FindIdModal from '../FindIdPwModal/FindIdModal';
 import { INFO_INVALID } from '../../constants/message';
-
-// alert_message 띄우기까지 완료(from 다정)
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { regPassword, regId } from '../../constants/regEx';
 
 interface Props {
   onClickToggleModal: () => void;
@@ -40,6 +41,7 @@ const LoginModal = ({ onClickToggleModal }: Props) => {
   const [idValid, setIdValid] = useState(false);
   const [pwValid, setpwValid] = useState(false);
   const [isAlert, setIsAlert] = useState(false);
+  const navigate = useNavigate();
 
   // input 추가
   const onChangeInputs = (e: { target: { value: any; name: any } }) => {
@@ -50,6 +52,13 @@ const LoginModal = ({ onClickToggleModal }: Props) => {
     });
   };
 
+  useEffect(() => {
+    if (regId.test(userId) && userId) setIdValid(true);
+    if (regPassword.test(userPw) && userPw) setpwValid(true);
+    if (!regId.test(userId) || !userId) setIdValid(false);
+    if (!regPassword.test(userPw) || !userPw) setpwValid(false);
+  }, [userId, userPw]);
+
   // id or pw error -> alert
   const loginBtnAction = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -59,7 +68,29 @@ const LoginModal = ({ onClickToggleModal }: Props) => {
       setIsAlert(true);
     } else {
       setIsAlert(false);
-      // handleSubmit(e);
+      handleSubmit(e);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    let body = {
+      profileId: userId,
+      password: userPw,
+    };
+    e.preventDefault();
+    if (idValid && pwValid) {
+      axios
+        .post('http://52.78.251.23:8080/user/login', body)
+        .then((response) => {
+          alert('로그인되었습니다.');
+          localStorage.setItem('profileId', userId);
+          navigate('/');
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log('Error: ', error.message);
+          alert(error.response.data.responseMessage);
+        });
     }
   };
 
@@ -122,7 +153,6 @@ const LoginModal = ({ onClickToggleModal }: Props) => {
             <button type='button' className={styles.login_normal} onClick={loginBtnAction}>
               로그인
             </button>
-            <div className={styles.login_kakao}>카카오 로그인</div>
           </div>
           <label className={styles.autologin_radiobutton}>
             <input type='checkbox' value='autologin' /> 자동 로그인
