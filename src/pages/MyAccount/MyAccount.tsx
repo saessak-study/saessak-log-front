@@ -1,6 +1,15 @@
-import { useState } from 'react';
-import { IoMdPerson } from 'react-icons/io';
+import { useState, FormEvent, ChangeEvent } from 'react';
+import { Link } from 'react-router-dom';
+
+import Header from '../../components/common/Header';
+import PageTitle from '../../components/PageTitle/PageTitle';
 import PasswordChangeModal from '../../components/PasswordChangeModal/PasswordChangeModal';
+
+import { PW_CONFIRMATION_CHECK, PW_VALID_CHECK } from '../../constants/message';
+import { regPassword } from '../../constants/regEx';
+import { myAccount } from '../../constants/title';
+
+import { IoMdPerson } from 'react-icons/io';
 import styles from './myAccount.module.scss';
 
 const dummyData = {
@@ -10,45 +19,83 @@ const dummyData = {
 };
 
 const MyAccountPage = () => {
-  const [isModalView, setIsModalView] = useState(true);
+  const [isModalView, setIsModalView] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [password, setPassword] = useState('');
+  const [passwordCheck, setPasswordCheck] = useState('');
+  const [passwordValid, setPasswordValid] = useState(true);
+
+  const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+    setPasswordError(e.target.value !== passwordCheck);
+    setPasswordValid(regPassword.test(e.target.value));
+  };
+
+  const onChangePasswordCheck = (e: ChangeEvent<HTMLInputElement>) => {
+    setPasswordCheck(e.target.value);
+    setPasswordError(e.target.value !== password);
+  };
+
+  const onClickSave = (e: FormEvent) => {
+    e.preventDefault();
+    setIsModalView(true);
+  };
 
   return (
     <>
-      {isModalView && <PasswordChangeModal />}
+      <Header />
+      <PageTitle title={myAccount} />
       <div className={styles.account_wrapper}>
-        <span>
-          <IoMdPerson size='70' />
+        <span className={styles.icon}>
+          <IoMdPerson size='90' />
         </span>
-        <div>
+        <div className={styles.input_wrapper}>
           <label htmlFor='id'>ID</label>
           <input type='text' id='id' disabled defaultValue={dummyData.id} />
         </div>
-        <div>
+        <div className={styles.input_wrapper}>
           <label htmlFor='eamil'>Email</label>
           <input type='text' id='email' disabled defaultValue={dummyData.email} />
         </div>
-        <div>
+        <div className={styles.input_wrapper}>
           <label htmlFor='name'>이름</label>
           <input type='text' id='name' disabled defaultValue={dummyData.name} />
         </div>
-        <div>
-          <label htmlFor='password' />
-          <input type='text' id='password' placeholder='password' />
-        </div>
-        <div>
-          <label htmlFor='password-check' />
-          <input type='text' id='password-check' placeholder='password check' />
-        </div>
+      </div>
 
-        <div>
-          <button type='button' className={styles.cancel_button}>
-            취소
-          </button>
-          <button type='submit' className={styles.save_button}>
+      <form action='submit' onSubmit={onClickSave}>
+        <label htmlFor='password' />
+        <input
+          type='password'
+          id='password'
+          placeholder='password'
+          value={password}
+          onChange={onChangePassword}
+          required
+        />
+        <label htmlFor='password-check' />
+        <input
+          type='password'
+          id='password-check'
+          placeholder='password check'
+          value={passwordCheck}
+          onChange={onChangePasswordCheck}
+          required
+        />
+        {passwordError && <div className={styles.message}>{PW_CONFIRMATION_CHECK}</div>}
+        {!passwordValid && <div className={styles.message}>{PW_VALID_CHECK}</div>}
+        <div className={styles.button_wrapper}>
+          <Link to='/' className={styles.cancel_button}>
+            <button type='button' className={styles.cancel_button}>
+              취소
+            </button>
+          </Link>
+          <button type='submit' className={styles.save_button} disabled={passwordError}>
             저장
           </button>
         </div>
-      </div>
+      </form>
+      {isModalView && <PasswordChangeModal />}
     </>
   );
 };
