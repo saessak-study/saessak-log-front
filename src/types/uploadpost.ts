@@ -1,6 +1,6 @@
 // api보낼 인터페이스
 export interface uploadPostContents {
-  imageFile: string;
+  imageFile: File | null;
   postText: string;
 }
 
