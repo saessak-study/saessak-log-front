@@ -24,13 +24,13 @@ const WritePost = ({ onClickToggleModal }: Props) => {
   }, [dispatch, uploadPostLoading]);
 
   const handleChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
+    const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
-        setImageFile(reader.result as string);
-        console.log('디스패치 될 이미지 데이터', reader.result as string);
+        const base64 = reader.result;
+        setImageFile(base64.toString());
       };
     }
   };
@@ -44,11 +44,15 @@ const WritePost = ({ onClickToggleModal }: Props) => {
     if (imageFile && postText) {
       const newPostObj = { imageFile, postText };
       dispatch(uploadPost(newPostObj));
+
+      console.log('디스패치 될 이미지 데이터', imageFile);
       console.log('api 보내는 녀석: ', newPostObj);
+
       if (uploadPostDone) {
         alert('게시글 작성이 완료되었습니다.');
         onClickToggleModal();
-      } else if (uploadPostError) {
+      }
+      if (uploadPostError) {
         alert('게시글 작성 실패!');
         onClickToggleModal();
       }
