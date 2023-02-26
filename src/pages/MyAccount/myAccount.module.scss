@@ -1,9 +1,19 @@
 @import '../../style/common.scss';
 
 .account_wrapper {
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .icon {
+    margin: 20px 0;
+    box-shadow: $common_box_shadow;
+    border-radius: 50%;
+    padding: 15px;
+  }
+
   button {
     width: 105px;
     height: 45px;
@@ -12,27 +22,103 @@
     border-radius: 12px;
   }
 
-  .save_button {
-    background-color: $main_green;
-    color: white;
-  }
+  .input_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
 
-  .cancel_button {
-    color: $word_grey;
+    label {
+      text-align: left;
+      width: 50px;
+    }
+
+    input {
+      width: 347px;
+      height: 47px;
+      background-color: $account_input;
+      color: $word_grey;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      padding: 10px;
+
+      &:disabled {
+        background-color: white;
+      }
+    }
   }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+  width: 100%;
 
   input {
-    width: 347px;
+    width: 80%;
+    margin-bottom: 15px;
     height: 47px;
     background-color: $account_input;
     color: $word_grey;
     font-size: 18px;
     border: none;
     border-radius: 12px;
-    padding: 10px;
+    padding-left: 15px;
+
+    @include desktop {
+      width: 40%;
+    }
 
     &:disabled {
       background-color: white;
+    }
+  }
+
+  .message {
+    color: $account_red;
+  }
+
+  .button_wrapper {
+    justify-content: flex-end;
+    display: flex;
+    width: 80%;
+    height: 100%;
+
+    @include desktop {
+      width: 40%;
+    }
+
+    button {
+      width: 105px;
+      height: 45px;
+      margin-top: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .save_button {
+      background-color: $main_green;
+      color: white;
+
+      &:disabled {
+        background-color: $word_grey;
+        cursor: default;
+      }
+    }
+
+    .cancel_button {
+      margin-right: 5px;
+
+      a {
+        color: $word_grey;
+        text-decoration: none;
+      }
     }
   }
 }
