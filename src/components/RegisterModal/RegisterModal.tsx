@@ -3,6 +3,8 @@ import Modal from '../Modal/ModalWide/ModalWide';
 import styles from './registerModal.module.scss';
 // eslint-disable-next-line import/no-cycle
 import RegisterInput from './RegisterInput';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import {
   EMAIL_VALID_CHECK,
   PW_CONFIRMATION_CHECK,
@@ -28,6 +30,8 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
   });
 
   const { userId, userPw, userPwChk, userEmail, userName } = inputs;
+  const navigate = useNavigate();
+
   const [idMSG, setIdMSG] = useState(true);
   const [pwMSG, setPwMSG] = useState(true);
   const [pwValidMSG, setPwValidMSG] = useState(true);
@@ -50,11 +54,29 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
     if (userId) {
       if (regId.test(userId)) {
         setIdMSG(false);
-        // onCheckIdContinue();
+        onCheckIdContinue(); //아이디 중복체크 api
       } else {
+        setIdMSG(true);
         alert('아이디 정보를 확인하세요');
       }
     }
+  };
+
+  // 아이디 중복 체크 api
+  const onCheckIdContinue = async () => {
+    await axios
+      .post('http://52.78.251.23:8080/user/duplicate', { profileId: userId })
+      .then((response) => {
+        console.log(response);
+        alert('사용 가능한 아이디입니다.');
+        setIdMSG(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log('Error: ', error.response.data.responseMessage);
+        alert('중복된 아이디입니다.');
+        setIdMSG(true);
+      });
   };
 
   /**
@@ -73,24 +95,57 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
     } else if (emailMSG === true) {
       alert('이메일 형식이 올바르지 않습니다.');
     } else {
-      // onRegisterHandler();
+      onRegisterHandler(); //회원가입 완료 api
     }
   };
+
+  //회원가입 완료 api
+  const onRegisterHandler = async () => {
+    const body = {
+      email: userEmail,
+      name: userName,
+      password: userPw,
+      passwordCheck: userPw,
+      profileId: userId,
+    };
+    await axios
+      .post('http://52.78.251.23:8080/user/join', body)
+      .then((response) => {
+        console.log(response);
+        alert('회원 가입이 완료되었습니다!');
+        // mutate();
+        navigate('/');
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log('Error: ', error.response.data.responseMessage);
+        alert(error.response.data.responseMessage);
+      });
+  };
+
   /**
    * & input의 유효성검사에 따른 메세지 상태변경
    */
   useEffect(() => {
     if (userPw && regPassword.test(userPw)) {
       setPwMSG(false);
+    } else if (!regPassword.test(userPw)) {
+      setPwMSG(true);
     }
     if (userPw && userPwChk && userPw === userPwChk) {
       setPwValidMSG(false);
+    } else if (!userPwChk || userPw !== userPwChk || !regPassword.test(userPwChk)) {
+      setPwValidMSG(true);
     }
     if (userName && regName.test(userName)) {
       setNameMSG(false);
+    } else if (!regName.test(userName)) {
+      setNameMSG(true);
     }
     if (userEmail && regEmail.test(userEmail)) {
       setEmailMSG(false);
+    } else if (!regEmail.test(userEmail)) {
+      setEmailMSG(true);
     }
   }, [userPw, userPwChk, userName, userEmail]);
 
@@ -161,7 +216,6 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
             <button type='button' className={styles.reg_normal} onClick={onLastCheck}>
               회원가입
             </button>
-            <div className={styles.reg_kakao}>카카오 회원가입</div>
           </div>
         </div>
       </Modal>

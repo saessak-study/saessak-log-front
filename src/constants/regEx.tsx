@@ -4,4 +4,4 @@ export const regPassword = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$
 
 export const regId = /^[a-zA-z0-9]{4,12}$/;
 
-export const regName = /^[가-힣]+$/;
+export const regName = /^[가-힣a-zA-z]+$/;

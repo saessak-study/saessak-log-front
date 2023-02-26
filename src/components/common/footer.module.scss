@@ -36,7 +36,8 @@
 }
 
 @include mobile {
-  .infoContainer {
+  .infoContainer,
+  .copyright {
     display: none;
   }
 }
