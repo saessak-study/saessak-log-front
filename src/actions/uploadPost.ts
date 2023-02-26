@@ -10,7 +10,7 @@ export const uploadPost = createAsyncThunk(
   async (data: uploadPostContents, { rejectWithValue }) => {
     const formData = new FormData();
     formData.append('imageFile', data.imageFile);
-    formData.append('imageFile', data.postText);
+    formData.append('postText', data.postText);
     try {
       const response = await axios.post('/posts/new', formData, {
         headers: {
