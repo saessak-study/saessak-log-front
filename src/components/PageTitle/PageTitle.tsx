@@ -3,7 +3,11 @@ import styles from './pageTitle.module.scss';
 import { AiFillHome } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 
-const MyActivityPageTitle = () => {
+interface title {
+  title: string;
+}
+
+const PageTitle = ({ title }: title) => {
   const navigate = useNavigate();
   return (
     <div className={styles.title_container}>
@@ -13,10 +17,10 @@ const MyActivityPageTitle = () => {
           navigate('/');
         }}
       />
-      <span className={styles.page_title}>내 활동</span>
+      <span className={styles.page_title}>{title}</span>
       <span style={{ opacity: 0 }}>빈칸</span>
     </div>
   );
 };
 
-export default MyActivityPageTitle;
+export default PageTitle;
