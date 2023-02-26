@@ -3,7 +3,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import styles from './commentList.module.scss';
 import { dummyData } from './dummyData';
 
-const CommentList: React.FC = () => {
+const CommentList = () => {
   return (
     <div>
       {dummyData.map((comment) => (

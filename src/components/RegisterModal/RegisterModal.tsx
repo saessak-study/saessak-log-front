@@ -54,7 +54,7 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
     if (userId) {
       if (regId.test(userId)) {
         setIdMSG(false);
-        onCheckIdContinue(); //아이디 중복체크 api
+        onCheckIdContinue(); /* 아이디 중복체크 api */
       } else {
         setIdMSG(true);
         alert('아이디 정보를 확인하세요');
@@ -95,11 +95,11 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
     } else if (emailMSG === true) {
       alert('이메일 형식이 올바르지 않습니다.');
     } else {
-      onRegisterHandler(); //회원가입 완료 api
+      onRegisterHandler(); /* 회원가입 완료 api */
     }
   };
 
-  //회원가입 완료 api
+  /* 회원가입 완료 api */
   const onRegisterHandler = async () => {
     const body = {
       email: userEmail,
