@@ -228,4 +228,19 @@
     color: white;
     font-weight: bold;
   }
+
+  //이미지 크기 맞춰서 보여지게
+  .img_upload_view_container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.75rem 0 0 0.75rem;
+  }
+  .img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
