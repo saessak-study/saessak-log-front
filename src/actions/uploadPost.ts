@@ -4,7 +4,7 @@ import { uploadPostContents } from '../types/uploadpost';
 
 axios.defaults.baseURL = 'http://52.78.251.23:8080';
 const accessToken =
-  'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE1NiIsInByb2ZpbGVJZCI6InF3ZXIxMjM0IiwiaWF0IjoxNjc3MzgyMjUzLCJleHAiOjE2NzczOTIzMzN9.lOA7A9vnG_Wos3zJAsllF5KIrkcdCzU5nP8G-PT7A6o';
+  'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE1NiIsInByb2ZpbGVJZCI6InF3ZXIxMjM0IiwiaWF0IjoxNjc3Mzk1Nzc2LCJleHAiOjE2Nzc0MDU4NTZ9.ZNA8N67HetCmboq7DTjfbMw74P4eE4nUhVA9EQYPlRs';
 const headers = {
   Authorization: `Bearer ${accessToken}`,
 };
