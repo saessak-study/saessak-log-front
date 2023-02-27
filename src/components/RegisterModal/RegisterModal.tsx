@@ -95,11 +95,11 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
     } else if (emailMSG === true) {
       alert('이메일 형식이 올바르지 않습니다.');
     } else {
-      onRegisterHandler(); // 회원가입 완료 api
+      onRegisterHandler(); /* 회원가입 완료 api */
     }
   };
 
-  // 회원가입 완료 api
+  /* 회원가입 완료 api */
   const onRegisterHandler = async () => {
     const body = {
       email: userEmail,

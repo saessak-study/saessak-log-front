@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import { uploadPost } from '../../actions/uploadPost';
+import { uploadPostContents } from '../../types/uploadpost';
 import Modal from '../Modal/Modal';
 import styles from './writePost.module.scss';
 
@@ -9,53 +10,49 @@ interface Props {
 }
 
 const WritePost = ({ onClickToggleModal }: Props) => {
-  const [postText, setpostText] = useState<string>('');
-  const [imageFile, setImageFile] = useState<string>('');
-  const { uploadPostLoading, uploadPostDone, uploadPostError } = useAppSelector(
-    (state) => state.uploadPost
-  );
+  const [uploadData, setUploadData] = useState<uploadPostContents>({
+    imageFile: null,
+    postText: '',
+  });
+  const [previewImage, setPreviewImage] = useState<string>('');
+  const { uploadPostDone, uploadPostError } = useAppSelector((state) => state.uploadPost);
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    if (uploadPostLoading) {
-      setImageFile('');
-      setpostText('');
-    }
-  }, [dispatch, uploadPostLoading]);
 
   const handleChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files[0];
+    setUploadData({
+      ...uploadData,
+      imageFile: file,
+    });
     if (file) {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
         const base64 = reader.result;
-        setImageFile(base64.toString());
+        setPreviewImage(base64.toString());
       };
     }
   };
 
   const handleChangeText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setpostText(e.target.value);
+    setUploadData({
+      ...uploadData,
+      postText: e.target.value,
+    });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (imageFile && postText) {
-      const newPostObj = { imageFile, postText };
-      dispatch(uploadPost(newPostObj));
+    dispatch(uploadPost(uploadData));
+    console.log('api 보내는 녀석: ', uploadData);
 
-      console.log('디스패치 될 이미지 데이터', imageFile);
-      console.log('api 보내는 녀석: ', newPostObj);
-
-      if (uploadPostDone) {
-        alert('게시글 작성이 완료되었습니다.');
-        onClickToggleModal();
-      }
-      if (uploadPostError) {
-        alert('게시글 작성 실패!');
-        onClickToggleModal();
-      }
+    if (uploadPostDone) {
+      alert('게시글 작성이 완료되었습니다.');
+      onClickToggleModal();
+    }
+    if (uploadPostError) {
+      alert('게시글 작성 실패!');
+      onClickToggleModal();
     }
   };
 
@@ -64,9 +61,9 @@ const WritePost = ({ onClickToggleModal }: Props) => {
       <Modal onClickToggleModal={onClickToggleModal} title='게시물 작성'>
         <form onSubmit={handleSubmit}>
           <div className={styles.write_modal_img_container_web}>
-            {imageFile ? (
+            {previewImage ? (
               <div className={styles.img_upload_view_container}>
-                <img src={imageFile} className={styles.img} />
+                <img src={previewImage} className={styles.img} />
               </div>
             ) : (
               <input
@@ -80,9 +77,9 @@ const WritePost = ({ onClickToggleModal }: Props) => {
           <div className={styles.write_modal_non_img_container}>
             <div className={styles.write_modal_post_section}>
               <div className={styles.write_modal_img_container_mobile}>
-                {imageFile ? (
+                {previewImage ? (
                   <div className={styles.img_upload_view_container}>
-                    <img src={imageFile} className={styles.img} />
+                    <img src={previewImage} className={styles.img} />
                   </div>
                 ) : (
                   <input
@@ -97,6 +94,7 @@ const WritePost = ({ onClickToggleModal }: Props) => {
                 <textarea
                   id='postText'
                   onChange={handleChangeText}
+                  value={uploadData.postText}
                   className={styles.write_modal_text_input}
                   placeholder='게시글을 작성하는 공간이에요'
                 />
