@@ -6,7 +6,7 @@ import { changePassword, loadMyInfo } from '../../actions/user';
 import Header from '../../components/common/Header';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import PasswordChangeModal from '../../components/PasswordChangeModal/PasswordChangeModal';
-import NeedLogin from '../../components/NeedLogin/NeedLogin';
+import LoginModal from '../../components/LoginModal/LoginModal';
 
 import { PW_CONFIRMATION_CHECK, PW_VALID_CHECK } from '../../constants/message';
 import { regPassword } from '../../constants/regEx';
@@ -47,14 +47,7 @@ const MyAccountPage = () => {
     setIsModalView(true);
   };
 
-  if (!myInfo)
-    return (
-      <>
-        <Header />
-        <PageTitle title={myAccount} />
-        <NeedLogin />
-      </>
-    );
+  if (!myInfo) return <LoginModal onClickToggleModal={() => {}} />;
 
   return (
     <>
