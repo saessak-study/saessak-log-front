@@ -4,12 +4,12 @@ import { uploadPostContents } from '../types/uploadpost';
 
 axios.defaults.baseURL = 'http://52.78.251.23:8080';
 const accessToken =
-  'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIxMiIsInByb2ZpbGVJZCI6InF3ZXIxMjM1IiwiaWF0IjoxNjc3NDMwMjg0LCJleHAiOjE2Nzc0NDAzNjR9.y_v6RgYSI9OVp-y0txXkkskJq4uuUr2bTezEFZqzxpo';
+  'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE1NiIsInByb2ZpbGVJZCI6InF3ZXIxMjM0IiwiaWF0IjoxNjc3NTgwNjMzLCJleHAiOjE2Nzc1OTA3MTN9.xhFT4Je13rQM0genn8kQDvFzXe1LcoEiDujFkBMUnxE';
 export const uploadPost = createAsyncThunk(
   '/posts/new',
   async (data: uploadPostContents, { rejectWithValue }) => {
     const formData = new FormData();
-    formData.append('imageFile', data.imageFile);
+    formData.append('file', data.file);
     formData.append('postText', data.postText);
     try {
       const response = await axios.post('/posts/new', formData, {
