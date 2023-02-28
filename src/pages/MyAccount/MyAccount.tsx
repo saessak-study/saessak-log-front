@@ -79,6 +79,7 @@ const MyAccountPage = () => {
       </div>
 
       <form action='submit' onSubmit={onClickSave} className={styles.password_form}>
+        <div className={styles.changePassword_title}>비밀번호 변경</div>
         <label htmlFor='password' />
         <input
           type='password'
