@@ -1,6 +1,7 @@
 import CardList from '../../components/CardList/CardList';
 import Footer from '../../components/common/Footer';
 import Header from '../../components/common/Header';
+import Paging from '../../components/pagination/Pagination';
 import SideRouteBtn from '../../components/SideRouteBtn/SideRouteBtn';
 
 const MainPage = () => {
@@ -9,6 +10,7 @@ const MainPage = () => {
       <Header />
       <CardList />
       <SideRouteBtn />
+      <Paging />
       <Footer />
     </div>
   );

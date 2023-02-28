@@ -5,12 +5,8 @@ import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import { useEffect, useState } from 'react';
 
 const CardList = () => {
-  // 페이징 관련 상태관리
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
-
   const limit = 6;
-  const page = 1;
+  const page = 0;
   const params = { limit, page };
   const dispatch = useAppDispatch();
   // const { loadCardListError, loadCardList } = useAppSelector((state) => state.loadCardList);
@@ -20,8 +16,9 @@ const CardList = () => {
     setCardMainView(result.payload);
   };
   useEffect(() => {
-    console.log(viewCardList());
+    viewCardList();
   }, []);
+
   return (
     <div className={styles.cardListWrapper}>
       {cardMainView.map((item, i) => {
