@@ -4,15 +4,15 @@ import { uploadPostContents } from '../types/uploadpost';
 
 axios.defaults.baseURL = 'http://52.78.251.23:8080';
 const accessToken =
-  'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIxMiIsInByb2ZpbGVJZCI6InF3ZXIxMjM1IiwiaWF0IjoxNjc3NDc3MjI5LCJleHAiOjE2Nzc0ODczMDl9.rMpx2slXNHdfBpaxCVXfb4edxis8BOZEVYkTWHi2GqE';
+  'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE1NiIsInByb2ZpbGVJZCI6InF3ZXIxMjM0IiwiaWF0IjoxNjc3NTgwNjMzLCJleHAiOjE2Nzc1OTA3MTN9.xhFT4Je13rQM0genn8kQDvFzXe1LcoEiDujFkBMUnxE';
 export const uploadPost = createAsyncThunk(
-  '/posts/new2',
+  '/posts/new',
   async (data: uploadPostContents, { rejectWithValue }) => {
     const formData = new FormData();
-    formData.append('imageFile', data.imageFile);
+    formData.append('file', data.file);
     formData.append('postText', data.postText);
     try {
-      const response = await axios.post('/posts/new2', formData, {
+      const response = await axios.post('/posts/new', formData, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
           'Content-Type': 'multipart/form-data',

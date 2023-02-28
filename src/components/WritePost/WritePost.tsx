@@ -11,18 +11,20 @@ interface Props {
 
 const WritePost = ({ onClickToggleModal }: Props) => {
   const [uploadData, setUploadData] = useState<uploadPostContents>({
-    imageFile: null,
+    file: null,
     postText: '',
   });
   const [previewImage, setPreviewImage] = useState<string>('');
-  const { uploadPostDone, uploadPostError } = useAppSelector((state) => state.uploadPost);
+  const { uploadPostDone, uploadPostError, uploadPostReponse } = useAppSelector(
+    (state) => state.uploadPost
+  );
   const dispatch = useAppDispatch();
 
   const handleChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files[0];
     setUploadData({
       ...uploadData,
-      imageFile: file,
+      file,
     });
     if (file) {
       const reader = new FileReader();
@@ -45,11 +47,9 @@ const WritePost = ({ onClickToggleModal }: Props) => {
     e.preventDefault();
     dispatch(uploadPost(uploadData));
     console.log('api 보내는 녀석: ', uploadData);
-
-    if (uploadPostDone) {
-      alert('게시글 작성이 완료되었습니다.');
-      onClickToggleModal();
-    }
+    alert('게시글 작성이 완료되었습니다.');
+    console.log(uploadPostReponse);
+    onClickToggleModal();
     if (uploadPostError) {
       alert('게시글 작성 실패!');
       onClickToggleModal();
