@@ -1,18 +1,19 @@
 import { useState, FormEvent, ChangeEvent, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
+import { changePassword, loadMyInfo } from '../../actions/user';
 
 import Header from '../../components/common/Header';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import PasswordChangeModal from '../../components/PasswordChangeModal/PasswordChangeModal';
+import NeedLogin from '../../components/NeedLogin/NeedLogin';
 
 import { PW_CONFIRMATION_CHECK, PW_VALID_CHECK } from '../../constants/message';
 import { regPassword } from '../../constants/regEx';
 import { myAccount } from '../../constants/title';
 
-import { IoMdPerson } from 'react-icons/io';
 import styles from './myAccount.module.scss';
-import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
-import { changePassword, loadMyInfo } from '../../actions/user';
+import { IoMdPerson } from 'react-icons/io';
 
 const MyAccountPage = () => {
   const [isModalView, setIsModalView] = useState(false);
@@ -26,9 +27,7 @@ const MyAccountPage = () => {
 
   useEffect(() => {
     dispatch(loadMyInfo());
-  }, []);
-
-  console.log(myInfo);
+  }, [dispatch]);
 
   const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
@@ -48,7 +47,14 @@ const MyAccountPage = () => {
     setIsModalView(true);
   };
 
-  if (!myInfo) return <div>로그인이 필요합니다.</div>;
+  if (!myInfo)
+    return (
+      <>
+        <Header />
+        <PageTitle title={myAccount} />
+        <NeedLogin />
+      </>
+    );
 
   return (
     <>
