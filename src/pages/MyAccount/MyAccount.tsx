@@ -63,7 +63,7 @@ const MyAccountPage = () => {
         </div>
       </div>
 
-      <form action='submit' onSubmit={onClickSave}>
+      <form action='submit' onSubmit={onClickSave} className={styles.password_form}>
         <label htmlFor='password' />
         <input
           type='password'
