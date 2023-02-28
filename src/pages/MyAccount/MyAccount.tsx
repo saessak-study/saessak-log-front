@@ -1,4 +1,4 @@
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { useState, FormEvent, ChangeEvent, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from '../../components/common/Header';
@@ -11,12 +11,8 @@ import { myAccount } from '../../constants/title';
 
 import { IoMdPerson } from 'react-icons/io';
 import styles from './myAccount.module.scss';
-
-const dummyData = {
-  id: 'abc123',
-  email: 'abc123@naver.com',
-  name: '가나다',
-};
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
+import { changePassword, loadMyInfo } from '../../actions/user';
 
 const MyAccountPage = () => {
   const [isModalView, setIsModalView] = useState(false);
@@ -24,6 +20,15 @@ const MyAccountPage = () => {
   const [password, setPassword] = useState('');
   const [passwordCheck, setPasswordCheck] = useState('');
   const [passwordValid, setPasswordValid] = useState(true);
+
+  const { myInfo } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(loadMyInfo());
+  }, []);
+
+  console.log(myInfo);
 
   const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
@@ -38,8 +43,12 @@ const MyAccountPage = () => {
 
   const onClickSave = (e: FormEvent) => {
     e.preventDefault();
+    dispatch(changePassword({ password, passwordCheck }));
+    sessionStorage.removeItem('token');
     setIsModalView(true);
   };
+
+  if (!myInfo) return <div>로그인이 필요합니다.</div>;
 
   return (
     <>
@@ -51,15 +60,15 @@ const MyAccountPage = () => {
         </span>
         <div className={styles.input_wrapper}>
           <label htmlFor='id'>ID</label>
-          <input type='text' id='id' disabled defaultValue={dummyData.id} />
+          <input type='text' id='id' disabled defaultValue={myInfo.profileId} />
         </div>
         <div className={styles.input_wrapper}>
           <label htmlFor='eamil'>Email</label>
-          <input type='text' id='email' disabled defaultValue={dummyData.email} />
+          <input type='text' id='email' disabled defaultValue={myInfo.email} />
         </div>
         <div className={styles.input_wrapper}>
           <label htmlFor='name'>이름</label>
-          <input type='text' id='name' disabled defaultValue={dummyData.name} />
+          <input type='text' id='name' disabled defaultValue={myInfo.name} />
         </div>
       </div>
 
