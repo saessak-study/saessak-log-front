@@ -1,21 +1,10 @@
 import { IoHeart } from 'react-icons/io5';
 import { MdOutlineComment } from 'react-icons/md';
-import ReadPost from '../ReadPost/ReadPost';
 import styles from './CardList.module.scss';
 import { useState } from 'react';
+import { cardProfileType } from '../../types/card';
 
-interface IdummyData {
-  id: number;
-  imgsrc: string;
-  like: number;
-  comment: number;
-}
-
-interface dummydata {
-  dummydata: IdummyData;
-}
-
-const CardEach = ({ dummydata }: dummydata) => {
+const CardEach = ({ cardProfile }: cardProfileType) => {
   const [showReadModal, setShowReadModal] = useState<boolean>(true);
 
   const onClickReadPost = () => {
@@ -26,19 +15,19 @@ const CardEach = ({ dummydata }: dummydata) => {
     <ul className={styles.cardWrapper}>
       {/* {showReadModal && <ReadPost onClickToggleModal={onClickReadPost} />} */}
       <li className={styles.imageWrapper}>
-        <img src={dummydata.imgsrc} alt='post' />
+        <img src={cardProfile.imageFile} alt='post' />
       </li>
       <li className={styles.like}>
         <span>
           <IoHeart size={15} color='#FF5656' />
         </span>
-        {dummydata.like}
+        {cardProfile.reactionCount}
       </li>
       <li className={styles.comment}>
         <span>
           <MdOutlineComment size={15} />
         </span>
-        {dummydata.comment}
+        {cardProfile.commentCount}
       </li>
     </ul>
   );

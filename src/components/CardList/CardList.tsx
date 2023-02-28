@@ -49,29 +49,20 @@ const CardList = () => {
   const params = { limit, page };
   const dispatch = useAppDispatch();
   const { loadCardListError, loadCardList } = useAppSelector((state) => state.loadCardList);
-  const [aaa, bbb] = useState();
+  const [cardMainView, setCardMainView] = useState([]);
   const viewCardList = async () => {
     const result = await dispatch(getCardList(params));
-    console.log(result.payload.postMainDtoList);
-    bbb(result.payload.postMainDtoList);
+    console.log(result.payload);
+    setCardMainView(result.payload);
   };
   useEffect(() => {
-    // console.log(loadCardList);
-    // console.log(loadCardList);
     console.log(viewCardList());
   }, []);
   return (
     <div className={styles.cardListWrapper}>
-      {aaa.map((card) => (
-        <>
-          <div>{card.postMainDTOList.commentCount}</div>
-          <div>{card.postMainDTOList.imageFile}</div>
-          <div>{card.postMainDTOList.reactionCount}</div>
-        </>
-      ))}
-      {/* {dummyData.map((item) => {
-        return <CardEach key={item.id} dummydata={item} />;
-      })} */}
+      {cardMainView.map((item) => {
+        return <CardEach key={item.id} cardProfile={item} />;
+      })}
     </div>
   );
 };

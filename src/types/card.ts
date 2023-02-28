@@ -29,6 +29,19 @@ export interface cardEach {
   likeCount: number;
 }
 
+// 카드 개별값의 타입 지정
+export interface ICardProfile {
+  imageFile: string;
+  reactionCount: number;
+  commentCount: number;
+}
+
+// 카드 개별값의 타입 지정2
+export interface cardProfileType {
+  cardProfile: ICardProfile;
+}
+
+
 // createSlice extraReducers 개별 카드
 export interface IcardEachState {
   loadCardEachList: cardEach[];
