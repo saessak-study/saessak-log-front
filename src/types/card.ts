@@ -35,6 +35,7 @@ export interface ICardProfile {
   reactionCount: number;
   commentCount: number;
   postId: number;
+  profileId: string;
 }
 
 // 카드 개별값의 타입 지정2
