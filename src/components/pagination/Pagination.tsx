@@ -60,7 +60,7 @@ const Paging = () => {
 
         {totalPageNumber.map((post, ix) => (
           <div
-            className={`${styles.pagingEach}`}
+            className={ix === currentPage ? `${styles.pagingOn}` : `${styles.pagingEach}`}
             key={ix}
             onClick={() => onClick(ix)}
             role='button'

@@ -13,6 +13,8 @@
 }
 .pagingOn {
   color: $main_green;
+  cursor: pointer;
+  margin: 0 8px;
 }
 
 @include mobile {
