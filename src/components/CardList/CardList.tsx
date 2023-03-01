@@ -17,7 +17,8 @@ const CardList = () => {
 
   const params = { limit, page };
   const dispatch = useAppDispatch();
-  // const { loadCardListError, loadCardList } = useAppSelector((state) => state.loadCardList);
+
+  // !모든 게시글이 들어가있는 array
   const [cardMainView, setCardMainView] = useState([]);
   const viewCardList = async () => {
     const result = await dispatch(getCardList(params));

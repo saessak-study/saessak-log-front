@@ -18,20 +18,24 @@ const CardEach = ({ cardProfile }: cardProfileType) => {
       {showReadModal && <ReadPost onClickToggleModal={onClickReadPost} />}
       <li className={styles.imageWrapper}>
         <img src={cardProfile.imageFile} alt='post' />
-        {cardProfile.imageFile}
       </li>
-      <li className={styles.like}>
-        <span>
-          <IoHeart size={15} color='#FF5656' />
-        </span>
-        {cardProfile.reactionCount}
-      </li>
-      <li className={styles.comment}>
-        <span>
-          <MdOutlineComment size={15} />
-        </span>
-        {cardProfile.commentCount}
-      </li>
+      <div className={styles.image_below}>
+        <li className={styles.image_userName}>작성자 : {cardProfile.imageFile}</li>
+        <div className={styles.like_comment}>
+          <li className={styles.like}>
+            <span>
+              <IoHeart size={15} color='#FF5656' />
+            </span>
+            {cardProfile.reactionCount}
+          </li>
+          <li className={styles.comment}>
+            <span>
+              <MdOutlineComment size={15} />
+            </span>
+            {cardProfile.commentCount}
+          </li>
+        </div>
+      </div>
     </ul>
   );
 };
