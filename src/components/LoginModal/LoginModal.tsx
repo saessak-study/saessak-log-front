@@ -41,6 +41,7 @@ const LoginModal = ({ onClickToggleModal }: Props) => {
   const [idValid, setIdValid] = useState(false);
   const [pwValid, setpwValid] = useState(false);
   const [isAlert, setIsAlert] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
 
   // input 추가
@@ -83,7 +84,10 @@ const LoginModal = ({ onClickToggleModal }: Props) => {
         .post('http://52.78.251.23:8080/user/login', body)
         .then((response) => {
           alert('로그인되었습니다.');
-          localStorage.setItem('profileId', userId);
+          sessionStorage.setItem('token', response.data.token);
+          if (isChecked) {
+            localStorage.setItem('token', response.data.token);
+          }
           navigate('/');
         })
         .catch((error) => {
@@ -92,6 +96,10 @@ const LoginModal = ({ onClickToggleModal }: Props) => {
           alert(error.response.data.responseMessage);
         });
     }
+  };
+
+  const handleChecked = (event) => {
+    setIsChecked(event.target.checked);
   };
 
   return (
@@ -155,7 +163,8 @@ const LoginModal = ({ onClickToggleModal }: Props) => {
             </button>
           </div>
           <label className={styles.autologin_radiobutton}>
-            <input type='checkbox' value='autologin' /> 자동 로그인
+            <input type='checkbox' value='autologin' checked={isChecked} onChange={handleChecked} />{' '}
+            자동 로그인
           </label>
           <a
             href='#!'

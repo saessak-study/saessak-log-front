@@ -12,8 +12,16 @@ const headers = {
 export const uploadPost = createAsyncThunk(
   '/posts/new',
   async (data: uploadPostContents, { rejectWithValue }) => {
+    const formData = new FormData();
+    formData.append('file', data.file);
+    formData.append('postText', data.postText);
     try {
-      const response = await axios.post('/posts/new', data, { headers });
+      const response = await axios.post('/posts/new', formData, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-Type': 'multipart/form-data',
+        },
+      });
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data);
