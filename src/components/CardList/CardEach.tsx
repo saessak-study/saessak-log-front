@@ -15,12 +15,14 @@ const CardEach = ({ cardProfile }: cardProfileType) => {
 
   return (
     <ul className={styles.cardWrapper}>
-      {showReadModal && <ReadPost onClickToggleModal={onClickReadPost} />}
+      {showReadModal && (
+        <ReadPost onClickToggleModal={onClickReadPost} postID={cardProfile.postId} />
+      )}
       <li className={styles.imageWrapper}>
         <img src={cardProfile.imageFile} alt='post' />
       </li>
       <div className={styles.image_below}>
-        <li className={styles.image_userName}>작성자 : {cardProfile.imageFile}</li>
+        <li className={styles.image_userName}>작성자 : {cardProfile.postId}</li>
         <div className={styles.like_comment}>
           <li className={styles.like}>
             <span>
