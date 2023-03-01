@@ -41,7 +41,6 @@ export interface cardProfileType {
   cardProfile: ICardProfile;
 }
 
-
 // createSlice extraReducers 개별 카드
 export interface IcardEachState {
   loadCardEachList: cardEach[];

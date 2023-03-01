@@ -18,6 +18,7 @@ const CardEach = ({ cardProfile }: cardProfileType) => {
       {showReadModal && <ReadPost onClickToggleModal={onClickReadPost} />}
       <li className={styles.imageWrapper}>
         <img src={cardProfile.imageFile} alt='post' />
+        {cardProfile.imageFile}
       </li>
       <li className={styles.like}>
         <span>
