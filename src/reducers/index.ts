@@ -6,6 +6,8 @@ import searchSlice from './search';
 import commentSlice from './comments';
 import cardListSlice from './cardList';
 import pagingSlice from './paging';
+import userSlice from './user';
+
 
 // (이전상태, 액션) => 다음상태
 const rootReducer = combineReducers({
@@ -15,6 +17,7 @@ const rootReducer = combineReducers({
   loadComment: commentSlice.reducer,
   loadCardList: cardListSlice.reducer,
   paging: pagingSlice.reducer,
+  user: userSlice.reducer,
 });
 
 export default rootReducer;

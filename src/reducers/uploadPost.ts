@@ -3,7 +3,7 @@ import { uploadPost } from '../actions/uploadPost';
 import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState: uploadPostState = {
-  uploadPost: [],
+  uploadPostReponse: [],
   uploadPostLoading: false,
   uploadPostDone: false,
   uploadPostError: null,
@@ -21,7 +21,7 @@ const uploadPostSlice = createSlice({
         state.uploadPostError = null;
       })
       .addCase(uploadPost.fulfilled, (state, action) => {
-        state.uploadPost = action.payload;
+        state.uploadPostReponse = action.payload;
         state.uploadPostLoading = false;
         state.uploadPostDone = true;
         state.uploadPostError = null;

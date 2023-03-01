@@ -1,22 +1,19 @@
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { useState, FormEvent, ChangeEvent, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
+import { changePassword, loadMyInfo } from '../../actions/user';
 
 import Header from '../../components/common/Header';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import PasswordChangeModal from '../../components/PasswordChangeModal/PasswordChangeModal';
+import LoginModal from '../../components/LoginModal/LoginModal';
 
 import { PW_CONFIRMATION_CHECK, PW_VALID_CHECK } from '../../constants/message';
 import { regPassword } from '../../constants/regEx';
 import { myAccount } from '../../constants/title';
 
-import { IoMdPerson } from 'react-icons/io';
 import styles from './myAccount.module.scss';
-
-const dummyData = {
-  id: 'abc123',
-  email: 'abc123@naver.com',
-  name: '가나다',
-};
+import { IoMdPerson } from 'react-icons/io';
 
 const MyAccountPage = () => {
   const [isModalView, setIsModalView] = useState(false);
@@ -24,6 +21,13 @@ const MyAccountPage = () => {
   const [password, setPassword] = useState('');
   const [passwordCheck, setPasswordCheck] = useState('');
   const [passwordValid, setPasswordValid] = useState(true);
+
+  const { myInfo } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(loadMyInfo());
+  }, [dispatch]);
 
   const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
@@ -38,8 +42,12 @@ const MyAccountPage = () => {
 
   const onClickSave = (e: FormEvent) => {
     e.preventDefault();
+    dispatch(changePassword({ password, passwordCheck }));
+    sessionStorage.removeItem('token');
     setIsModalView(true);
   };
+
+  if (!myInfo) return <LoginModal onClickToggleModal={() => {}} />;
 
   return (
     <>
@@ -51,19 +59,20 @@ const MyAccountPage = () => {
         </span>
         <div className={styles.input_wrapper}>
           <label htmlFor='id'>ID</label>
-          <input type='text' id='id' disabled defaultValue={dummyData.id} />
+          <input type='text' id='id' disabled defaultValue={myInfo.profileId} />
         </div>
         <div className={styles.input_wrapper}>
           <label htmlFor='eamil'>Email</label>
-          <input type='text' id='email' disabled defaultValue={dummyData.email} />
+          <input type='text' id='email' disabled defaultValue={myInfo.email} />
         </div>
         <div className={styles.input_wrapper}>
           <label htmlFor='name'>이름</label>
-          <input type='text' id='name' disabled defaultValue={dummyData.name} />
+          <input type='text' id='name' disabled defaultValue={myInfo.name} />
         </div>
       </div>
 
-      <form action='submit' onSubmit={onClickSave}>
+      <form action='submit' onSubmit={onClickSave} className={styles.password_form}>
+        <div className={styles.changePassword_title}>비밀번호 변경</div>
         <label htmlFor='password' />
         <input
           type='password'
