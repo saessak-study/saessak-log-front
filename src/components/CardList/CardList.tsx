@@ -40,7 +40,6 @@ const CardList = () => {
     viewCardList();
   }, [page, isLikeRedux]);
 
-
   return (
     <div className={styles.cardListWrapper}>
       {cardMainView.map((item, i) => {
