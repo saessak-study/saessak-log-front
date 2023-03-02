@@ -115,6 +115,7 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
         alert('회원 가입이 완료되었습니다!');
         // mutate();
         navigate('/');
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);
