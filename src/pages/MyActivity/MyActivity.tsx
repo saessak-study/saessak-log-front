@@ -1,54 +1,37 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { loadMyPost } from '../../actions/post';
+import Footer from '../../components/common/Footer';
+import Header from '../../components/common/Header';
+import PageTitle from '../../components/PageTitle/PageTitle';
 import PostCard from '../../components/PostCard/PostCard';
+import SideRouteBtn from '../../components/SideRouteBtn/SideRouteBtn';
+import { myActivity } from '../../constants/title';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import styles from './myActivity.module.scss';
 
-const dummyData = [
-  {
-    id: 1,
-    imgsrc: 'https://cdn.pixabay.com/photo/2017/09/18/15/47/cat-2762156_960_720.jpg',
-    like: 1,
-    comment: 2,
-  },
-  {
-    id: 2,
-    imgsrc: 'https://cdn.pixabay.com/photo/2017/09/18/15/47/cat-2762156_960_720.jpg',
-    like: 2,
-    comment: 25,
-  },
-  {
-    id: 3,
-    imgsrc: 'https://cdn.pixabay.com/photo/2017/09/18/15/47/cat-2762156_960_720.jpg',
-    like: 1,
-    comment: 2,
-  },
-  {
-    id: 4,
-    imgsrc: 'https://cdn.pixabay.com/photo/2017/09/18/15/47/cat-2762156_960_720.jpg',
-    like: 1,
-    comment: 2,
-  },
-  {
-    id: 5,
-    imgsrc: 'https://cdn.pixabay.com/photo/2017/09/18/15/47/cat-2762156_960_720.jpg',
-    like: 1,
-    comment: 2,
-  },
-  {
-    id: 6,
-    imgsrc: 'https://cdn.pixabay.com/photo/2017/09/18/15/47/cat-2762156_960_720.jpg',
-    like: 1,
-    comment: 2,
-  },
-];
+const MyActivityPage = () => {
+  const { myPost } = useAppSelector((state) => state.post);
+  const dispatch = useAppDispatch();
 
-const MyActivity = () => {
+  console.log(myPost);
+
+  useEffect(() => {
+    dispatch(loadMyPost());
+  }, [dispatch]);
+
   return (
-    <div className={styles.cardListWrapper}>
-      {dummyData.map((item) => {
-        return <PostCard key={item.id} dummydata={item} />;
-      })}
-    </div>
+    <>
+      <Header />
+      <PageTitle title={myActivity} />
+      <div className={styles.cardListWrapper}>
+        {myPost?.map((post) => {
+          return <PostCard key={post.postId} post={post} />;
+        })}
+      </div>
+      <SideRouteBtn />
+      <Footer />
+    </>
   );
 };
 
-export default MyActivity;
+export default MyActivityPage;
