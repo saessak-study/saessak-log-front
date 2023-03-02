@@ -1,14 +1,18 @@
+import CardList from '../../components/CardList/CardList';
 import Footer from '../../components/common/Footer';
 import Header from '../../components/common/Header';
+import Paging from '../../components/pagination/Pagination';
 import SearchResult from '../../components/SearchResult/SearchResult';
-import MyActivity from '../MyActivity/MyActivity';
+import SideRouteBtn from '../../components/SideRouteBtn/SideRouteBtn';
 
 const SearchPage = () => {
   return (
     <div>
       <Header />
       <SearchResult />
-      <MyActivity />
+      <CardList />
+      <SideRouteBtn />
+      <Paging />
       <Footer />
     </div>
   );

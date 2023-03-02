@@ -1,0 +1,24 @@
+@import '../../style/common.scss';
+
+.pagingContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+.pagingEach {
+  cursor: pointer;
+  margin: 0px 8px;
+}
+.pagingOn {
+  color: $main_green;
+  cursor: pointer;
+  margin: 0 8px;
+}
+
+@include mobile {
+  .pagingContainer {
+    display: none;
+  }
+}
