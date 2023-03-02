@@ -46,6 +46,7 @@ const MyActivityPage = () => {
     <>
       <Header />
       <PageTitle title={myActivity} />
+      {!myPost.length && <div className={styles.no_post}>작성한 게시글이 없습니다.</div>}
       <div className={styles.cardListWrapper}>
         {myPost?.map((post) => {
           return <PostCard key={post.postId} post={post} />;
