@@ -2,7 +2,7 @@ import styles from './header.module.scss';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FaUserAlt } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import searchSlice from '../../reducers/search';
 import { searchType } from '../../types/search';
@@ -115,11 +115,15 @@ const Header = () => {
             <div className={styles.modal_circle}>
               <FaUserAlt />
             </div>
-            <li onClick={routeToMyaccount} role='presentation'>
-              계정관리
+            <li className={styles.modal_menu}>
+              <Link to='/myaccount'>계정관리</Link>
             </li>
-            <li>내활동</li>
-            <li>구독함</li>
+            <li className={styles.modal_menu}>
+              <Link to='/myactivity'>내활동</Link>
+            </li>
+            <li className={styles.modal_menu}>
+              <Link to='/mysubscription'>구독함</Link>
+            </li>
             <li className={styles.modal_logout} onClick={logout} role='presentation'>
               로그아웃
             </li>
