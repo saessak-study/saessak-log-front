@@ -9,15 +9,18 @@ const CardEach = ({ cardProfile }: cardProfileType) => {
   const [showReadModal, setShowReadModal] = useState<boolean>(false);
 
   const onClickReadPost = () => {
-    console.log(showReadModal);
     setShowReadModal((prev) => !prev);
   };
 
   return (
-    <ul className={styles.cardWrapper}>
-      {/* {showReadModal && (
-        <ReadPost onClickToggleModal={onClickReadPost} postID={cardProfile.profileId} />
-      )} */}
+    <ul className={styles.cardWrapper} onClick={onClickReadPost} role='presentation'>
+      {showReadModal && (
+        <ReadPost
+          onClickToggleModal={onClickReadPost}
+          postID={cardProfile.postId}
+          image={cardProfile.imageFile}
+        />
+      )}
       <li className={styles.imageWrapper}>
         <img src={cardProfile.imageFile} alt='post' />
       </li>

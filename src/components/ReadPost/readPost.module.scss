@@ -5,10 +5,14 @@
     width: $modal_width;
     height: $modal_height;
     display: flex;
+    position: fixed;
   }
   .img_container_web {
     display: none;
     .img {
+      width: $modal_height;
+      height: $modal_height;
+      object-fit: fill;
     }
   }
   .non_img_container {
@@ -313,15 +317,18 @@
     width: $modal_width;
     height: $modal_height;
     display: flex;
+    position: fixed;
   }
   .img_container_web {
     width: $modal_height;
     height: $modal_height;
     border-radius: 0.75rem 0 0 0.75rem;
-    background-color: gray;
     float: left;
     z-index: 10;
-    .img {
+    img {
+      width: $modal_height;
+      height: $modal_height;
+      object-fit: cover;
     }
   }
   .non_img_container {
