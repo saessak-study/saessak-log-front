@@ -23,12 +23,15 @@ const LoginModal = ({ onClickToggleModal }: Props) => {
   const [showFindPwModal, setShowFindPwModal] = useState<boolean>(false);
 
   const onClickFindIdModal = () => {
+    onReset();
     setShowFindIdModal((prev) => !prev);
   };
   const onClickRegisterModal = () => {
+    onReset();
     setShowRegisterModal((prev) => !prev);
   };
   const onClickFindPwModal = () => {
+    onReset();
     setShowFindPwModal((prev) => !prev);
   };
 
