@@ -1,20 +1,33 @@
 import styles from './searchResult.module.scss';
 import { useSelector } from 'react-redux';
 import { searchType } from '../../types/search';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useAppDispatch } from '../../hooks/useRedux';
+import isLikePriority from '../../reducers/likeCommentPriority';
 
 const SearchResult = () => {
+  const dispatch = useAppDispatch();
+
   const [isLikeOrder, setIsLikeOrder] = useState(true);
+  const togglingLikeComment = () => {
+    dispatch(isLikePriority.actions.isLikePriority(isLikeOrder));
+  };
+
   const likeClick = () => {
     setIsLikeOrder(true);
   };
   const commentClick = () => {
     setIsLikeOrder(false);
   };
+
+  // ! 검색어를 불러옴
   const typedWord = useSelector((state: searchType) => {
     return state.search.value;
   });
 
+  useEffect(() => {
+    togglingLikeComment();
+  }, [isLikeOrder]);
   return (
     <div className={styles.search_container}>
       <div className={styles.search_result}>
