@@ -11,8 +11,6 @@ interface Props {
   onClickToggleModal: () => void;
 }
 
-// Alert로 아이디 전달까지 완성 (from 다정)
-
 const FindIdModal = ({ onClickToggleModal }: Props) => {
   const [inputs, setInputs] = useState({
     userName: '',
@@ -98,9 +96,7 @@ const FindIdModal = ({ onClickToggleModal }: Props) => {
             />
             <div className={styles.findIdPw_errorMSG}>
               <span>
-                {isAlert && !nameValid && !emailValid ? NAME_VALID_CHECK : null}
-                {isAlert && nameValid && !emailValid ? NAME_VALID_CHECK : null}
-                {isAlert && !nameValid && emailValid ? NAME_VALID_CHECK : null}
+                {isAlert && (!nameValid || !emailValid) ? NAME_VALID_CHECK : null}
                 {!isAlert && nameValid && emailValid ? '' : null}
               </span>
             </div>
