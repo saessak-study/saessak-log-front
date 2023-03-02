@@ -25,7 +25,7 @@ const Main = () => {
         게시물 보기
       </button>
       {showWriteModal && <WritePost onClickToggleModal={onClickWritePost} />}
-      {showReadModal && <ReadPost onClickToggleModal={onClickReadPost} />}
+      {/* {showReadModal && <ReadPost onClickToggleModal={onClickReadPost} />} */}
     </div>
   );
 };

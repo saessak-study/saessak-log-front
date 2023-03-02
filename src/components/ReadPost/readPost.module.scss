@@ -5,11 +5,14 @@
     width: $modal_width;
     height: $modal_height;
     display: flex;
+    position: fixed;
   }
   .img_container_web {
     display: none;
     .img {
-      display: none;
+      width: $modal_height;
+      height: $modal_height;
+      object-fit: fill;
     }
   }
   .non_img_container {
@@ -329,6 +332,7 @@
     width: $modal_width;
     height: $modal_height;
     display: flex;
+    position: fixed;
   }
   .img_container_web {
     position: relative; /**/

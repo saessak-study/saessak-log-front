@@ -22,7 +22,6 @@ const Paging = () => {
   const [cardMainView, setCardMainView] = useState([]);
   const viewCardList = async () => {
     const result = await dispatch(getCardList(params));
-    console.log(result.payload);
     setCardMainView(result.payload);
   };
 
@@ -38,7 +37,6 @@ const Paging = () => {
   });
   const onClick = (ix: number) => {
     dispatch(pagingSlice.actions.paging(ix));
-    console.log(currentPage);
   };
 
   // !보여지는 페이지 수

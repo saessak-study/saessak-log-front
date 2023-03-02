@@ -10,41 +10,41 @@ import axios from 'axios';
 
 interface Props {
   onClickToggleModal: () => void;
+  postID: number;
+  image: string;
 }
 
-const ReadPost = ({ onClickToggleModal }: Props) => {
+const ReadPost = ({ onClickToggleModal, postID, image }: Props) => {
   const [likeCount, setLikeCount] = useState<number>(0);
-  const [viewImage, setViewImage] = useState<string>('');
   const [viewPostText, setViewPostText] = useState<string>('');
   const [viewUserId, setViewUserId] = useState<string>('');
-  const postId = 338;
+
   const onClickheartBtn = (isLike: boolean) => {
     if (isLike) setLikeCount(likeCount + 1);
     else setLikeCount(likeCount - 1);
   };
-  // likeCount https://saessaklogfile.s3.ap-northeast-2.amazonaws.com/image/asdf"
 
-  useEffect(() => {
-    axios
-      .get(`/posts/${postId}`)
-      .then((response) => {
-        console.log(response);
-        setViewImage(response.data.imageFile);
-        setViewPostText(response.data.postText);
-        setViewUserId(response.data.profileId);
-        /** 좋아요 수는 전역 관리 해야함 */
-        setLikeCount(response.data.likeCount);
-      })
-      .catch((error) => {
-        console.log('Error: ', error.response.data.responseMessage);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`/posts/${postId}`)
+  //     .then((response) => {
+  //       console.log(response);
+  //       setImage(response.data.imageFile);
+  //       setViewPostText(response.data.postText);
+  //       setViewUserId(response.data.profileId);
+  //       /** 좋아요 수는 전역 관리 해야함 */
+  //       setLikeCount(response.data.likeCount);
+  //     })
+  //     .catch((error) => {
+  //       console.log('Error: ', error.response.data.responseMessage);
+  //     });
+  // }, []);
 
   return (
     <div className={styles.container_wrapper}>
       <Modal onClickToggleModal={onClickToggleModal} title='게시물'>
         <div className={styles.img_container_web}>
-          <img src={viewImage} className={styles.img} />
+          <img src={image} className={styles.img} />
         </div>
         <div className={styles.non_img_container}>
           <div className={styles.post_section}>
