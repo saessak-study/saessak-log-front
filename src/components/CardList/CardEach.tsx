@@ -21,6 +21,7 @@ const CardEach = ({ cardProfile }: cardProfileType) => {
           image={cardProfile.imageFile}
         />
       )}
+
       <li className={styles.imageWrapper}>
         <img src={cardProfile.imageFile} alt='post' />
       </li>

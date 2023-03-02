@@ -7,6 +7,8 @@ import commentSlice from './comments';
 import cardListSlice from './cardList';
 import pagingSlice from './paging';
 import likePrioritySlice from './likeCommentPriority';
+import userSlice from './user';
+
 
 // (이전상태, 액션) => 다음상태
 const rootReducer = combineReducers({
@@ -17,6 +19,7 @@ const rootReducer = combineReducers({
   loadCardList: cardListSlice.reducer,
   paging: pagingSlice.reducer,
   isLikeOrder: likePrioritySlice.reducer,
+  user: userSlice.reducer,
 });
 
 export default rootReducer;
