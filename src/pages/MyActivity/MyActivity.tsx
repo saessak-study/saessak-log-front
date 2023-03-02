@@ -14,10 +14,9 @@ import SideRouteBtn from '../../components/SideRouteBtn/SideRouteBtn';
 import styles from './myActivity.module.scss';
 
 const MyActivityPage = () => {
-  const { myPost, hasMore, loadMyPostLoading } = useAppSelector((state) => state.post);
+  const { myPost, hasMore, loadMyPostLoading, pageNum } = useAppSelector((state) => state.post);
   const dispatch = useAppDispatch();
   const target = useRef(null);
-  const pageRef = useRef(-1);
 
   useEffect(() => {
     const options = {
@@ -28,8 +27,7 @@ const MyActivityPage = () => {
     const intersectionHandler = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && hasMore && !loadMyPostLoading) {
-          pageRef.current += 1;
-          dispatch(loadMyPost(pageRef.current));
+          dispatch(loadMyPost(pageNum));
         }
       });
     };
@@ -38,7 +36,7 @@ const MyActivityPage = () => {
       observer.observe(target.current);
     }
     return () => observer && observer.disconnect();
-  }, [dispatch, hasMore, loadMyPostLoading]);
+  }, [dispatch, hasMore, loadMyPostLoading, pageNum]);
 
   if (!sessionStorage.getItem('token')) return <LoginModal onClickToggleModal={() => {}} />;
 
@@ -46,7 +44,7 @@ const MyActivityPage = () => {
     <>
       <Header />
       <PageTitle title={myActivity} />
-      {!myPost.length && <div className={styles.no_post}>작성한 게시글이 없습니다.</div>}
+      {myPost.length === 0 && <div className={styles.no_post}>작성한 게시글이 없습니다.</div>}
       <div className={styles.cardListWrapper}>
         {myPost?.map((post) => {
           return <PostCard key={post.postId} post={post} />;
