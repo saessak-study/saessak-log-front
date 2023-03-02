@@ -12,10 +12,12 @@ import PostCard from '../../components/PostCard/PostCard';
 import SideRouteBtn from '../../components/SideRouteBtn/SideRouteBtn';
 
 import styles from './myActivity.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const MyActivityPage = () => {
   const { myPost, hasMore, loadMyPostLoading, pageNum } = useAppSelector((state) => state.post);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const target = useRef(null);
 
   useEffect(() => {
@@ -38,7 +40,14 @@ const MyActivityPage = () => {
     return () => observer && observer.disconnect();
   }, [dispatch, hasMore, loadMyPostLoading, pageNum]);
 
-  if (!sessionStorage.getItem('token')) return <LoginModal onClickToggleModal={() => {}} />;
+  if (!sessionStorage.getItem('token'))
+    return (
+      <LoginModal
+        onClickToggleModal={() => {
+          navigate('/');
+        }}
+      />
+    );
 
   return (
     <>
