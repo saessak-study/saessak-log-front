@@ -6,10 +6,12 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import searchSlice from '../../reducers/search';
 import { searchType } from '../../types/search';
+import LoginModal from '../LoginModal/LoginModal';
 
 const Header = () => {
   // 상태관리
   const [isModalView, setIsModalView] = useState(false);
+  const [isLoginView, setIsLoginView] = useState(false);
   const [inputVal, setInputVal] = useState('');
   const dispatch = useDispatch();
   const typedWord = useSelector((state: searchType) => {
@@ -42,8 +44,13 @@ const Header = () => {
   const routeToMain = () => {
     navigate('/');
   };
+
+  const onClickToggleModal = () => {
+    setIsLoginView((prevState) => !prevState);
+  };
   return (
     <div className={styles.top_nav}>
+      {isLoginView && <LoginModal onClickToggleModal={onClickToggleModal} />}
       <div className={styles.nav_logo} onClick={routeToMain} role='button' tabIndex={0}>
         <img src='img/temp.png' />
         <img src='img/logo_title.png' />
@@ -71,12 +78,7 @@ const Header = () => {
             <div className={styles.modal_circle}>
               <FaUserAlt />
             </div>
-            <li
-              onClick={() => {
-                navigate('/myaccount');
-              }}
-              role='presentation'
-            >
+            <li onClick={onClickToggleModal} role='presentation'>
               계정관리
             </li>
             <li>내활동</li>
