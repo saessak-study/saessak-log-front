@@ -1,23 +1,46 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { loadMyPost } from '../../actions/post';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
+
+import { myActivity } from '../../constants/title';
+
 import Footer from '../../components/common/Footer';
 import Header from '../../components/common/Header';
+import LoginModal from '../../components/LoginModal/LoginModal';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import PostCard from '../../components/PostCard/PostCard';
 import SideRouteBtn from '../../components/SideRouteBtn/SideRouteBtn';
-import { myActivity } from '../../constants/title';
-import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
+
 import styles from './myActivity.module.scss';
 
 const MyActivityPage = () => {
-  const { myPost } = useAppSelector((state) => state.post);
+  const { myPost, hasMore, loadMyPostLoading } = useAppSelector((state) => state.post);
   const dispatch = useAppDispatch();
-
-  console.log(myPost);
+  const target = useRef(null);
+  const pageRef = useRef(-1);
 
   useEffect(() => {
-    dispatch(loadMyPost());
-  }, [dispatch]);
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1.0,
+    };
+    const intersectionHandler = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && hasMore && !loadMyPostLoading) {
+          pageRef.current += 1;
+          dispatch(loadMyPost(pageRef.current));
+        }
+      });
+    };
+    const observer = new IntersectionObserver(intersectionHandler, options);
+    if (target.current) {
+      observer.observe(target.current);
+    }
+    return () => observer && observer.disconnect();
+  }, [dispatch, hasMore, loadMyPostLoading]);
+
+  if (!sessionStorage.getItem('token')) return <LoginModal onClickToggleModal={() => {}} />;
 
   return (
     <>
@@ -29,6 +52,7 @@ const MyActivityPage = () => {
         })}
       </div>
       <SideRouteBtn />
+      <div className={styles.ref} ref={target} />
       <Footer />
     </>
   );

@@ -7,6 +7,7 @@ export const initialState: Ipost = {
   loadMyPostLoading: false,
   loadMyPostDone: false,
   loadMyPostError: null,
+  hasMore: true,
 };
 
 const postSlice = createSlice({
@@ -21,13 +22,14 @@ const postSlice = createSlice({
         state.loadMyPostError = null;
       })
       .addCase(loadMyPost.fulfilled, (state, action) => {
-        state.loadMyPostLoading = true;
-        state.loadMyPostDone = false;
+        state.loadMyPostLoading = false;
+        state.loadMyPostDone = true;
         state.loadMyPostError = null;
         state.myPost = state.myPost.concat(action.payload);
+        state.hasMore = action.payload.length === 6;
       })
       .addCase(loadMyPost.rejected, (state, action) => {
-        state.loadMyPostLoading = true;
+        state.loadMyPostLoading = false;
         state.loadMyPostDone = false;
         state.loadMyPostError = action.error.message;
       })

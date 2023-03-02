@@ -3,6 +3,7 @@ export interface Ipost {
   loadMyPostLoading: boolean;
   loadMyPostDone: boolean;
   loadMyPostError: null | string;
+  hasMore: boolean;
 }
 
 export interface ImyPost {
