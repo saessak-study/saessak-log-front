@@ -3,6 +3,7 @@ import { loadComment, writeComment } from '../actions/comment';
 import { IcommentState } from '../types/comment';
 
 export const initialState: IcommentState = {
+  loadCommentlimit: [],
   loadCommentList: [],
   loadCommentLoading: false,
   loadCommentDone: false,
@@ -25,7 +26,8 @@ const commentSlice = createSlice({
         state.loadCommentError = null;
       })
       .addCase(loadComment.fulfilled, (state, action) => {
-        state.loadCommentList = action.payload;
+        state.loadCommentlimit = action.payload;
+        state.loadCommentList = state.loadCommentList.concat(action.payload);
         state.loadCommentLoading = false;
         state.loadCommentDone = true;
         state.loadCommentError = null;
