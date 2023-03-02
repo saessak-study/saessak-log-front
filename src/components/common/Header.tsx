@@ -1,25 +1,26 @@
 import styles from './header.module.scss';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FaUserAlt } from 'react-icons/fa';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import searchSlice from '../../reducers/search';
 import { searchType } from '../../types/search';
 import LoginModal from '../LoginModal/LoginModal';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
+import { loadMyInfo } from '../../actions/user';
 
 const Header = () => {
-  // 상태관리
+  // !상태관리
   const [isModalView, setIsModalView] = useState(false);
   const [isLoginView, setIsLoginView] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [inputVal, setInputVal] = useState('');
   const dispatch = useDispatch();
   const typedWord = useSelector((state: searchType) => {
     return state.search.value;
   });
 
-  // 함수
+  // !함수
   const modalClick = () => {
     setIsModalView((prevState) => !prevState);
   };
@@ -61,6 +62,7 @@ const Header = () => {
     localStorage.clear();
     alert('로그아웃 되었습니다');
     navigate('/');
+    window.location.reload();
   };
 
   // 로그인 된 상태라면 nav_userInfo 클릭 시 리스트를 띄워줌
@@ -74,6 +76,14 @@ const Header = () => {
       setIsLoginView((prevState) => !prevState);
     }
   };
+
+  // 유저 아이디 가지고 오는 함수
+  const { myInfo } = useAppSelector((state) => state.user);
+  const appDispatch = useAppDispatch();
+  // const userName = myInfo.name || '이름';
+  useEffect(() => {
+    appDispatch(loadMyInfo());
+  }, [appDispatch]);
 
   return (
     <div className={styles.top_nav}>
@@ -99,7 +109,7 @@ const Header = () => {
         <div className={styles.user_circle} onClick={loginNavToggle} role='button' tabIndex={0}>
           <FaUserAlt className={styles.main_userProfile} />
         </div>
-        <span className={styles.user_name}> 유저 닉네임</span>
+        <span className={styles.user_name}> {myInfo === undefined ? '로그인' : myInfo.name}</span>
         {isModalView && (
           <ul className={styles.nav_modal}>
             <div className={styles.modal_circle}>
