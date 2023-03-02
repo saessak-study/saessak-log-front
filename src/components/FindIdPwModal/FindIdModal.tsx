@@ -1,10 +1,11 @@
+/* eslint-disable prefer-template */
+/* eslint-disable no-alert */
 import React, { useEffect, useState } from 'react';
 import Modal from '../Modal/ModalNoHeader/ModalNoHeader';
 import styles from './findIdPwModal.module.scss';
 import { NAME_VALID_CHECK } from '../../constants/message';
 import { regName, regEmail } from '../../constants/regEx';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 interface Props {
   onClickToggleModal: () => void;
@@ -21,7 +22,6 @@ const FindIdModal = ({ onClickToggleModal }: Props) => {
   const [nameValid, setNameValid] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
   const [isAlert, setIsAlert] = useState(false);
-  const navigate = useNavigate();
 
   // input 추가
   const onChangeInputs = (e: { target: { value: any; name: any } }) => {
@@ -60,13 +60,14 @@ const FindIdModal = ({ onClickToggleModal }: Props) => {
       axios
         .post('http://52.78.251.23:8080/user/findId', body)
         .then((response) => {
-          alert(response.data.responseMessage.profileId);
-          navigate('/');
+          console.log(response.data.profileId);
+          alert(userName + '님의 아이디는 ' + response.data.profileId + ' 입니다.');
         })
         .catch((error) => {
           console.log(error);
           console.log('Error: ', error.message);
-          alert(error.response.data.responseMessage);
+          // alert(error.response.data.responseMessage);
+          alert('일치하는 정보가 없습니다. 입력한 내용을 다시 확인해주세요.');
         });
     }
   };
@@ -97,8 +98,9 @@ const FindIdModal = ({ onClickToggleModal }: Props) => {
             />
             <div className={styles.findIdPw_errorMSG}>
               <span>
-                {isAlert && !nameValid && !emailValid && NAME_VALID_CHECK}
-                {isAlert && nameValid && !emailValid && NAME_VALID_CHECK}
+                {isAlert && !nameValid && !emailValid ? NAME_VALID_CHECK : null}
+                {isAlert && nameValid && !emailValid ? NAME_VALID_CHECK : null}
+                {isAlert && !nameValid && emailValid ? NAME_VALID_CHECK : null}
                 {!isAlert && nameValid && emailValid ? '' : null}
               </span>
             </div>
