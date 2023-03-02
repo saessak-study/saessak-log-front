@@ -10,6 +10,8 @@ interface Props {
   onClickToggleModal: () => void;
 }
 
+// Alert로 아이디 전달까지 완성 (from 다정)
+
 const FindIdModal = ({ onClickToggleModal }: Props) => {
   const [inputs, setInputs] = useState({
     userName: '',
@@ -56,9 +58,9 @@ const FindIdModal = ({ onClickToggleModal }: Props) => {
     e.preventDefault();
     if (nameValid && emailValid) {
       axios
-        .post('http://52.78.251.23:8080/user/findId', body, { withCredentials: true })
+        .post('http://52.78.251.23:8080/user/findId', body)
         .then((response) => {
-          // alert(response.data.responseMessage.profileId);
+          alert(response.data.responseMessage.profileId);
           navigate('/');
         })
         .catch((error) => {
