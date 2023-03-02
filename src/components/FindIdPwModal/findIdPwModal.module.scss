@@ -1,4 +1,8 @@
 @import '../../style/common.scss';
+@font-face {
+  font-family: DoHyeon;
+  src: url(../../assets/font/Do_Hyeon/DoHyeon-Regular.ttf);
+}
 
 @include desktop {
   .findIdPw_container {
@@ -32,6 +36,8 @@
     margin: 5px 5px 40px;
   }
   .findIdPw_greenButton {
+    border: none;
+    font-family: DoHyeon;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -100,6 +106,8 @@
     align-items: center;
   }
   .findIdPw_greenButton {
+    border: none;
+    font-family: DoHyeon;
     cursor: pointer;
     display: flex;
     align-items: center;

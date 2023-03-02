@@ -8,7 +8,6 @@ import cardListSlice from './cardList';
 import pagingSlice from './paging';
 import userSlice from './user';
 
-
 // (이전상태, 액션) => 다음상태
 const rootReducer = combineReducers({
   post: postSlice.reducer,
