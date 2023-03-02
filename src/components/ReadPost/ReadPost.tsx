@@ -6,6 +6,7 @@ import styles from './readPost.module.scss';
 import { FaUserCircle } from 'react-icons/fa';
 import { BsBookmark } from 'react-icons/bs';
 import { GrSend } from 'react-icons/gr';
+import SubscriptionButton from '../SubscriptionButton/SubscriptionButton';
 
 interface Props {
   onClickToggleModal: () => void;
@@ -32,7 +33,8 @@ const ReadPost = ({ onClickToggleModal, postID, image }: Props) => {
             <div className={styles.post_section_header}>
               <FaUserCircle className={styles.user_profile_img} />
               <div className={styles.user_name}>사용자</div>
-              <BsBookmark className={styles.subscription_btn} />
+              {/* <BsBookmark className={styles.subscription_btn} /> */}
+              <SubscriptionButton postId={postID} />
             </div>
 
             <div className={styles.post_scroll_section}>

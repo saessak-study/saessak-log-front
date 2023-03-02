@@ -31,3 +31,21 @@ export const changePassword = createAsyncThunk('/user/changePassword', async (da
     return console.error(error);
   }
 });
+
+export const subscribe = createAsyncThunk('/user/subscribe', async (postId: number) => {
+  try {
+    const token = sessionStorage.getItem('token');
+    const response = await axios.get(
+      `/subscribe/${postId}
+    `,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    return console.error(error);
+  }
+});
