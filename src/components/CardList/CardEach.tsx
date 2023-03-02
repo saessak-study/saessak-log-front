@@ -13,7 +13,7 @@ const CardEach = ({ cardProfile }: cardProfileType) => {
   };
 
   return (
-    <ul className={styles.cardWrapper} onClick={onClickReadPost} role='presentation'>
+    <>
       {showReadModal && (
         <ReadPost
           onClickToggleModal={onClickReadPost}
@@ -21,28 +21,29 @@ const CardEach = ({ cardProfile }: cardProfileType) => {
           image={cardProfile.imageFile}
         />
       )}
-
-      <li className={styles.imageWrapper}>
-        <img src={cardProfile.imageFile} alt='post' />
-      </li>
-      <div className={styles.image_below}>
-        <li className={styles.image_userName}>작성자 : {cardProfile.profileId}</li>
-        <div className={styles.like_comment}>
-          <li className={styles.like}>
-            <span>
-              <IoHeart size={15} color='#FF5656' />
-            </span>
-            {cardProfile.reactionCount}
-          </li>
-          <li className={styles.comment}>
-            <span>
-              <MdOutlineComment size={15} />
-            </span>
-            {cardProfile.commentCount}
-          </li>
+      <ul className={styles.cardWrapper} onClick={onClickReadPost} role='presentation'>
+        <li className={styles.imageWrapper}>
+          <img src={cardProfile.imageFile} alt='post' />
+        </li>
+        <div className={styles.image_below}>
+          <li className={styles.image_userName}>작성자 : {cardProfile.profileId}</li>
+          <div className={styles.like_comment}>
+            <li className={styles.like}>
+              <span>
+                <IoHeart size={15} color='#FF5656' />
+              </span>
+              {cardProfile.reactionCount}
+            </li>
+            <li className={styles.comment}>
+              <span>
+                <MdOutlineComment size={15} />
+              </span>
+              {cardProfile.commentCount}
+            </li>
+          </div>
         </div>
-      </div>
-    </ul>
+      </ul>
+    </>
   );
 };
 
