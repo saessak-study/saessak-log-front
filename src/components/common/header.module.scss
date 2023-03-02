@@ -105,6 +105,13 @@
     align-items: center;
   }
 }
+.modal_menu {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
 @include desktop {
 }
 @include mobile {
@@ -146,7 +153,10 @@
       width: 100%;
       padding: 10px 0;
       cursor: pointer;
+      a {
+      }
     }
+
     .modal_logout {
       padding: 10px 0;
       width: 60%;

@@ -2,7 +2,7 @@ import styles from './header.module.scss';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FaUserAlt } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import searchSlice from '../../reducers/search';
 import { searchType } from '../../types/search';
@@ -89,8 +89,8 @@ const Header = () => {
     <div className={styles.top_nav}>
       {isLoginView && <LoginModal onClickToggleModal={onClickToggleModal} />}
       <div className={styles.nav_logo} onClick={routeToMain} role='button' tabIndex={0}>
-        <img src='img/temp.png' />
-        <img src='img/logo_title.png' />
+        <img src='img/temp.png' alt='logo' />
+        <img src='img/logo_title.png' alt='title' />
       </div>
       <div className={styles.search_bar}>
         <AiOutlineSearch className={styles.search_icon} />
@@ -115,14 +115,17 @@ const Header = () => {
             <div className={styles.modal_circle}>
               <FaUserAlt />
             </div>
-            <li onClick={routeToMyaccount} role='presentation'>
-              계정관리
+            <li className={styles.modal_menu}>
+              <Link to='/myaccount'>계정관리</Link>
             </li>
-            <li>내활동</li>
-            <li>구독함</li>
-            <li className={styles.modal_logout} onClick={logout} role='presentation'>
-              로그아웃
+            <li className={styles.modal_menu}>
+              <Link to='/myactivity'>내활동</Link>
             </li>
+            <li className={styles.modal_menu}>
+              <Link to='/mysubscription'>구독함</Link>
+            </li>
+            <li className={styles.modal_logout} onClick={logout} role='presentation'>로그아웃</li>
+
             <div className={styles.modal_cancel} onClick={modalClick} role='button' tabIndex={-1}>
               X
             </div>

@@ -4,17 +4,22 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 24px;
-  width: 30%;
   border-radius: 10px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
   .imageWrapper {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+
     img {
-      border-radius: 10px 10px 0 0;
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
     }
-
     margin-bottom: 5px;
   }
 
@@ -43,6 +48,6 @@
 
 @include mobile {
   .cardWrapper {
-    width: 45%;
+    // width: 45%;
   }
 }
