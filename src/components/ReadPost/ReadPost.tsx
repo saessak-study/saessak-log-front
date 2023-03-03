@@ -43,7 +43,7 @@ const ReadPost = ({ onClickToggleModal, postID, image }: Props) => {
                 <div className={styles.text_section}>글글글글글들어갈자리</div>
               </div>
               <div className={styles.comment_read_section}>
-                <CommentList />
+                <CommentList postID={postID} />
               </div>
             </div>
           </div>

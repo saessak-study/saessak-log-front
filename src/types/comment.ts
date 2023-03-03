@@ -10,9 +10,8 @@ export interface comment {
 
 // 코멘트 api params에 들어갈 녀석
 export interface commentAPIParams {
-  postId: number;
-  limit: number;
-  page: number | null;
+  postID: number;
+  pageNum: number | null;
 }
 
 // 코멘트 생성하는 녀석
@@ -24,11 +23,12 @@ export interface createComment {
 
 // createSlice extraReducers 작성할 녀석
 export interface IcommentState {
-  loadCommentlimit: comment[];
   loadCommentList: comment[];
   loadCommentLoading: boolean;
   loadCommentDone: boolean;
   loadCommentError: null | string;
+  hasMore: boolean;
+  pageNum: number;
   createComment: createComment;
   createCommentLoading: boolean;
   createCommentDone: boolean;
