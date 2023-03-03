@@ -1,54 +1,69 @@
-import React from 'react';
+import { useEffect, useRef } from 'react';
+import { loadMyPost } from '../../actions/post';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
+
+import { myActivity } from '../../constants/title';
+
+import Footer from '../../components/common/Footer';
+import Header from '../../components/common/Header';
+import LoginModal from '../../components/LoginModal/LoginModal';
+import PageTitle from '../../components/PageTitle/PageTitle';
 import PostCard from '../../components/PostCard/PostCard';
+import SideRouteBtn from '../../components/SideRouteBtn/SideRouteBtn';
+
 import styles from './myActivity.module.scss';
+import { useNavigate } from 'react-router-dom';
 
-const dummyData = [
-  {
-    id: 1,
-    imgsrc: 'https://cdn.pixabay.com/photo/2017/09/18/15/47/cat-2762156_960_720.jpg',
-    like: 1,
-    comment: 2,
-  },
-  {
-    id: 2,
-    imgsrc: 'https://cdn.pixabay.com/photo/2017/09/18/15/47/cat-2762156_960_720.jpg',
-    like: 2,
-    comment: 25,
-  },
-  {
-    id: 3,
-    imgsrc: 'https://cdn.pixabay.com/photo/2017/09/18/15/47/cat-2762156_960_720.jpg',
-    like: 1,
-    comment: 2,
-  },
-  {
-    id: 4,
-    imgsrc: 'https://cdn.pixabay.com/photo/2017/09/18/15/47/cat-2762156_960_720.jpg',
-    like: 1,
-    comment: 2,
-  },
-  {
-    id: 5,
-    imgsrc: 'https://cdn.pixabay.com/photo/2017/09/18/15/47/cat-2762156_960_720.jpg',
-    like: 1,
-    comment: 2,
-  },
-  {
-    id: 6,
-    imgsrc: 'https://cdn.pixabay.com/photo/2017/09/18/15/47/cat-2762156_960_720.jpg',
-    like: 1,
-    comment: 2,
-  },
-];
+const MyActivityPage = () => {
+  const { myPost, hasMore, loadMyPostLoading, pageNum } = useAppSelector((state) => state.post);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const target = useRef(null);
 
-const MyActivity = () => {
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1.0,
+    };
+    const intersectionHandler = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && hasMore && !loadMyPostLoading) {
+          dispatch(loadMyPost(pageNum));
+        }
+      });
+    };
+    const observer = new IntersectionObserver(intersectionHandler, options);
+    if (target.current) {
+      observer.observe(target.current);
+    }
+    return () => observer && observer.disconnect();
+  }, [dispatch, hasMore, loadMyPostLoading, pageNum]);
+
+  if (!sessionStorage.getItem('token'))
+    return (
+      <LoginModal
+        onClickToggleModal={() => {
+          navigate('/');
+        }}
+      />
+    );
+
   return (
-    <div className={styles.cardListWrapper}>
-      {dummyData.map((item) => {
-        return <PostCard key={item.id} dummydata={item} />;
-      })}
-    </div>
+    <>
+      <Header />
+      <PageTitle title={myActivity} />
+      {myPost.length === 0 && <div className={styles.no_post}>작성한 게시글이 없습니다.</div>}
+      <div className={styles.cardListWrapper}>
+        {myPost?.map((post) => {
+          return <PostCard key={post.postId} post={post} />;
+        })}
+      </div>
+      <SideRouteBtn />
+      <div className={styles.ref} ref={target} />
+      <Footer />
+    </>
   );
 };
 
-export default MyActivity;
+export default MyActivityPage;

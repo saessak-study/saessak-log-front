@@ -3,7 +3,6 @@ import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import { loadComment } from '../../actions/comment';
 import { FaUserCircle } from 'react-icons/fa';
 import styles from './commentList.module.scss';
-import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 
 interface Props {
   postID: number;
@@ -22,6 +21,14 @@ const CommentList = ({ postID }: Props) => {
     loadData: () => dispatch(loadComment(paramsTest)),
     isLoading: loadCommentLoading,
   });
+
+    if (loadCommentError) {
+      alert('댓글 못 불러옴');
+    }
+    if (result.payload.length === 0) {
+      alert('댓글 다 불러옴');
+    }
+  };
 
   return (
     <div>

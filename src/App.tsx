@@ -5,8 +5,8 @@ import Main from './pages/Main';
 import MyAccountPage from './pages/MyAccount/MyAccount';
 import MainPage from './pages/Home/MainPage';
 import ModalOpen from './pages/ModalOpen';
-import MyWork from './pages/MyWork/MyWork';
-import MySubscribe from './pages/MySubscribe/MySubscribe';
+import MySubscriptionPage from './pages/MySubscribe/MySubscribe';
+import MyActivityPage from './pages/MyActivity/MyActivity';
 
 const App = () => {
   return (
@@ -15,10 +15,10 @@ const App = () => {
         <Route path='/' element={<MainPage />} />
         <Route path='/search' element={<SearchPage />} />
         <Route path='/myaccount' element={<MyAccountPage />} />
-        <Route path='/myactivity' element={<MyWork />} />
+        <Route path='/myactivity' element={<MyActivityPage />} />
+        <Route path='/mysubscription' element={<MySubscriptionPage />} />
         <Route path='/hayeong-check' element={<Main />} />
         <Route path='/dajeong-check' element={<ModalOpen />} />
-        <Route path='/mySubscribe' element={<MySubscribe />} />
       </Routes>
     </BrowserRouter>
   );

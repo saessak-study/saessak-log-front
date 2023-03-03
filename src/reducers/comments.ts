@@ -3,6 +3,7 @@ import { loadComment, writeComment } from '../actions/comment';
 import { IcommentState } from '../types/comment';
 
 export const initialState: IcommentState = {
+  loadCommentlimit: [],
   loadCommentList: [],
   loadCommentLoading: false,
   loadCommentDone: false,

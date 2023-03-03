@@ -23,6 +23,7 @@ export interface createComment {
 
 // createSlice extraReducers 작성할 녀석
 export interface IcommentState {
+  loadCommentlimit: comment[];
   loadCommentList: comment[];
   loadCommentLoading: boolean;
   loadCommentDone: boolean;
