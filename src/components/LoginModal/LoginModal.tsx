@@ -23,12 +23,15 @@ const LoginModal = ({ onClickToggleModal }: Props) => {
   const [showFindPwModal, setShowFindPwModal] = useState<boolean>(false);
 
   const onClickFindIdModal = () => {
+    onReset();
     setShowFindIdModal((prev) => !prev);
   };
   const onClickRegisterModal = () => {
+    onReset();
     setShowRegisterModal((prev) => !prev);
   };
   const onClickFindPwModal = () => {
+    onReset();
     setShowFindPwModal((prev) => !prev);
   };
 
@@ -53,6 +56,13 @@ const LoginModal = ({ onClickToggleModal }: Props) => {
     });
   };
 
+  const onReset = () => {
+    setInputs({
+      userId: '',
+      userPw: '',
+    });
+  };
+
   useEffect(() => {
     if (regId.test(userId) && userId) setIdValid(true);
     if (regPassword.test(userPw) && userPw) setpwValid(true);
@@ -69,6 +79,7 @@ const LoginModal = ({ onClickToggleModal }: Props) => {
       setIsAlert(true);
     } else {
       setIsAlert(false);
+      onReset();
       handleSubmit(e);
     }
   };
@@ -93,7 +104,8 @@ const LoginModal = ({ onClickToggleModal }: Props) => {
         .catch((error) => {
           console.log(error);
           console.log('Error: ', error.message);
-          alert(error.response.data.responseMessage);
+          // alert(error.response.data.responseMessage);
+          alert('일치하는 정보가 없습니다. 입력한 내용을 다시 확인해주세요.');
         });
     }
   };
@@ -133,8 +145,7 @@ const LoginModal = ({ onClickToggleModal }: Props) => {
             />
             <div className={styles.login_errorMSG}>
               <span>
-                {isAlert && !idValid && !pwValid && INFO_INVALID}
-                {isAlert && idValid && !pwValid && INFO_INVALID}
+                {isAlert && (!idValid || !pwValid) ? INFO_INVALID : null}
                 {!isAlert && idValid && pwValid ? '' : null}
               </span>
             </div>
