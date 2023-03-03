@@ -3,7 +3,9 @@ import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import { uploadPost } from '../../actions/uploadPost';
 import { uploadPostContents } from '../../types/uploadpost';
 import Modal from '../Modal/Modal';
+import LoginModal from '../LoginModal/LoginModal';
 import styles from './writePost.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   onClickToggleModal: () => void;
@@ -19,6 +21,16 @@ const WritePost = ({ onClickToggleModal }: Props) => {
     (state) => state.uploadPost
   );
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  if (!sessionStorage.getItem('token'))
+    return (
+      <LoginModal
+        onClickToggleModal={() => {
+          navigate('/');
+        }}
+      />
+    );
 
   const handleChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files[0];

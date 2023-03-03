@@ -112,9 +112,10 @@ const RegisterModal = ({ onClickToggleModal }: Props) => {
       .post('http://52.78.251.23:8080/user/join', body)
       .then((response) => {
         console.log(response);
-        alert('회원 가입이 완료되었습니다!');
+        alert('회원 가입이 완료되었습니다! 다시 로그인해주세요');
         // mutate();
         navigate('/');
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);
