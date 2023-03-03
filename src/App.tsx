@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './style/common.scss';
 import SearchPage from './pages/Search/SearchPage';
-import Main from './pages/Main';
+import Main from './pages/Main/index';
 import MyAccountPage from './pages/MyAccount/MyAccount';
 import MainPage from './pages/Home/MainPage';
 import ModalOpen from './pages/ModalOpen';

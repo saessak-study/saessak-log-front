@@ -124,8 +124,9 @@ const Header = () => {
             <li className={styles.modal_menu}>
               <Link to='/mysubscription'>구독함</Link>
             </li>
-            <li className={styles.modal_logout} onClick={logout} role='presentation'>로그아웃</li>
-
+            <li className={styles.modal_logout} onClick={logout} role='presentation'>
+              로그아웃
+            </li>
             <div className={styles.modal_cancel} onClick={modalClick} role='button' tabIndex={-1}>
               X
             </div>

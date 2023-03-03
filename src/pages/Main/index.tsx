@@ -17,13 +17,13 @@ const Main = () => {
 
   return (
     <div>
-      {/* <button type='button' onClick={onClickWritePost}>
+      {/* {/* <button type='button' onClick={onClickWritePost}>
         게시물 작성
       </button>
       <button type='button' onClick={onClickReadPost}>
         게시물 보기
       </button>
-      {showWriteModal && <WritePost onClickToggleModal={onClickWritePost} />}
+      {showWriteModal && <WritePost onClickToggleModal={onClickWritePost} />} */}
     </div>
   );
 };
