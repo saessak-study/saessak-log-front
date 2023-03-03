@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
-import HeartButton from '../HeartButton/HeartButton';
 import CommentList from '../CommentList/CommentList';
 import styles from './readPost.module.scss';
 import { FaUserCircle } from 'react-icons/fa';
 import { BsBookmark } from 'react-icons/bs';
-import { GrSend } from 'react-icons/gr';
+import CreateComment from '../CreateComment/CreateComment';
 
 interface Props {
   onClickToggleModal: () => void;
@@ -14,13 +13,6 @@ interface Props {
 }
 
 const ReadPost = ({ onClickToggleModal, postID, image }: Props) => {
-  const [likeCount, setLikeCount] = useState<number>(0);
-
-  const onClickheartBtn = (isLike: boolean) => {
-    if (isLike) setLikeCount(likeCount + 1);
-    else setLikeCount(likeCount - 1);
-  };
-
   return (
     <div className={styles.container_wrapper}>
       <Modal onClickToggleModal={onClickToggleModal} title='게시물'>
@@ -47,14 +39,7 @@ const ReadPost = ({ onClickToggleModal, postID, image }: Props) => {
               </div>
             </div>
           </div>
-
-          <div className={styles.comment_input_section}>
-            <div className={styles.like_section}>
-              <HeartButton likeCount={likeCount} onClick={onClickheartBtn} />
-            </div>
-            <input className={styles.comment_input} placeholder='댓글을 작성하는 공간이에요' />
-            <GrSend className={styles.send_btn_icon} />
-          </div>
+          <CreateComment postID={postID} />
         </div>
       </Modal>
     </div>
