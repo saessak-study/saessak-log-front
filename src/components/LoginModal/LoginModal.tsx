@@ -100,6 +100,7 @@ const LoginModal = ({ onClickToggleModal }: Props) => {
             localStorage.setItem('token', response.data.token);
           }
           navigate('/');
+          window.location.reload();
         })
         .catch((error) => {
           console.log(error);
