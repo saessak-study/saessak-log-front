@@ -9,9 +9,11 @@ import { GrSend } from 'react-icons/gr';
 
 interface Props {
   onClickToggleModal: () => void;
+  postID: number;
+  image: string;
 }
 
-const ReadPost = ({ onClickToggleModal }: Props) => {
+const ReadPost = ({ onClickToggleModal, postID, image }: Props) => {
   const [likeCount, setLikeCount] = useState<number>(0);
 
   const onClickheartBtn = (isLike: boolean) => {
@@ -23,7 +25,7 @@ const ReadPost = ({ onClickToggleModal }: Props) => {
     <div className={styles.container_wrapper}>
       <Modal onClickToggleModal={onClickToggleModal} title='게시물'>
         <div className={styles.img_container_web}>
-          <div className={styles.img} />
+          <img src={image} className={styles.img} />
         </div>
         <div className={styles.non_img_container}>
           <div className={styles.post_section}>
@@ -36,9 +38,9 @@ const ReadPost = ({ onClickToggleModal }: Props) => {
             <div className={styles.post_scroll_section}>
               <div className={styles.post_section_body}>
                 <div className={styles.img_container_mobile}>
-                  <div className={styles.img} />
+                  <img src={image} className={styles.img} />
                 </div>
-                <div className={styles.text_section} />
+                <div className={styles.text_section}>글글글글글들어갈자리</div>
               </div>
               <div className={styles.comment_read_section}>
                 <CommentList />

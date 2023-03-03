@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { loadMyPost } from '../../actions/post';
 import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
+=======
+import { useEffect, useRef } from 'react';
+import { loadMyPost } from '../../actions/post';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
+>>>>>>> a4880c11bfba8715b38fb5f907afa7549e69e369
 
 import { myActivity } from '../../constants/title';
 
@@ -18,12 +24,36 @@ const MyActivityPage = () => {
   const { myPost, hasMore, loadMyPostLoading, pageNum } = useAppSelector((state) => state.post);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+<<<<<<< HEAD
 
   const target = useInfiniteScroll({
     hasMore,
     loadData: () => dispatch(loadMyPost(pageNum)),
     isLoading: loadMyPostLoading,
   });
+=======
+  const target = useRef(null);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1.0,
+    };
+    const intersectionHandler = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && hasMore && !loadMyPostLoading) {
+          dispatch(loadMyPost(pageNum));
+        }
+      });
+    };
+    const observer = new IntersectionObserver(intersectionHandler, options);
+    if (target.current) {
+      observer.observe(target.current);
+    }
+    return () => observer && observer.disconnect();
+  }, [dispatch, hasMore, loadMyPostLoading, pageNum]);
+>>>>>>> a4880c11bfba8715b38fb5f907afa7549e69e369
 
   if (!sessionStorage.getItem('token'))
     return (

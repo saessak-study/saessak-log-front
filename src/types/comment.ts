@@ -2,6 +2,7 @@
 
 // 코멘트 1개의 인터페이스 -> response값으로 불려오는 녀석
 export interface comment {
+  commentId: number;
   profileId: string;
   comment: string;
   createdDate: string;
@@ -23,6 +24,7 @@ export interface createComment {
 
 // createSlice extraReducers 작성할 녀석
 export interface IcommentState {
+  loadCommentlimit: comment[];
   loadCommentList: comment[];
   loadCommentLoading: boolean;
   loadCommentDone: boolean;
