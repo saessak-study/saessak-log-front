@@ -26,7 +26,7 @@ const ReadPost = ({ onClickToggleModal, postID, image }: Props) => {
     <div className={styles.container_wrapper}>
       <Modal onClickToggleModal={onClickToggleModal} title='게시물'>
         <div className={styles.img_container_web}>
-          <img src={image} />
+          <img src={image} className={styles.img} />
         </div>
         <div className={styles.non_img_container}>
           <div className={styles.post_section}>
@@ -40,9 +40,9 @@ const ReadPost = ({ onClickToggleModal, postID, image }: Props) => {
             <div className={styles.post_scroll_section}>
               <div className={styles.post_section_body}>
                 <div className={styles.img_container_mobile}>
-                  <div className={styles.img} />
+                  <img src={image} className={styles.img} />
                 </div>
-                <div className={styles.text_section} />
+                <div className={styles.text_section}>글글글글글들어갈자리</div>
               </div>
               <div className={styles.comment_read_section}>
                 <CommentList />
