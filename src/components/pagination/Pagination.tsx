@@ -37,7 +37,6 @@ const Paging = () => {
   });
   const onClick = (ix: number) => {
     dispatch(pagingSlice.actions.paging(ix));
-    console.log(currentPage);
   };
 
   // !보여지는 페이지 수
@@ -55,13 +54,11 @@ const Paging = () => {
   // !왼쪽 화살표 클릭 시 발생하는 이벤트
   const onClickLeft = () => {
     if (currentPage > 0) {
-      console.log(currentPage);
       dispatch(pagingSlice.actions.paging(currentPage - 1));
     }
   };
   const onClickRight = () => {
     if (currentPage < totalPageNumber.length - 1) {
-      console.log(currentPage);
       dispatch(pagingSlice.actions.paging(currentPage + 1));
     }
   };
