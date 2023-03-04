@@ -15,7 +15,7 @@ export interface commentAPIParams {
 }
 
 // 코멘트 생성하는 녀석
-export interface createComment {
+export interface createCommentData {
   comment: string;
   post: number;
   user: number;
@@ -30,7 +30,7 @@ export interface IcommentState {
   loadCommentError: null | string;
   hasMore: boolean;
   pageNum: number;
-  createComment: createComment;
+  createComment: createCommentData;
   createCommentLoading: boolean;
   createCommentDone: boolean;
   createCommentError: null | string;

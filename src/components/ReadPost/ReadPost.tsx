@@ -5,6 +5,7 @@ import styles from './readPost.module.scss';
 import { FaUserCircle } from 'react-icons/fa';
 import { BsBookmark } from 'react-icons/bs';
 import CreateComment from '../CreateComment/CreateComment';
+import HeartButton from '../HeartButton/HeartButton';
 
 interface Props {
   onClickToggleModal: () => void;
@@ -13,6 +14,12 @@ interface Props {
 }
 
 const ReadPost = ({ onClickToggleModal, postID, image }: Props) => {
+  const [likeCount, setLikeCount] = useState<number>(0);
+
+  const onClickheartBtn = (isLike: boolean) => {
+    if (isLike) setLikeCount(likeCount + 1);
+    else setLikeCount(likeCount - 1);
+  };
   return (
     <div className={styles.container_wrapper}>
       <Modal onClickToggleModal={onClickToggleModal} title='게시물'>
@@ -39,7 +46,9 @@ const ReadPost = ({ onClickToggleModal, postID, image }: Props) => {
               </div>
             </div>
           </div>
-          <CreateComment postID={postID} />
+          <CreateComment postID={postID}>
+            <HeartButton likeCount={likeCount} onClick={onClickheartBtn} />
+          </CreateComment>
         </div>
       </Modal>
     </div>

@@ -12,14 +12,14 @@ interface Props {
 const CommentList = ({ postID }: Props) => {
   const dispatch = useAppDispatch();
   const { loadCommentLoading, loadCommentList, hasMore, pageNum } = useAppSelector(
-    (state) => state.loadComment
+    (state) => state.comment
   );
-  const paramsTest = { postID: 1, pageNum }; // postID에 50개의 댓글이 있어 스크롤 확인시
+  // const paramsTest = { postID: 1, pageNum }; // postID에 50개의 댓글이 있어 스크롤 확인시
   const params = { postID, pageNum };
 
   const target = useInfiniteScroll({
     hasMore,
-    loadData: () => dispatch(loadComment(paramsTest)),
+    loadData: () => dispatch(loadComment(params)),
     isLoading: loadCommentLoading,
   });
 

@@ -1,31 +1,66 @@
+/* eslint-disable consistent-return */
 import React, { useState, useEffect } from 'react';
 import { GrSend } from 'react-icons/gr';
 import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
-import { writeComment } from '../../actions/comment';
-import HeartButton from '../HeartButton/HeartButton';
+import { createComment } from '../../actions/comment';
+import { createCommentData } from '../../types/comment';
+import LoginModal from '../LoginModal/LoginModal';
+
 import styles from './createComment.module.scss';
 
 interface Props {
   postID: number;
+  children: React.ReactNode;
 }
 
-const CreateComment = ({ postID }: Props) => {
+const CreateComment = ({ postID, children }: Props) => {
   const dispatch = useAppDispatch();
-  const { createComment, createCommentLoading } = useAppSelector((state) => state.loadComment);
-  const [likeCount, setLikeCount] = useState<number>(0);
+  const [showLogin, setShowLogin] = useState<boolean>(false);
+  const { createCommentDone, createCommentError } = useAppSelector((state) => state.comment);
+  const [commentData, setCommentData] = useState<createCommentData>({
+    comment: '',
+    post: postID,
+    user: 0,
+  });
 
-  const onClickheartBtn = (isLike: boolean) => {
-    if (isLike) setLikeCount(likeCount + 1);
-    else setLikeCount(likeCount - 1);
+  const handleChangeComment = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setCommentData({
+      ...commentData,
+      comment: e.target.value,
+    });
   };
+
+  const handleOnclickinput = (e: React.MouseEvent) => {
+    if (!sessionStorage.getItem('token')) setShowLogin((prev) => !prev);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    dispatch(createComment(commentData));
+  };
+
   return (
-    <div className={styles.comment_input_section}>
-      <div className={styles.like_section}>
-        <HeartButton likeCount={likeCount} onClick={onClickheartBtn} />
-      </div>
-      <input className={styles.comment_input} placeholder='댓글을 작성하는 공간이에요' />
-      <GrSend className={styles.send_btn_icon} />
-    </div>
+    <>
+      <form onSubmit={handleSubmit} className={styles.comment_input_section}>
+        <div className={styles.like_section}>{children}</div>
+        <textarea
+          id='commentText'
+          className={styles.comment_input}
+          onClick={handleOnclickinput}
+          onChange={handleChangeComment}
+          value={commentData.comment}
+          placeholder='댓글을 작성하는 공간이에요'
+        />
+        <GrSend className={styles.send_btn_icon} />
+      </form>
+      {showLogin && (
+        <LoginModal
+          onClickToggleModal={() => {
+            setShowLogin((prev) => !prev);
+          }}
+        />
+      )}
+    </>
   );
 };
 
