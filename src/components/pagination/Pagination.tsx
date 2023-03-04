@@ -41,11 +41,17 @@ const Paging = () => {
 
   // !보여지는 페이지 수
   let pageArray = [];
+  let pageSlice = Math.floor(currentPage / 5) * 5;
   if (totalPageNumber.length < 6) {
     pageArray = totalPageNumber;
+  } else if (totalPageNumber.length < pageSlice + 6) {
+    pageArray = [];
+    for (let ix = pageSlice + 1; ix <= totalPageNumber.length; ix += 1) {
+      pageArray.push(ix);
+    }
   } else {
     pageArray = [];
-    for (let ix = currentPage; ix < currentPage + 6; ix += 1) {
+    for (let ix = pageSlice + 1; ix < pageSlice + 6; ix += 1) {
       pageArray.push(ix);
     }
   }
@@ -67,11 +73,11 @@ const Paging = () => {
       <div className={styles.pagingContainer}>
         <AiOutlineLeft style={{ cursor: 'pointer' }} onClick={onClickLeft} />
 
-        {totalPageNumber.map((post, ix) => (
+        {pageArray.map((post, ix) => (
           <div
-            className={ix === currentPage ? `${styles.pagingOn}` : `${styles.pagingEach}`}
+            className={post - 1 === currentPage ? `${styles.pagingOn}` : `${styles.pagingEach}`}
             key={ix}
-            onClick={() => onClick(ix)}
+            onClick={() => onClick(post - 1)}
             role='button'
             tabIndex={0}
           >
