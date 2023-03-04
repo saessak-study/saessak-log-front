@@ -37,15 +37,17 @@ const Paging = () => {
   });
   const onClick = (ix: number) => {
     dispatch(pagingSlice.actions.paging(ix));
+    console.log(currentPage);
   };
 
   // !보여지는 페이지 수
   let pageArray = [];
+  let pageSlice = Math.floor(currentPage / 5) * 5;
   if (totalPageNumber.length < 6) {
     pageArray = totalPageNumber;
   } else {
     pageArray = [];
-    for (let ix = currentPage; ix < currentPage + 6; ix += 1) {
+    for (let ix = pageSlice + 1; ix < pageSlice + 6; ix += 1) {
       pageArray.push(ix);
     }
   }
@@ -53,11 +55,13 @@ const Paging = () => {
   // !왼쪽 화살표 클릭 시 발생하는 이벤트
   const onClickLeft = () => {
     if (currentPage > 0) {
+      console.log(currentPage);
       dispatch(pagingSlice.actions.paging(currentPage - 1));
     }
   };
   const onClickRight = () => {
     if (currentPage < totalPageNumber.length - 1) {
+      console.log(currentPage);
       dispatch(pagingSlice.actions.paging(currentPage + 1));
     }
   };
@@ -67,11 +71,11 @@ const Paging = () => {
       <div className={styles.pagingContainer}>
         <AiOutlineLeft style={{ cursor: 'pointer' }} onClick={onClickLeft} />
 
-        {totalPageNumber.map((post, ix) => (
+        {pageArray.map((post, ix) => (
           <div
-            className={ix === currentPage ? `${styles.pagingOn}` : `${styles.pagingEach}`}
+            className={post - 1 === currentPage ? `${styles.pagingOn}` : `${styles.pagingEach}`}
             key={ix}
-            onClick={() => onClick(ix)}
+            onClick={() => onClick(post - 1)}
             role='button'
             tabIndex={0}
           >
