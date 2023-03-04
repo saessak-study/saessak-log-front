@@ -44,6 +44,11 @@ const Paging = () => {
   let pageSlice = Math.floor(currentPage / 5) * 5;
   if (totalPageNumber.length < 6) {
     pageArray = totalPageNumber;
+  } else if (totalPageNumber.length < pageSlice + 6) {
+    pageArray = [];
+    for (let ix = pageSlice + 1; ix <= totalPageNumber.length; ix += 1) {
+      pageArray.push(ix);
+    }
   } else {
     pageArray = [];
     for (let ix = pageSlice + 1; ix < pageSlice + 6; ix += 1) {
