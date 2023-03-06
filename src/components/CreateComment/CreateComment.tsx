@@ -35,6 +35,7 @@ const CreateComment = ({ postID, onClickingHeart }: Props) => {
     comment: '',
     post: postID,
   });
+  const [commentText, setCommentText] = useState<string>('');
 
   // 좋아요 기능 - 길웅
   // ! 처음로딩 시 내가 좋아요를 눌렀는지 아닌지 확인해야함 (확인방법 없다는 전제 하에)
@@ -61,6 +62,7 @@ const CreateComment = ({ postID, onClickingHeart }: Props) => {
 
   // 댓글 작성 기능 - 하영
   const handleChangeComment = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setCommentText(e.target.value);
     setCommentData({
       ...commentData,
       comment: e.target.value,
@@ -72,22 +74,21 @@ const CreateComment = ({ postID, onClickingHeart }: Props) => {
     if (!sessionStorage.getItem('token')) setShowLogin((prev) => !prev);
   };
 
-  // 전송 버튼을 누른 후, 일시적으로 버튼 비활성화
-  // 버그 -> 전송 버튼을 한 번 눌렀을 시, 바로 전송이 되어야 하는데 두 번 눌러야 전송이 되는 버그 발생
-  // 새로고침을 해야 작성한 댓글을 볼 수 있음
-  const handleSubmit = async (e: React.MouseEvent) => {
-    e.stopPropagation();
-    await dispatch(createComment(commentData));
+  // 버그 -> 새로고침을 해야 작성한 댓글을 볼 수 있음
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    dispatch(createComment(commentData));
+  };
+
+  // 두번씩 댓글 작성되는 오류 해결 -> useEffect
+  useEffect(() => {
     if (createCommentDone) {
       alert('댓글 작성 완료!');
-      setCommentData({
-        ...commentData,
-        comment: '',
-      });
+      setCommentText('');
     } else if (createCommentError) {
       alert('댓글 작성 실패!');
     }
-  };
+  }, [createCommentDone, createCommentError, setCommentText]);
 
   return (
     <>
@@ -96,16 +97,24 @@ const CreateComment = ({ postID, onClickingHeart }: Props) => {
         <div className={styles.like_section}>
           <HeartButton postID={postID} onClickingHeart={onClickingHeart} />
         </div>
-        <textarea
-          id='commentText'
-          className={styles.comment_input}
-          onClick={handleOnclickinput}
-          onChange={handleChangeComment}
-          value={commentData.comment}
-          placeholder='댓글을 작성하는 공간이에요'
-        />
-        {isCheckLike}
-        <GrSend className={styles.send_btn_icon} onClick={handleSubmit} />
+        <form onSubmit={handleSubmit} className={styles.comment_submit_form}>
+          <textarea
+            id='commentText'
+            className={styles.comment_input}
+            onClick={handleOnclickinput}
+            onChange={handleChangeComment}
+            value={commentText}
+            placeholder='댓글을 작성하는 공간이에요'
+          />
+          {isCheckLike}
+          <button
+            type='submit'
+            className={styles.send_btn_tag}
+            disabled={!commentText || createCommentLoading}
+          >
+            <GrSend className={styles.send_btn_icon} />
+          </button>
+        </form>
       </div>
       {showLogin && (
         <LoginModal
