@@ -6,6 +6,10 @@ export interface cardAPIParams {
   page: number;
 }
 
+export interface singlePostAPIParam {
+  postID: number;
+}
+
 // 게시글 전체를 보여주기 위한 타입 지정
 export interface cardList {
   imageFile: string;

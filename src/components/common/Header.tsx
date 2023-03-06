@@ -43,10 +43,6 @@ const Header = () => {
     }
   };
 
-  // 내 활동 화면으로 이동
-  const routeToMyaccount = () => {
-    navigate('/myaccount');
-  };
   // 메인 화면으로 이동
   const routeToMain = () => {
     navigate('/');
@@ -80,7 +76,6 @@ const Header = () => {
   // 유저 아이디 가지고 오는 함수
   const { myInfo } = useAppSelector((state) => state.user);
   const appDispatch = useAppDispatch();
-  // const userName = myInfo.name || '이름';
   useEffect(() => {
     appDispatch(loadMyInfo());
   }, [appDispatch]);
