@@ -16,3 +16,17 @@ export const loadMyPost = createAsyncThunk('/post/loadMyPost', async (pageNum: n
     return console.error(error);
   }
 });
+
+export const loadMySubPost = createAsyncThunk('/post/loadMySubPost', async (pageNum: number) => {
+  try {
+    const token = sessionStorage.getItem('token');
+    const response = await axios.get(`/posts/subscribe?limit=6&page=${pageNum}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data.subscribePostList;
+  } catch (error) {
+    return console.error(error);
+  }
+});

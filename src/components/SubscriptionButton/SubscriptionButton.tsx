@@ -1,22 +1,28 @@
-import { subscribe } from '../../actions/user';
-import { useAppDispatch } from '../../hooks/useRedux';
+import { useEffect } from 'react';
+// import { subscribe } from '../../actions/user';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 
 interface postId {
   postId: number;
 }
 
 const SubscriptionButton = ({ postId }: postId) => {
-  const dispatch = useAppDispatch();
+  // const { subscribeMessage, subscribeDone, subscribeLoading } = useAppSelector(
+  //   (state) => state.user
+  // );
+  // const dispatch = useAppDispatch();
 
-  const toggleSubscribe = () => {
-    dispatch(subscribe(postId));
-  };
+  // const toggleSubscribe = () => {
+  //   dispatch(subscribe(postId));
+  //   if (subscribeDone) {
+  //     alert(`${subscribeMessage}`);
+  //     window.location.reload();
+  //   }
+  // };
 
-  return (
-    <button type='button' onClick={toggleSubscribe}>
-      구독
-    </button>
-  );
+  // useEffect(() => {}, [subscribeDone]);
+
+  return <button type='button'>구독</button>;
 };
 
 export default SubscriptionButton;

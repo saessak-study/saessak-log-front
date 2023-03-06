@@ -4,7 +4,7 @@ import SearchPage from './pages/Search/SearchPage';
 import MyAccountPage from './pages/MyAccount/MyAccount';
 import MainPage from './pages/Home/MainPage';
 import ModalOpen from './pages/ModalOpen';
-import MySubscriptionPage from './pages/MySubscribe/MySubscribe';
+import MySubscriptionPage from './pages/MySubscribe/MySubscription';
 import MyActivityPage from './pages/MyActivity/MyActivity';
 
 const App = () => {
