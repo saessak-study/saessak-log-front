@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { GrSend } from 'react-icons/gr';
 import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import { createComment } from '../../actions/comment';
-import { createCommentData } from '../../types/comment';
+import { commentSaveDto } from '../../types/comment';
 import LoginModal from '../LoginModal/LoginModal';
 
 import styles from './createComment.module.scss';
@@ -17,10 +17,9 @@ const CreateComment = ({ postID, children }: Props) => {
   const dispatch = useAppDispatch();
   const [showLogin, setShowLogin] = useState<boolean>(false);
   const { createCommentDone, createCommentError } = useAppSelector((state) => state.comment);
-  const [commentData, setCommentData] = useState<createCommentData>({
+  const [commentData, setCommentData] = useState<commentSaveDto>({
     comment: '',
     post: postID,
-    user: 0,
   });
 
   const handleChangeComment = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
