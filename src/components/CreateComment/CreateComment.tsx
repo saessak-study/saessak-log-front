@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { GrSend } from 'react-icons/gr';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { changeLike } from '../../actions/likeEach';
 import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import likeEachSlice from '../../reducers/likeEach';
@@ -42,10 +42,7 @@ const CreateComment = ({ postID, onClickingHeart }: Props) => {
   useEffect(() => {
     checkingLike();
   }, []);
-  // const onClickheartBtn = (tempLike: boolean) => {
-  //   if (tempLike) setLikeCount(likeCount + 1);
-  //   else setLikeCount(likeCount - 1);
-  // };
+
   return (
     <div className={styles.comment_input_section}>
       {isCheckLike}

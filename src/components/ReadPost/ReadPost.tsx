@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from '../Modal/Modal';
 import CommentList from '../CommentList/CommentList';
 import styles from './readPost.module.scss';
@@ -34,10 +34,8 @@ const ReadPost = ({ onClickToggleModal, postID, image }: Props) => {
       const result = await dispatch(changeLike(param));
       if (result.payload.responseMessage === '해당 게시글을 좋아합니다.') {
         dispatch(likeEachSlice.actions.likeEach(true));
-        // setIsMyLike(true);
       } else {
         dispatch(likeEachSlice.actions.likeEach(false));
-        // setIsMyLike(false);
       }
     } else {
       alert('추천은 로그인 후에 가능합니다');
