@@ -4,11 +4,14 @@ import { loadComment } from '../../actions/comment';
 import { FaUserCircle } from 'react-icons/fa';
 import styles from './commentList.module.scss';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
+import { commentAPIParams } from '../../types/comment';
 
 interface Props {
   postID: number;
 }
-
+// 한번 조회했던 게시물의 댓글들을 다른 게시물에서도 불러오고 있음
+// 각각의 postid는 다르게 잘 출력이 되는데?
+// readpost에서 useEffect시 postid를 다시 가져와야 한?
 const CommentList = ({ postID }: Props) => {
   const dispatch = useAppDispatch();
   const { loadCommentLoading, loadCommentList, hasMore, pageNum } = useAppSelector(
@@ -23,6 +26,9 @@ const CommentList = ({ postID }: Props) => {
     isLoading: loadCommentLoading,
   });
 
+  useEffect(() => {
+    console.log('postID: ', postID);
+  }, []);
   return (
     <div>
       <div>
