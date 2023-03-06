@@ -1,5 +1,6 @@
 export interface Ipost {
   myPost: ImyPost[];
+  singlePost: IsinglePost | null;
   loadMyPostLoading: boolean;
   loadMyPostDone: boolean;
   loadMyPostError: null | string;
@@ -27,4 +28,13 @@ export interface ImySubPost {
   postId: number;
   profileId: string;
   reactionCount: number;
+}
+
+export interface IsinglePost {
+  profileId: string;
+  imageFile: string;
+  postText: string;
+  likeCount: number;
+  subscribe: boolean;
+  like: boolean;
 }

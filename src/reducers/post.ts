@@ -1,9 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { loadMyPost, loadMySubPost } from '../actions/post';
+import { subscribe } from '../actions/user';
+import { getSinglePost } from '../actions/viewCardEach';
 import { Ipost } from '../types/post';
 
 export const initialState: Ipost = {
   myPost: [],
+  singlePost: null,
   loadMyPostLoading: false,
   loadMyPostDone: false,
   loadMyPostError: null,
@@ -62,6 +65,19 @@ const postSlice = createSlice({
         state.loadMySubPostLoading = false;
         state.loadMySubPostDone = false;
         state.loadMySubPostError = action.error.message;
+      })
+      .addCase(getSinglePost.fulfilled, (state, action) => {
+        state.singlePost = action.payload;
+      })
+      .addCase(subscribe.fulfilled, (state, action) => {
+        if (action.payload === '구독하셨습니다.') {
+          state.singlePost.subscribe = true;
+        } else {
+          state.singlePost.subscribe = false;
+        }
+        state.mySubPost = [];
+        state.hasMoreSubPost = true;
+        state.subPostPageNum = 0;
       })
       .addDefaultCase((state) => state),
 });

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { changePassword, loadMyInfo } from '../actions/user';
+import { changePassword, loadMyInfo, subscribe } from '../actions/user';
 import { Iuser } from '../types/user';
 
 export const initialState: Iuser = {
@@ -52,22 +52,21 @@ const userSlice = createSlice({
         state.changePasswordDone = false;
         state.changePasswordError = action.error.message;
       })
-      // .addCase(subscribe.pending, (state) => {
-      //   state.subscribeLoading = true;
-      //   state.subscribeDone = false;
-      //   state.subscribeError = null;
-      // })
-      // .addCase(subscribe.fulfilled, (state, action) => {
-      //   state.subscribeLoading = false;
-      //   state.subscribeDone = true;
-      //   state.subscribeError = null;
-      //   state.subscribeMessage = action.payload;
-      // })
-      // .addCase(subscribe.rejected, (state, action) => {
-      //   state.subscribeLoading = false;
-      //   state.subscribeDone = false;
-      //   state.subscribeError = action.error.message;
-      // })
+      .addCase(subscribe.pending, (state) => {
+        state.subscribeLoading = true;
+        state.subscribeDone = false;
+        state.subscribeError = null;
+      })
+      .addCase(subscribe.fulfilled, (state) => {
+        state.subscribeLoading = false;
+        state.subscribeDone = true;
+        state.subscribeError = null;
+      })
+      .addCase(subscribe.rejected, (state, action) => {
+        state.subscribeLoading = false;
+        state.subscribeDone = false;
+        state.subscribeError = action.error.message;
+      })
       .addDefaultCase((state) => state),
 });
 
