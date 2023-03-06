@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export const initialState = {
-  isLike: true,
+  isLike: false,
 };
 
 const likeEachSlice = createSlice({
