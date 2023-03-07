@@ -1,0 +1,19 @@
+@import '../../style/common.scss';
+
+.sub_button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  right: 200px;
+  border: none;
+  background-color: transparent;
+  width: 1.3rem;
+  height: 1.3rem;
+  cursor: pointer;
+}
+
+@include mobile {
+  .sub_button {
+    left: 110px;
+  }
+}
