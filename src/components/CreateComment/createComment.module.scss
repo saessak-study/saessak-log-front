@@ -3,9 +3,10 @@
 /** 댓글 입력창 컴포넌트 분리 필요*/
 .comment_input_section {
   align-items: center;
-  padding: 0.7rem 0.7rem 0.7rem 0.2rem;
+  padding: 0.7rem;
   display: flex;
   height: 71px;
+  width: 100%;
   background-color: $main_green;
   border-radius: 0 0 0.75rem 0;
 }
@@ -21,20 +22,28 @@
   height: 100%;
   border: none;
   border-radius: 0.5rem;
-  padding-left: 0.3rem;
+  padding-left: 0.5rem;
+  padding-top: 1rem;
+}
+.send_btn_tag {
+  border: none;
+  background-color: transparent;
 }
 .send_btn_icon {
   margin-left: 0.5rem;
   width: 1.5rem;
   height: 1.5rem;
+  cursor: pointer;
+}
+.comment_submit_form {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-left: 0.5rem;
 }
 @include mobile {
   .comment_input_section {
-    align-items: center;
-    padding: 0.7rem 0.7rem 0.7rem 0.2rem;
-    display: flex;
-    flex: 0.1;
-    background-color: $main_green;
+    border-radius: 0 0 0 0;
   }
 
   .like_section {

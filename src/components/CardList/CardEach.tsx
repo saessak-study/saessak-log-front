@@ -1,7 +1,7 @@
 import { IoHeart } from 'react-icons/io5';
 import { MdOutlineComment } from 'react-icons/md';
 import styles from './CardList.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { cardProfileType } from '../../types/card';
 import ReadPost from '../ReadPost/ReadPost';
 
@@ -11,6 +11,9 @@ const CardEach = ({ cardProfile }: cardProfileType) => {
   const onClickReadPost = () => {
     setShowReadModal((prev) => !prev);
   };
+  useEffect(() => {
+    console.log('cardProfile: ', cardProfile);
+  }, []);
 
   return (
     <>
@@ -18,6 +21,7 @@ const CardEach = ({ cardProfile }: cardProfileType) => {
         <ReadPost
           onClickToggleModal={onClickReadPost}
           postID={cardProfile.postId}
+          profileId={cardProfile.profileId}
           image={cardProfile.imageFile}
         />
       )}

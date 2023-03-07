@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { loadComment, writeComment } from '../actions/comment';
+import { loadComment, createComment } from '../actions/comment';
 import { IcommentState } from '../types/comment';
 
 export const initialState: IcommentState = {
@@ -41,18 +41,18 @@ const commentSlice = createSlice({
         state.loadCommentLoading = false;
         state.loadCommentError = action.error.message;
       })
-      .addCase(writeComment.pending, (state) => {
+      .addCase(createComment.pending, (state) => {
         state.createCommentLoading = true;
         state.createCommentDone = false;
         state.createCommentError = null;
       })
-      .addCase(writeComment.fulfilled, (state, action) => {
+      .addCase(createComment.fulfilled, (state, action) => {
         state.createComment = action.payload;
         state.createCommentLoading = false;
         state.createCommentDone = true;
         state.createCommentError = null;
       })
-      .addCase(writeComment.rejected, (state, action) => {
+      .addCase(createComment.rejected, (state, action) => {
         state.createCommentLoading = false;
         state.createCommentError = action.error.message;
       })

@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
   post: postSlice.reducer,
   uploadPost: uploadPostSlice.reducer,
   search: searchSlice.reducer,
-  loadComment: commentSlice.reducer,
+  comment: commentSlice.reducer,
   loadCardList: cardListSlice.reducer,
   paging: pagingSlice.reducer,
   isLikeOrder: likePrioritySlice.reducer,

@@ -14,12 +14,12 @@ import { changeLike } from '../../actions/likeEach';
 interface Props {
   onClickToggleModal: () => void;
   postID: number;
+  profileId: string;
   image: string;
 }
 
-const ReadPost = ({ onClickToggleModal, postID, image }: Props) => {
+const ReadPost = ({ onClickToggleModal, postID, profileId, image }: Props) => {
   const [title, setTitle] = useState('');
-  const [likeCount, setLikeCount] = useState(0);
   const sessionLength = sessionStorage.length;
   const localLength = localStorage.length;
   const param = { postID };
@@ -56,7 +56,7 @@ const ReadPost = ({ onClickToggleModal, postID, image }: Props) => {
           <div className={styles.post_section}>
             <div className={styles.post_section_header}>
               <FaUserCircle className={styles.user_profile_img} />
-              <div className={styles.user_name}>사용자</div>
+              <div className={styles.user_name}>{profileId}</div>
               <SubscriptionButton postId={postID} />
             </div>
             <div className={styles.post_scroll_section}>

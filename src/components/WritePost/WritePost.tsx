@@ -5,7 +5,6 @@ import { uploadPostContents } from '../../types/uploadpost';
 import Modal from '../Modal/Modal';
 import LoginModal from '../LoginModal/LoginModal';
 import styles from './writePost.module.scss';
-import { useNavigate } from 'react-router-dom';
 
 interface Props {
   onClickToggleModal: () => void;
@@ -17,20 +16,17 @@ const WritePost = ({ onClickToggleModal }: Props) => {
     postText: '',
   });
   const [previewImage, setPreviewImage] = useState<string>('');
-  const { uploadPostDone, uploadPostError, uploadPostReponse } = useAppSelector(
-    (state) => state.uploadPost
-  );
+  const { uploadPostError, uploadPostReponse } = useAppSelector((state) => state.uploadPost);
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+  const [showLogin, setShowLogin] = useState<boolean>(false);
+  const [showWrite, setShowWrite] = useState<boolean>(true);
 
-  if (!sessionStorage.getItem('token'))
-    return (
-      <LoginModal
-        onClickToggleModal={() => {
-          navigate('/');
-        }}
-      />
-    );
+  useEffect(() => {
+    if (!sessionStorage.getItem('token')) {
+      setShowLogin((prev) => !prev);
+      setShowWrite((prev) => !prev);
+    }
+  }, []);
 
   const handleChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files[0];
@@ -69,26 +65,12 @@ const WritePost = ({ onClickToggleModal }: Props) => {
   };
 
   return (
-    <div className={styles.write_modal_container_wrapper}>
-      <Modal onClickToggleModal={onClickToggleModal} title='게시물 작성'>
-        <form onSubmit={handleSubmit}>
-          <div className={styles.write_modal_img_container_web}>
-            {previewImage ? (
-              <div className={styles.img_upload_view_container}>
-                <img src={previewImage} className={styles.img} />
-              </div>
-            ) : (
-              <input
-                className={styles.add_img_btn}
-                type='file'
-                accept='image/*'
-                onChange={handleChangeImage}
-              />
-            )}
-          </div>
-          <div className={styles.write_modal_non_img_container}>
-            <div className={styles.write_modal_post_section}>
-              <div className={styles.write_modal_img_container_mobile}>
+    <div>
+      {showWrite && (
+        <div className={styles.write_modal_container_wrapper}>
+          <Modal onClickToggleModal={onClickToggleModal} title='게시물 작성'>
+            <form onSubmit={handleSubmit}>
+              <div className={styles.write_modal_img_container_web}>
                 {previewImage ? (
                   <div className={styles.img_upload_view_container}>
                     <img src={previewImage} className={styles.img} />
@@ -102,24 +84,49 @@ const WritePost = ({ onClickToggleModal }: Props) => {
                   />
                 )}
               </div>
-              <div className={styles.write_modal_text_input_section}>
-                <textarea
-                  id='postText'
-                  onChange={handleChangeText}
-                  value={uploadData.postText}
-                  className={styles.write_modal_text_input}
-                  placeholder='게시글을 작성하는 공간이에요'
-                />
+              <div className={styles.write_modal_non_img_container}>
+                <div className={styles.write_modal_post_section}>
+                  <div className={styles.write_modal_img_container_mobile}>
+                    {previewImage ? (
+                      <div className={styles.img_upload_view_container}>
+                        <img src={previewImage} className={styles.img} />
+                      </div>
+                    ) : (
+                      <input
+                        className={styles.add_img_btn}
+                        type='file'
+                        accept='image/*'
+                        onChange={handleChangeImage}
+                      />
+                    )}
+                  </div>
+                  <div className={styles.write_modal_text_input_section}>
+                    <textarea
+                      id='postText'
+                      onChange={handleChangeText}
+                      value={uploadData.postText}
+                      className={styles.write_modal_text_input}
+                      placeholder='게시글을 작성하는 공간이에요'
+                    />
+                  </div>
+                </div>
+                <div className={styles.write_modal_submit_btn_section}>
+                  <button type='submit' className={styles.write_modal_send_btn}>
+                    게시
+                  </button>
+                </div>
               </div>
-            </div>
-            <div className={styles.write_modal_submit_btn_section}>
-              <button type='submit' className={styles.write_modal_send_btn}>
-                게시
-              </button>
-            </div>
-          </div>
-        </form>
-      </Modal>
+            </form>
+          </Modal>
+        </div>
+      )}
+      {showLogin && (
+        <LoginModal
+          onClickToggleModal={() => {
+            setShowLogin((prev) => !prev);
+          }}
+        />
+      )}
     </div>
   );
 };
