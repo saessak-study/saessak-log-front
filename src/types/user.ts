@@ -6,6 +6,9 @@ export interface Iuser {
   changePasswordLoading: boolean;
   changePasswordDone: boolean;
   changePasswordError: null | string;
+  subscribeLoading: boolean;
+  subscribeDone: boolean;
+  subscribeError: null | string;
 }
 
 interface Imyinfo {
