@@ -9,7 +9,7 @@
 ## Contributors
 |이름|맡은 파트|github|
 |---|---|---|
-|정길웅|메인페이지(상단바, 페이징, 검색어) 알고리즘 및 "좋아요" 기능 구현  |[길웅 github](https://github.com/DoggySummer)|
+|정길웅|메인페이지(상단바, 페이징, 검색어) 알고리즘 및 좋아요 기능 구현  |[길웅 github](https://github.com/DoggySummer)|
 |신하영|화면구성도, 댓글기능, 게시글 상세페이지, 게시글 업로드 구현 |[하영 github](https://github.com/Hayeong8957)|
 |김다정|화면구성도, 로그인 토큰관리, 회원가입 form validation |[다정 github](https://github.com/danakim530)|
 |조혜빈|Redux-toolkit 세팅, 게시글 UI/UX 구성, 무한스크롤 구현 |[혜빈 github](https://github.com/hyebin829)|
@@ -38,6 +38,14 @@
 
 <p align="center">
   <img width=800px src="https://user-images.githubusercontent.com/91588779/226148590-4936b5d6-7cef-4d3c-b457-7729104b3b90.gif">
+  &nbsp;&nbsp;&nbsp;
+</p>
+<br/>
+
+### 좋아요 기능
+
+<p align="center">
+  <img width=800px src="https://user-images.githubusercontent.com/91588779/226149513-110acaa2-fc6a-4548-8182-060ff922cb45.gif">
   &nbsp;&nbsp;&nbsp;
 </p>
 <br/>
